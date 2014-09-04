@@ -6,7 +6,7 @@ Changelog
 -------
 
 **1.2.4**
-* Scrolling thumbnail issue fixed.
+* Scrolling thumbnail reel issue fixed.
 * Logic added for hiding thumbnail reel when there is only one product image.
 
 **1.2.3**
