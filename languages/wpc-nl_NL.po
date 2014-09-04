@@ -1,0 +1,362 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wpc-pro\n"
+"POT-Creation-Date: 2014-02-14 12:53+0800\n"
+"PO-Revision-Date: 2014-03-12 10:24+0800\n"
+"Last-Translator: Edwin Izelaar <e.izelaar9@upcmail.nl>\n"
+"Language-Team: Enigma Plugins <maeve@enigmaplugins.com>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: ../\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: includes\n"
+"X-Poedit-SearchPath-2: products\n"
+"X-Poedit-SearchPath-3: themefiles\n"
+
+#: index.php:125
+msgid "Plugin License Options"
+msgstr "Plugin licentie opties"
+
+#: index.php:126
+msgid ""
+"Please enter and activate your license key in order to receive automatic "
+"updates and support for this plugin"
+msgstr ""
+"Voer uw licentiesleutel in en activeer deze zodat u automatische updates en "
+"support kunt ontvangen voor deze plugin"
+
+#: index.php:135
+msgid "License Key"
+msgstr "Licentie code"
+
+#: index.php:139
+msgid "Enter your license key"
+msgstr "Licentie invoeren"
+
+#: index.php:145 index.php:154
+msgid "Activate License"
+msgstr "Licentie activeren"
+
+#: index.php:149
+msgid "active"
+msgstr "actief"
+
+#: index.php:151
+msgid "Deactivate License"
+msgstr "Licentie deactiveren"
+
+#: index.php:168 settings.php:135 products/order.php:343
+msgid "How to use this plugin"
+msgstr "Gebruik van deze plugin"
+
+#: index.php:172 settings.php:139 products/order.php:347
+msgid "You can use 3 shortcodes"
+msgstr "U kunt 3 shortcodes gebruiken"
+
+#: index.php:176 settings.php:143 products/order.php:351
+msgid "to display complete catalogue"
+msgstr "om de complete product catalogus te tonen."
+
+#: index.php:180 products/order.php:355
+msgid "to display featured products anywhere on your blog."
+msgstr "om de uitgelichte producten te tonen op de gewenste pagina."
+
+#: index.php:183 products/order.php:358
+msgid "to display products from specific category."
+msgstr "om de producten van een specifieke categorie te tonen."
+
+#: index.php:189 settings.php:156 products/order.php:364
+msgid "Help Improve This Plugin!"
+msgstr "Verbeter deze plugin!"
+
+#: index.php:193 settings.php:160
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Tevreden over deze plugin? Alle donaties zullen worden gebruikt om deze "
+"plugin te verbeteren en verder te ontwikkelen. Bedankt voor uw bijdrage."
+
+#: index.php:204 settings.php:171 products/order.php:379
+msgid "you can also help by"
+msgstr "U kunt ook helpen door"
+
+#: index.php:204 settings.php:171 products/order.php:379
+msgid "rating this plugin on wordpress.org"
+msgstr "deze plugin een waardering te geven op wordpress.org"
+
+#: index.php:210 settings.php:177
+msgid "Need Support?"
+msgstr "Hulp nodig?"
+
+#: index.php:214 settings.php:181
+msgid "Check out the"
+msgstr "Raadpleeg de"
+
+#: index.php:214 settings.php:181
+msgid "and"
+msgstr "en"
+
+#: index.php:214 settings.php:181
+msgid "Support Forums"
+msgstr "Support Forums"
+
+#: settings.php:4
+msgid " Settings"
+msgstr "Instellingen"
+
+#: settings.php:7
+msgid "Settings updated successfully"
+msgstr "Instellingen zijn gewijzigd"
+
+#: settings.php:11
+msgid "Settings"
+msgstr "Instellingen"
+
+#: settings.php:14
+msgid ""
+"Adjust the basic presentation of your product catalogue here. It is "
+"important to set this up before you start uploading products so the plugin "
+"knows what size to generate thumbnails and product images"
+msgstr ""
+"Pas hier de basis instellingen van uw product catalogus aan. Het is "
+"belangrijk dit te doen voordat er producten worden toegevoegd, zodat de "
+"plugin weet in welke grootte de thumbnails en product afbeeldingen moeten "
+"worden gegenereerd."
+
+#: settings.php:15
+msgid ""
+"You can further customise the design of your product catalogue in your theme "
+"css."
+msgstr ""
+"U kunt het design van de product catalogus verder aanpassen in uw thema css."
+
+#: settings.php:21
+msgid "Grid Rows"
+msgstr "Raster"
+
+#: settings.php:33
+msgid "products per row"
+msgstr "producten per regel"
+
+#: settings.php:38
+msgid "Choose Theme Color"
+msgstr "Kies thema kleur"
+
+#: settings.php:42
+msgid "Pagination"
+msgstr "Paginering"
+
+#: settings.php:44
+msgid "products per page (use 0 for unlimited)"
+msgstr "producten per pagina (gebruik 0 voor onbeperkt)"
+
+#: settings.php:49
+msgid "Breadcrumbs"
+msgstr "Kruimelpad"
+
+#: settings.php:60
+msgid "Show Product Titles"
+msgstr "Toon product titels"
+
+#: settings.php:71
+msgid "Sidebar"
+msgstr "Menu"
+
+#: settings.php:82
+msgid "Gallery Image"
+msgstr "Galerij afbeelding"
+
+#: settings.php:84 settings.php:95
+msgid "Height"
+msgstr "Hoogte"
+
+#: settings.php:86 settings.php:97
+msgid "Width"
+msgstr "Breedte"
+
+#: settings.php:93
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: settings.php:99
+msgid "Scale & Crop"
+msgstr "Schalen en bijsnijden"
+
+#: settings.php:100
+msgid "Scale To Fit"
+msgstr "Passend maken"
+
+#: settings.php:104
+msgid "Show Next/Prev Links"
+msgstr "Toon Volgende/Vorige"
+
+#: settings.php:112
+msgid "Inner Template Header"
+msgstr "Ingesloten sjabloon koptekst"
+
+#: settings.php:114
+msgid ""
+"Use this area to add your theme layout divs if you are having problems with "
+"inner pages of the catalogue."
+msgstr ""
+"Gebruik dit veld om uw thema layout divs toe te voegen als u problemen "
+"ondervindt met de ingesloten pagina's van de catalogus."
+
+#: settings.php:117
+msgid "Inner Template Footer"
+msgstr "Ingesloten sjabloon voettekst"
+
+#: settings.php:119
+msgid "Use this area to close the open divs after the WP Catalogue."
+msgstr "Gebruik dit veld om de open divs na WP Catalogue te sluiten."
+
+#: settings.php:147
+msgid "to display featured products category"
+msgstr "om de uitgelichte producten categorie te tonen"
+
+#: settings.php:150
+msgid "to display a specific category"
+msgstr "om een specifieke categorie te tonen"
+
+#: products/order.php:38
+msgid "Custom Taxonomy Order settings "
+msgstr "Aangepaste taxonomie volgorde instellingen "
+
+#: products/order.php:129
+msgid ""
+"Drag and drop items to customise the order of categories in WP Catalogue"
+msgstr ""
+"Drag & drop items om de volgorde van categorieën aan te passen in WP "
+"Catalogue"
+
+#: products/order.php:156
+msgid "Save Order"
+msgstr "Bijwerken"
+
+#: products/order.php:162
+msgid "No terms found"
+msgstr "Geen termen gevonden"
+
+#: products/order.php:305
+msgid "Drag and drop items to customise the order of products in WP Catalogue"
+msgstr ""
+"Drag & drop items om de volgorde van producten aan te passen in WP Catalogue"
+
+#: products/order.php:368
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contributaion."
+msgstr ""
+"Tevreden over deze plugin? Uw eventuele donatie zal worden gebruikt om deze "
+"plugin te verbeteren en verder te ontwikkelen. Bedankt voor uw bijdrage."
+
+#: products/order.php:389
+msgid "If you are having problems with plugin please talk about them on "
+msgstr "Als u problemen ondervindt met deze plugin kunt u dat bespreken op "
+
+#: products/order.php:419
+msgid "Order updated successfully."
+msgstr "Wijzigingen zijn opgeslagen."
+
+#: products/order.php:423
+msgid "An error occured, order has not been saved."
+msgstr "Er is een fout opgetreden, wijzigingen zijn niet opgeslagen."
+
+#: products/sort-categories.php:39
+msgid "Ordering "
+msgstr "Sorteren"
+
+#: products/sort-categories.php:54 products/sort-products.php:53
+msgid "Drag and drop items to set the custom order."
+msgstr "Drag en drop items om de volgorde aan te passen."
+
+#: products/wpc-product.php:9
+msgid "WP Catalogue +"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:10
+msgid "WP Catalogue"
+msgstr "WP Catalogue"
+
+#: products/wpc-product.php:11 products/wpc-product.php:12
+#: products/wpc-product.php:14
+msgid "Add New Product"
+msgstr "Product toevoegen"
+
+#: products/wpc-product.php:13
+msgid "Edit Product"
+msgstr "Product bewerken"
+
+#: products/wpc-product.php:15
+msgid "View Product"
+msgstr "Product bekijken"
+
+#: products/wpc-product.php:16
+msgid "Search WPC Product"
+msgstr "WPC product zoeken"
+
+#: products/wpc-product.php:17
+msgid "No Product found"
+msgstr "Geen product gevonden"
+
+#: products/wpc-product.php:18
+msgid "No Product found in trash"
+msgstr "Geen product gevonden in prullenbak"
+
+#: products/wpc-product.php:136
+msgid "Search Categories"
+msgstr "Categorieën zoeken"
+
+#: products/wpc-product.php:137
+msgid "All Categories"
+msgstr "Alle categorieën"
+
+#: products/wpc-product.php:138
+msgid "Parent Categories"
+msgstr "Bovenliggende categorie"
+
+#: products/wpc-product.php:139
+msgid "Parent Categories:"
+msgstr "Bovenliggende categorie:"
+
+#: products/wpc-product.php:140
+msgid "Edit Categories"
+msgstr "Categorie bewerken"
+
+#: products/wpc-product.php:141
+msgid "Update Categories"
+msgstr "Bijwerken"
+
+#: products/wpc-product.php:142
+msgid "Add New Categories"
+msgstr "Nieuwe categorieën toevoegen"
+
+#: products/wpc-product.php:143
+msgid "New Categories Name"
+msgstr "Categorie naam"
+
+#: products/wpc-product.php:144
+msgid "Categories"
+msgstr "Categorieën"
+
+#: products/wpc-product.php:159
+msgid "Title"
+msgstr "Naam"
+
+#: products/wpc-product.php:160
+msgid "<a href=\"javascript:;\">Category</a>"
+msgstr "<a href=\"javascript:;\">Categorie</a>"
+
+#: products/wpc-product.php:161
+msgid "Date"
+msgstr "Datum"
+
+#: products/wpc-product.php:192
+msgid "No Category"
+msgstr "Geen categorie"

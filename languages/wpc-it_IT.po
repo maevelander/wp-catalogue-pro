@@ -1,0 +1,369 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wpc-pro\n"
+"POT-Creation-Date: 2014-05-12 10:10+0800\n"
+"PO-Revision-Date: 2014-05-12 10:12+0800\n"
+"Last-Translator: Paolo Sartorio <paolosartorio@email.it>\n"
+"Language-Team: Enigma Plugins <maeve@enigmaplugins.com>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: includes\n"
+"X-Poedit-SearchPath-2: products\n"
+"X-Poedit-SearchPath-3: themefiles\n"
+
+#: index.php:139
+msgid "Plugin License Options"
+msgstr "Opzioni Licenza Plugin"
+
+#: index.php:149
+msgid "License Key"
+msgstr "Chiave di Licenza"
+
+#: index.php:153
+msgid "Enter your license key"
+msgstr "Inserisci la tua chiave di licenza"
+
+#: index.php:159 index.php:168
+msgid "Activate License"
+msgstr "Attiva Licenza"
+
+#: index.php:163
+msgid "active"
+msgstr "attiva"
+
+#: index.php:165
+msgid "Deactivate License"
+msgstr "Deattiva Licenza"
+
+#: index.php:182 settings.php:135 products/order.php:439
+#: products/order2.php:439
+msgid "How to use this plugin"
+msgstr "Come usare questo plugin"
+
+#: index.php:186 settings.php:139 products/order.php:443
+#: products/order2.php:443
+msgid "You can use 3 shortcodes"
+msgstr "Puoi usare 3 shortcodes"
+
+#: index.php:190 settings.php:143 products/order.php:447
+#: products/order2.php:447
+msgid "to display complete catalogue"
+msgstr "per mostrare il catalogo completo"
+
+#: index.php:194 settings.php:147 products/order.php:451
+#: products/order2.php:451
+msgid "to display featured products anywhere on your blog."
+msgstr "per mostrare i prodotti in evidenza ovunque sul tuo blog"
+
+#: index.php:197 settings.php:150 products/order.php:454
+#: products/order2.php:454
+msgid "to display products from specific category."
+msgstr "per mostrare i prodotti da una categoria specifica."
+
+#: index.php:203 settings.php:156 products/order.php:460
+#: products/order2.php:460
+msgid "Help Improve This Plugin!"
+msgstr "Aiuta a Migliorare questo Plugin!"
+
+#: index.php:207 settings.php:160
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Hai apprezzato questo plugin? Tutte le donazioni sono usate per migliorare e "
+"sviluppare questo plugin. Grazie per il tuo contributo."
+
+#: index.php:218 settings.php:171 products/order.php:475
+#: products/order2.php:475
+msgid "you can also help by"
+msgstr "puoi aiutare anche"
+
+#: index.php:218 settings.php:171 products/order.php:475
+#: products/order2.php:475
+msgid "rating this plugin on wordpress.org"
+msgstr "votando questo plugin su wordpress.org"
+
+#: index.php:224 settings.php:177
+msgid "Need Support?"
+msgstr "Bisogno di Supporto?"
+
+#: index.php:228 settings.php:181
+msgid "Check out the"
+msgstr "Controlla il"
+
+#: index.php:228 settings.php:181
+msgid "and"
+msgstr "e"
+
+#: index.php:228 settings.php:181
+msgid "Support Forums"
+msgstr "Forum di Supporto"
+
+#: settings.php:4
+msgid " Settings"
+msgstr "Impostazioni"
+
+#: settings.php:7
+msgid "Settings updated successfully"
+msgstr "Impostazioni aggiornate con successo"
+
+#: settings.php:11
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: settings.php:14
+msgid ""
+"Adjust the basic presentation of your product catalogue here. It is "
+"important to set this up before you start uploading products so the plugin "
+"knows what size to generate thumbnails and product images"
+msgstr ""
+"Sistema la presentazione base del tuo catalogo prodotti qui. E' importante "
+"impostare questo prima di iniziare a caricare i prodotti così che il plugin "
+"sappia di che dimensioni generare le miniature e le immagini prodotto"
+
+#: settings.php:15
+msgid ""
+"You can further customise the design of your product catalogue in your theme "
+"css."
+msgstr ""
+"Puoi modificare successivamente il design del tuo catalogo prodotti tramite "
+"CSS del tuo tema"
+
+#: settings.php:21
+msgid "Grid Rows"
+msgstr "Righe della Griglia"
+
+#: settings.php:33
+msgid "products per row"
+msgstr "prodotti per riga"
+
+#: settings.php:38
+msgid "Choose Theme Color"
+msgstr "Scegli Colore del Tema"
+
+#: settings.php:42
+msgid "Pagination"
+msgstr "Paginazione"
+
+#: settings.php:44
+msgid "products per page (use 0 for unlimited)"
+msgstr "prodotti per pagina (usa 0 per illimitati)"
+
+#: settings.php:49
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+#: settings.php:60
+msgid "Show Product Titles"
+msgstr "Mostra i Titoli Prodotto"
+
+#: settings.php:71
+msgid "Sidebar"
+msgstr "Sidebar"
+
+#: settings.php:82
+msgid "Gallery Image"
+msgstr "Immagine della Galleria"
+
+#: settings.php:84 settings.php:95
+msgid "Height"
+msgstr "Altezza"
+
+#: settings.php:86 settings.php:97
+msgid "Width"
+msgstr "Larghezza"
+
+#: settings.php:93
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: settings.php:99
+msgid "Scale & Crop"
+msgstr "Scala & Taglia"
+
+#: settings.php:100
+msgid "Scale To Fit"
+msgstr "Scala per Adattare"
+
+#: settings.php:104
+msgid "Show Next/Prev Links"
+msgstr "Mostra i collegamenti Avanti/Indietro"
+
+#: settings.php:112
+msgid "Inner Template Header"
+msgstr "Testata del Template Interno"
+
+#: settings.php:114
+msgid ""
+"Use this area to add your theme layout divs if you are having problems with "
+"inner pages of the catalogue."
+msgstr ""
+"Usa quest'area per aggiungere al layout del tuo tema dei div se stai avendo "
+"problemi con le pagine interne del catalogo."
+
+#: settings.php:117
+msgid "Inner Template Footer"
+msgstr "Piè di Pagina del Template Interno"
+
+#: settings.php:119
+msgid "Use this area to close the open divs after the WP Catalogue."
+msgstr "Usa quest'area per chiudere i div aperti dopo WP Catalogue"
+
+#: products/order.php:38 products/order2.php:38
+msgid "Custom Taxonomy Order settings "
+msgstr "Impostazioni dell'Ordine delle Tassonomie Personalizzate"
+
+#: products/order.php:129 products/order2.php:129
+msgid ""
+"Drag and drop items to customise the order of categories in WP Catalogue"
+msgstr ""
+"Trascina e rilascia gli elementi per personalizzare l'ordine delle categorie "
+"in WP Catalogue"
+
+#: products/order.php:171 products/order2.php:170
+msgid "Save Order"
+msgstr "Salva Ordine"
+
+#: products/order.php:178 products/order2.php:177
+msgid "No terms found"
+msgstr "Nessun termine trovato"
+
+#: products/order.php:401 products/order2.php:401
+msgid "Drag and drop items to customise the order of products in WP Catalogue"
+msgstr ""
+"Trascina e rilascia gli elementi per personalizzare  l'ordine dei prodotti "
+"in WP Catalogue"
+
+#: products/order.php:464 products/order2.php:464
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contributaion."
+msgstr ""
+"Hai apprezzato questo plugin? Tutte le donazioni sono usate per migliorare e "
+"sviluppare questo plugin. Grazie per il tuo contributo."
+
+#: products/order.php:485 products/order2.php:485
+msgid "If you are having problems with plugin please talk about them on "
+msgstr "Se stai riscontrando problemi con il plugin parlane su"
+
+#: products/order.php:515 products/order.php:542 products/order2.php:515
+#: products/order2.php:542
+msgid "Order updated successfully."
+msgstr "Ordine modificato con successo."
+
+#: products/order.php:519 products/order.php:546 products/order2.php:519
+#: products/order2.php:546
+msgid "An error occured, order has not been saved."
+msgstr "C'è stato un errore, l'ordine non è stato salvato."
+
+#: products/sort-categories.php:39
+msgid "Ordering "
+msgstr "Ordinando"
+
+#: products/sort-categories.php:54 products/sort-products.php:53
+msgid "Drag and drop items to set the custom order."
+msgstr "Trascina e rilascia gli elementi per impostare l'ordine personalizzato"
+
+#: products/wpc-product.php:9
+msgid "WP Catalogue +"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:10
+msgid "WP Catalogue"
+msgstr "WP Catalogue"
+
+#: products/wpc-product.php:11 products/wpc-product.php:12
+#: products/wpc-product.php:14
+msgid "Add New Product"
+msgstr "Aggiugni un Nuovo Prodotto"
+
+#: products/wpc-product.php:13
+msgid "Edit Product"
+msgstr "Modifica Prodotto"
+
+#: products/wpc-product.php:15
+msgid "View Product"
+msgstr "Vedi Prodotto"
+
+#: products/wpc-product.php:16
+msgid "Search WPC Product"
+msgstr "Cerca Prodotto"
+
+#: products/wpc-product.php:17
+msgid "No Product found"
+msgstr "Nessun Prodotto trovato"
+
+#: products/wpc-product.php:18
+msgid "No Product found in trash"
+msgstr "Nessun Prodotto trovato nel cestino"
+
+#: products/wpc-product.php:136
+msgid "Search Categories"
+msgstr "Cerca Categorie"
+
+#: products/wpc-product.php:137
+msgid "All Categories"
+msgstr "Tutte le Categorie"
+
+#: products/wpc-product.php:138
+msgid "Parent Categories"
+msgstr "Categorie Genitori"
+
+#: products/wpc-product.php:139
+msgid "Parent Categories:"
+msgstr "Categorie Genitori:"
+
+#: products/wpc-product.php:140
+msgid "Edit Categories"
+msgstr "Modifica Categorie"
+
+#: products/wpc-product.php:141
+msgid "Update Categories"
+msgstr "Aggiorna Categorie"
+
+#: products/wpc-product.php:142
+msgid "Add New Categories"
+msgstr "Aggiungi Nuove Categorie"
+
+#: products/wpc-product.php:143
+msgid "New Categories Name"
+msgstr "Nome delle Nuove Categorie"
+
+#: products/wpc-product.php:144
+msgid "Categories"
+msgstr "Categorie"
+
+#: products/wpc-product.php:159
+msgid "Title"
+msgstr "Titolo"
+
+#: products/wpc-product.php:160
+msgid "<a href=\"javascript:;\">Category</a>"
+msgstr "<a href=\"javascript:;\">Categoria</a>"
+
+#: products/wpc-product.php:161
+msgid "Date"
+msgstr "Data"
+
+#: products/wpc-product.php:192
+msgid "No Category"
+msgstr "Nessuna Categoria"
+
+#~ msgid ""
+#~ "Please enter and activate your license key in order to receive automatic "
+#~ "updates and support for this plugin"
+#~ msgstr ""
+#~ "Inserisci e attiva la tua chiave di licenza per ricevere aggiornamenti "
+#~ "automatici e supporto per questo plugin"
+
+#~ msgid "to display featured products category"
+#~ msgstr "per mostrare la categoria dei prodotti in evidenza"
+
+#~ msgid "to display a specific category"
+#~ msgstr "per mostrare una categoria specifica"

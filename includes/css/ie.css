@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Mar 27, 2014, 2:13:20 PM
+    Author     : Base29
+*/
+
+.site-content{
+	width:100% !important;
+	float:left;
+}
+#wpc-catalogue-wrapper {
+    overflow: hidden;
+    width: 100%;
+}
+#wpc-col-2 {
+    float: left;
+    width: 74%;
+}
+.wpc-product {
+    border-bottom: 1px solid #C7C7C7;
+    float: left;
+    margin: 0px 15px 27px 0px;
+}

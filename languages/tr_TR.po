@@ -1,0 +1,357 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wpc-pro\n"
+"POT-Creation-Date: 2014-02-14 12:53+0800\n"
+"PO-Revision-Date: 2014-02-14 16:36+0200\n"
+"Last-Translator: Maeve Lander <maeve@enigmaplugins.com>\n"
+"Language-Team: Enigma Plugins <maeve@enigmaplugins.com>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: includes\n"
+"X-Poedit-SearchPath-2: products\n"
+"X-Poedit-SearchPath-3: themefiles\n"
+
+#: index.php:125
+msgid "Plugin License Options"
+msgstr "Eklenti Lisans Ayarları"
+
+#: index.php:126
+msgid ""
+"Please enter and activate your license key in order to receive automatic "
+"updates and support for this plugin"
+msgstr ""
+"Lütfen güncellemeler ve destek alabilmek için lisans anahtarınızı giriniz"
+
+#: index.php:135
+msgid "License Key"
+msgstr "Lisans Anahtarı"
+
+#: index.php:139
+msgid "Enter your license key"
+msgstr "Lisans Anahtarınızı Giriniz"
+
+#: index.php:145 index.php:154
+msgid "Activate License"
+msgstr "Lisans Etkinleştirme"
+
+#: index.php:149
+msgid "active"
+msgstr "etkinleştir"
+
+#: index.php:151
+msgid "Deactivate License"
+msgstr "Lisansı Kaldır"
+
+#: index.php:168 settings.php:135 products/order.php:343
+msgid "How to use this plugin"
+msgstr "Bu Eklenti Nasıl Kullanılır"
+
+#: index.php:172 settings.php:139 products/order.php:347
+msgid "You can use 3 shortcodes"
+msgstr "3 tane shortcode kullanabilirsiniz"
+
+#: index.php:176 settings.php:143 products/order.php:351
+msgid "to display complete catalogue"
+msgstr "tüm ürünleri göstermek için"
+
+#: index.php:180 products/order.php:355
+msgid "to display featured products anywhere on your blog."
+msgstr "herhangi bir bölümde öne çıkan ürünleri göstermek için"
+
+#: index.php:183 products/order.php:358
+msgid "to display products from specific category."
+msgstr "belli bir kategorideki ürünleri göstermek için"
+
+#: index.php:189 settings.php:156 products/order.php:364
+msgid "Help Improve This Plugin!"
+msgstr "Bu eklentinin gelişimine yardımcı ol!"
+
+#: index.php:193 settings.php:160
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+"Eklentiyi beğendiniz mi? Tüm bağışlar bu eklentinin gelişmesi ve yenilenmesi "
+"için kullanılacak. Desteğiniz için teşekkürler."
+
+#: index.php:204 settings.php:171 products/order.php:379
+msgid "you can also help by"
+msgstr "ayrıca yardım edebileceğiniz seçenekler"
+
+#: index.php:204 settings.php:171 products/order.php:379
+msgid "rating this plugin on wordpress.org"
+msgstr "bu eklentiyi wordpress.org üzerinden oylayabilirsiniz."
+
+#: index.php:210 settings.php:177
+msgid "Need Support?"
+msgstr "Yardım mı Lazım?"
+
+#: index.php:214 settings.php:181
+msgid "Check out the"
+msgstr "Sorularınız için"
+
+#: index.php:214 settings.php:181
+msgid "and"
+msgstr "ve"
+
+#: index.php:214 settings.php:181
+msgid "Support Forums"
+msgstr "Destek Forumu"
+
+#: settings.php:4
+msgid " Settings"
+msgstr "Ayarlar"
+
+#: settings.php:7
+msgid "Settings updated successfully"
+msgstr "Ayarlar başarıyla güncellendi"
+
+#: settings.php:11
+msgid "Settings"
+msgstr "Ayarlar"
+
+#: settings.php:14
+msgid ""
+"Adjust the basic presentation of your product catalogue here. It is "
+"important to set this up before you start uploading products so the plugin "
+"knows what size to generate thumbnails and product images"
+msgstr ""
+"Ürünlerinizin sunum ayarlarını buradan, ürünlerinizi eklemeden önce "
+"yapmanız, ürünlerin görsellerinin ve ön izleme görsellerinin düzgün bir "
+"şekilde oluşturulması için önemlidir."
+
+#: settings.php:15
+msgid ""
+"You can further customise the design of your product catalogue in your theme "
+"css."
+msgstr ""
+"Daha fazla tasarımsal değişikliği temanızdaki css dosyasından yapabilirsiniz."
+
+#: settings.php:21
+msgid "Grid Rows"
+msgstr "Satırlar"
+
+#: settings.php:33
+msgid "products per row"
+msgstr "her satırdaki ürün sayısı"
+
+#: settings.php:38
+msgid "Choose Theme Color"
+msgstr "Tema Renk Seçimi"
+
+#: settings.php:42
+msgid "Pagination"
+msgstr "Sayfalandırma"
+
+#: settings.php:44
+msgid "products per page (use 0 for unlimited)"
+msgstr "her sayfadaki en fazla ürün sayısı (sınırzı için 0)"
+
+#: settings.php:49
+msgid "Breadcrumbs"
+msgstr "Üst Navigasyon"
+
+#: settings.php:60
+msgid "Show Product Titles"
+msgstr "Ürün Başlıklarını Göster"
+
+#: settings.php:71
+msgid "Sidebar"
+msgstr "Kenar Menü"
+
+#: settings.php:82
+msgid "Gallery Image"
+msgstr "Galeri Görseli"
+
+#: settings.php:84 settings.php:95
+msgid "Height"
+msgstr "Yükseklik"
+
+#: settings.php:86 settings.php:97
+msgid "Width"
+msgstr "Genişlik"
+
+#: settings.php:93
+msgid "Thumbnail"
+msgstr "Küçük Resim"
+
+#: settings.php:99
+msgid "Scale & Crop"
+msgstr "Ölçeklendir & Kırp"
+
+#: settings.php:100
+msgid "Scale To Fit"
+msgstr "Ölçeklendir & Uzat"
+
+#: settings.php:104
+msgid "Show Next/Prev Links"
+msgstr "Sonraki/Önceki Linklerini Göster"
+
+#: settings.php:112
+msgid "Inner Template Header"
+msgstr "İç Şablon Başlığı"
+
+#: settings.php:114
+msgid ""
+"Use this area to add your theme layout divs if you are having problems with "
+"inner pages of the catalogue."
+msgstr "Bu bölümü temanızın görünümüne divler eklemek için kullanabilirsiniz."
+
+#: settings.php:117
+msgid "Inner Template Footer"
+msgstr "İç Şablon Albaşlığı"
+
+#: settings.php:119
+msgid "Use this area to close the open divs after the WP Catalogue."
+msgstr "Bu alanı katalogda açılmış divleri kapatmak için kullanabilirsiniz."
+
+#: settings.php:147
+msgid "to display featured products category"
+msgstr "öne çıkan ürünler kategorisini göstermek için"
+
+#: settings.php:150
+msgid "to display a specific category"
+msgstr "belirli bir kategoriyi göstermek için"
+
+#: products/order.php:38
+msgid "Custom Taxonomy Order settings "
+msgstr "Özel  Kategori Sıra ayarları"
+
+#: products/order.php:129
+msgid ""
+"Drag and drop items to customise the order of categories in WP Catalogue"
+msgstr ""
+"Sürekle bırak yöntemiyle kategorilerin sıralamasını değiştirebilirsiniz"
+
+#: products/order.php:156
+msgid "Save Order"
+msgstr "Sıralamayı Kaydet"
+
+#: products/order.php:162
+msgid "No terms found"
+msgstr "Herhangi bir kategori bulunamadı"
+
+#: products/order.php:305
+msgid "Drag and drop items to customise the order of products in WP Catalogue"
+msgstr "Sürekle bırak yöntemiyle ürünlerin sıralamasını değiştirebilirsiniz"
+
+#: products/order.php:368
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contributaion."
+msgstr ""
+"Eklentiyi beğendiniz mi? Tüm bağışlar bu eklentinin gelişmesi ve yenilenmesi "
+"için kullanılacak. Desteğiniz için teşekkürler."
+
+#: products/order.php:389
+msgid "If you are having problems with plugin please talk about them on "
+msgstr ""
+"Eğer eklentiyle ilgili bir sıkıntı yaşıyorsanız, yardım için forum sayfamızı "
+"ziyaret edebilirsiniz"
+
+#: products/order.php:419
+msgid "Order updated successfully."
+msgstr "Sıralama başarıyla güncellendi"
+
+#: products/order.php:423
+msgid "An error occured, order has not been saved."
+msgstr "Bir hata oluştu, sıralama kaydedilemedi."
+
+#: products/sort-categories.php:39
+msgid "Ordering "
+msgstr "Sıralama yapılıyor"
+
+#: products/sort-categories.php:54 products/sort-products.php:53
+msgid "Drag and drop items to set the custom order."
+msgstr "Sürükle bırak yöntemiyle öğelerin sıralamasını değiştirin"
+
+#: products/wpc-product.php:9
+msgid "WP Catalogue +"
+msgstr "WP Katalog +"
+
+#: products/wpc-product.php:10
+msgid "WP Catalogue"
+msgstr "WP katalog"
+
+#: products/wpc-product.php:11 products/wpc-product.php:12
+#: products/wpc-product.php:14
+msgid "Add New Product"
+msgstr "Yeni Ürün Ekle"
+
+#: products/wpc-product.php:13
+msgid "Edit Product"
+msgstr "Ürünü Düzenle"
+
+#: products/wpc-product.php:15
+msgid "View Product"
+msgstr "Ürünü Görüntüle"
+
+#: products/wpc-product.php:16
+msgid "Search WPC Product"
+msgstr "Ürünlerde Ara"
+
+#: products/wpc-product.php:17
+msgid "No Product found"
+msgstr "Ürün Bulunamadı"
+
+#: products/wpc-product.php:18
+msgid "No Product found in trash"
+msgstr "Çöpte Ürün Bulunmamakta"
+
+#: products/wpc-product.php:136
+msgid "Search Categories"
+msgstr "Kategorilerde Ara"
+
+#: products/wpc-product.php:137
+msgid "All Categories"
+msgstr "Tüm Kategoriler"
+
+#: products/wpc-product.php:138
+msgid "Parent Categories"
+msgstr "Evebeyn Kategoriler"
+
+#: products/wpc-product.php:139
+msgid "Parent Categories:"
+msgstr "Evebeyn Kategoriler:"
+
+#: products/wpc-product.php:140
+msgid "Edit Categories"
+msgstr "Kategorileri Düzenle"
+
+#: products/wpc-product.php:141
+msgid "Update Categories"
+msgstr "Kategorileri Düzenle"
+
+#: products/wpc-product.php:142
+msgid "Add New Categories"
+msgstr "Yeni Kategori Ekle"
+
+#: products/wpc-product.php:143
+msgid "New Categories Name"
+msgstr "Yeni Kategori Adı"
+
+#: products/wpc-product.php:144
+msgid "Categories"
+msgstr "Kategoriler"
+
+#: products/wpc-product.php:159
+msgid "Title"
+msgstr "Başlık"
+
+#: products/wpc-product.php:160
+msgid "<a href=\"javascript:;\">Category</a>"
+msgstr "<a href=\"javascript:;\">Kategoriler</a>"
+
+#: products/wpc-product.php:161
+msgid "Date"
+msgstr "Tarih"
+
+#: products/wpc-product.php:192
+msgid "No Category"
+msgstr "Kategori Yok"
