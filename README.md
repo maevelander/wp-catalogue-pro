@@ -4,9 +4,6 @@ wp-catalogue-pro
 
 Changelog
 -------
-**1.2.4**
-* Scrolling thumbnail issue fixed.
-* Logic added for hiding thumbnail reel when there is only one product image.
 
 **1.2.3**
 * Responsive fixes
