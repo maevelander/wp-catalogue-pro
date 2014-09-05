@@ -162,7 +162,11 @@ if (get_option('wpc_show_bc') == yes) {
                                      data-cycle-prev="#slideshow-2 .cycle-prev"
                                      data-cycle-next="#slideshow-2 .cycle-next"
                                      data-cycle-fx="carousel"
+                                     <?php if(count($product_images) >= 3):?>
                                      data-cycle-carousel-visible="3"
+                                     <?php else: ?>
+                                     data-cycle-carousel-visible="2"
+                                     <?php endif; ?>
                                      data-cycle-carousel-vertical=true
                                      data-allow-wrap="false"
                                      >
@@ -171,7 +175,9 @@ if (get_option('wpc_show_bc') == yes) {
         <?php foreach ($product_images as $field) {
             $count++; ?>
                                         <?php if ($field['product_img']): ?>
+                                            <?php if(count($product_images) > 1): ?>
                                             <span class="wpc-thumb-reel"><img src="<?php echo $field['product_img']; ?>" alt="" id="img<?php echo $c++; ?>" /></span>
+                                            <?php endif; ?>
                                         <?php endif; ?>
                                     <?php } ?>
                                 </div>
