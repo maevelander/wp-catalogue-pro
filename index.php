@@ -7,8 +7,6 @@
   Version: 1.2.4
   Author URI: http://www.enigmaplugins.com
  */
-//testing repo braches Development
-//creating db tables
 
 error_reporting(0);
 
@@ -122,7 +120,7 @@ define('WPC_STYLE', 'WPC_STYLE');
 define('WPCACHEHOME', WP_CATALOGUE);
 
 // licensing
-// adding scripts and styles to amdin
+// adding scripts and styles to admin
 add_action('admin_enqueue_scripts', 'wp_catalogue_scripts_method');
 
 function wp_catalogue_scripts_method() {
