@@ -417,11 +417,7 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 		
 			if($pages>1){
 			echo '<div class="wpc-paginations">';
-			if(get_query_var('paged')) {
-				$paged = get_query_var('paged');
-				 }
-			
-			else if (get_query_var('page'))
+			 if (get_query_var('page'))
 			{
 				$paged = get_query_var('page');
 				}
@@ -429,15 +425,21 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 			 $paged = 1;} 
 			 //previous button
                          
-					$page_id     = get_queried_object_id();
-					if ($paged > 1) {
-					$prev_page = $paged - 1;
-					
-					echo  '<a href="?page_id='.$page_id.'&paged='. $prev_page .'" class="pagination-number wpc-pagination-prev '. $cpage .'">Previous</a>';
-						//echo  '<a href="javascript:history.go(-1)" class="pagination-number '. $cpage .'">'. $prev .'</a>';
-					}else {
-						echo "<span class=\"disabled\"></span>";
-					}
+                            $path = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+                            
+                            $page_id     = get_queried_object_id();
+                            if ($paged > 1) {
+                            $prev_page = $paged - 1;
+                            
+                            if(strpos($path, "wpccategories")){
+                                echo  '<a href="?wpccategories=' .get_queried_object()->slug. '&page='. $prev_page .'" class="pagination-number wpc-pagination-prev '. $cpage .'">Previous</a>';
+                            } else {
+                            echo  '<a href="?page_id='.$page_id.'&page='. $prev_page .'" class="pagination-number wpc-pagination-prev '. $cpage .'">Previous</a>';
+                            }
+                                    //echo  '<a href="javascript:history.go(-1)" class="pagination-number '. $cpage .'">'. $prev .'</a>';
+                            }else {
+                                    echo "<span class=\"disabled\"></span>";
+                            }
 			for($p=1; $p<=$pages; $p++){
 				$cpage	=	'active-wpc-page';
 				
@@ -447,19 +449,19 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 					
 					if($paged==$p){
 				
-						echo  '<a href="?wpccategories=' .get_queried_object()->slug. '&paged='. $p .'" class="pagination-number '. $cpage .'">'. $p .'</a>';
+						echo  '<a href="?wpccategories=' .get_queried_object()->slug. '&page='. $p .'" class="pagination-number '. $cpage .'">'. $p .'</a>';
 					}else{
-						echo    '<a href="?wpccategories=' .get_queried_object()->slug. '&paged='. $p .'" class="pagination-number">'. $p .'</a>';	
+						echo    '<a href="?wpccategories=' .get_queried_object()->slug. '&page='. $p .'" class="pagination-number">'. $p .'</a>';	
 					}
 				}
 				else {
 					 if (is_front_page()) {
 					  if($paged==$p){
 				  
-						  echo  '<a href="?paged='. $p .'" class="pagination-number '. $cpage .'">'. $p .'</a>';
+						  echo  '<a href="?page='. $p .'" class="pagination-number '. $cpage .'">'. $p .'</a>';
 						  }
 					  else{
-						  echo    '<a href="?paged='. $p .'" class="pagination-number">'. $p .'</a>';	
+						  echo    '<a href="?page='. $p .'" class="pagination-number">'. $p .'</a>';	
 						  }
 						  
 					
@@ -470,10 +472,10 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 					   else{ // else of is_home
 					  if($paged==$p){
 				  
-						  echo  '<a href="?page_id='.$page_id.'&paged='. $p .'" class="pagination-number '. $cpage .'">'. $p .'</a>';
+						  echo  '<a href="?page_id='.$page_id.'&page='. $p .'" class="pagination-number '. $cpage .'">'. $p .'</a>';
 						  }
 					  else{
-						  echo    '<a href="?page_id='.$page_id.'&paged='. $p .'" class="pagination-number">'. $p .'</a>';	
+						  echo    '<a href="?page_id='.$page_id.'&page='. $p .'" class="pagination-number">'. $p .'</a>';	
 						  } 
 						 	  
 					  } 
@@ -484,8 +486,12 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 		}
 						//next button
 		if ($paged < $p - 1) {
-			$next_page = $paged + 1;
-			echo  '<a href="?page_id='.$page_id.'&paged='. $next_page .'" class="pagination-number wpc-pagination-next '. $cpage .'">Next</a>';
+                    $next_page = $paged + 1;
+                    if(strpos($path, "wpccategories")){
+                        echo  '<a href="?wpccategories=' .get_queried_object()->slug. '&page='. $next_page .'" class="pagination-number wpc-pagination-next '. $cpage .'">Next</a>';
+                    } else {
+                        echo  '<a href="?page_id='.$page_id.'&page='. $next_page .'" class="pagination-number wpc-pagination-next '. $cpage .'">Next</a>';
+                    }
 		}else{
 			echo "<span class=\"disabled\"></span>";
 		$pagination.= "</div>\n";		
