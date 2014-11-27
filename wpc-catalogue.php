@@ -54,7 +54,7 @@ $termsCatSort	=	get_terms('wpccategories', $args);
 	$slug_url = get_bloginfo('siteurl').'/?wpccategories=/'.$term_slug;
 	$parentname	=	get_queried_object()->name;
 	$term_id = get_queried_object()->term_id;
-	
+        
 	$child_term_id = $term_id;
 	$taxonomy_name = 'wpccategories';
 	$termchildren = get_term_children( $child_term_id, $taxonomy_name );
@@ -160,7 +160,7 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 				echo '<div class="wp-catalogue-breadcrumb"> <a href="'.$catalogue_page_url.'">'.$all_product_label.'</a> &gt;&gt; <a href="'.$slug_url.'">'.$parentname.'</a>' . $pname . '</div>';
 			}
 			else{
-				echo '<div class="wp-catalogue-breadcrumb"> <a href="'.$catalogue_page_url.'">'.$all_product_label.'</a> '.$has_child.' <a href="'.$cat_url.'">'.$tname.'</a>' . $pname . '</div>';
+				echo '<div class="wp-catalogue-breadcrumb"> <a href="'.$catalogue_page_url.'">'.$all_product_label.'</a> '.$has_child.' <a href="'.$slug_url.'">'.$parentname.'</a>' . $pname . '</div>';
 			}
 		}
                         if(get_option('wpc_sidebar')==yes) {
@@ -237,7 +237,7 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 				echo '<div class="wp-catalogue-breadcrumb"> <a href="'.$catalogue_page_url.'">'.$all_product_label.'</a> &gt;&gt; <a href="'.$slug_url.'">'.$parentname.'</a>' . $pname . '</div>';
 			}
 			else{
-				echo '<div class="wp-catalogue-breadcrumb"> <a href="'.$catalogue_page_url.'">'.$all_product_label.'</a> '.$has_child.' <a href="'.$cat_url.'">'.$tname.'</a>' . $pname . '</div>';
+				echo '<div class="wp-catalogue-breadcrumb"> <a href="'.$catalogue_page_url.'">'.$all_product_label.'</a> '.$has_child.' <a href="'.$slug_url.'">'.$parentname.'</a>' . $pname . '</div>';
 			}
 		}
 		if(get_option('wpc_sidebar')==yes) {

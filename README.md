@@ -5,6 +5,9 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.2.6**
+* Breadcrumb issue fixed on catalogue page
+
 **1.2.5**
 * Pagination issue fix on categories page.
 
