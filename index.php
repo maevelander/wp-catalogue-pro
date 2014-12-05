@@ -4,7 +4,7 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.2.6
+  Version: 1.2.7
   Author URI: http://www.enigmaplugins.com
  */
 
@@ -65,22 +65,34 @@ function customtaxorder_init() {
     //	Delete All product_img1,product_img2,product_img3
     mysql_query("Delete From " . $prefix . "postmeta Where meta_key IN ('product_img1','product_img2','product_img3')");
 
-    //	Update All product_price to Product Price
+    //	Update All product_price to wpc_product_price
     $support_sql = "Select * From " . $prefix . "postmeta Where meta_key Like '%product_price%'";
     $support_qry = mysql_query($support_sql);
     while ($support_arr = mysql_fetch_array($support_qry)) {
         $supportMetaID = $support_arr['post_id'];
         $supportMetaPrice = $support_arr['meta_key'];
 
-        $price_split = explode("_", $supportMetaPrice);
-        $supportMetaPrice = $price_split[0] . " " . $price_split[1];
-        $supportMetaPrice = ucwords($supportMetaPrice);
-
         $update_price = "Update " . $prefix . "postmeta
-                         Set meta_key = '$supportMetaPrice'
+                         Set meta_key = 'wpc_product_price'
                          Where post_id = $supportMetaID
                          And meta_key Like '%product_price%'";
         mysql_query($update_price);
+    }
+    
+    //	Update All Product Price to wpc_product_price
+    $price_sql = "Select * From " . $prefix . "postmeta Where meta_key Like '%Product Price%' Or meta_key = 'price'";
+    $price_qry = mysql_query($price_sql);
+    while ($price_arr = mysql_fetch_array($price_qry)) {
+        $priceMetaID = $price_arr['post_id'];
+        $priceMetaPrice = $price_arr['meta_key'];
+
+        $update_meta_price = "Update " . $prefix . "postmeta
+                              Set meta_key = 'wpc_product_price'
+                              Where post_id = $priceMetaID
+                              And meta_key Like '%product_price%'
+                              Or meta_key Like '%Product Price%'
+                              Or meta_key = 'Price'";
+        mysql_query($update_meta_price);
     }
 
     //  Update all Previous "register_setting" Names
@@ -209,7 +221,7 @@ $license_key = trim(get_option('wpc_pro_license_key'));
 
 // setup the updater
 $edd_updater = new EDD_SL_Plugin_Updater(WPC_PRO_STORE_URL, __FILE__, array(
-    'version' => '1.2.6', // current version number
+    'version' => '1.2.7', // current version number
     'license' => $license_key, // license key (used get_option above to retrieve from DB)
     'item_name' => WPC_PRO_ITEM_NAME, // name of this plugin
     'author' => 'Enigma Plugins'  // author of this plugin
@@ -690,7 +702,7 @@ function wpc_the_meta() {
         echo '<ul class="wpc-the-meta">';
         foreach ($custom_field_keys as $key => $value) {
             $valuet = trim($value);
-            if ('_' == $valuet{0} || 'product_images' == $valuet || 'is_featured' == $valuet || 'Product Price' == $valuet) {
+            if ('_' == $valuet{0} || 'product_images' == $valuet || 'is_featured' == $valuet || 'wpc_product_price' == $valuet) {
                 continue;
             }
             $values = array_map('trim', get_post_custom_values($valuet));

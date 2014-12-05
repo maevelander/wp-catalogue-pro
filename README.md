@@ -5,6 +5,9 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.2.7**
+* Product Price field Issue Fixed
+
 **1.2.6**
 * Breadcrumb issue fixed on catalogue page
 

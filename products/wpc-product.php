@@ -245,3 +245,25 @@ function save_multiple_images() {
         delete_post_meta($post->ID, 'product_images', $product_images_old);
     }
 }
+
+add_action('add_meta_boxes', 'create_wpc_meta_box_price');
+function create_wpc_meta_box_price($post) {
+    $wpc_product_price = get_post_meta($post->ID, 'wpc_product_price', true);
+    
+    add_meta_box('wpc_meta_price_id', 'Product Price', 'wpc_meta_box_price', 'wpcproduct', 'side');
+}
+
+function wpc_meta_box_price($post){
+?>
+    <p>
+        <input style="width:100%;" type="text" name="wpc_product_price" id="wpc_product_price" value="<?php echo $wpc_product_price; ?>" />
+    </p>
+<?php
+}
+
+add_action('save_post', 'save_wpc_meta_price');
+function save_wpc_meta_price() {
+    global $post;
+    $wpc_product_price = $_POST['wpc_product_price'];
+    update_post_meta($post->ID, 'wpc_product_price', $wpc_product_price);
+}
