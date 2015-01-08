@@ -7,11 +7,13 @@
 
 
 <?php
+
 $catalogue_page_url = get_option('catalogue_page_url');
 $terms = get_terms('wpccategories');
 
 global $post;
 $terms1 = get_the_terms($post->post_parent, 'wpccategories');
+
 if ($terms1) {
     foreach ($terms1 as $term1) {
         $slug = $term1->slug;
@@ -119,6 +121,7 @@ if (get_option('wpc_show_bc') == yes) {
             <div id="wpc-catalogue-wrapper">
     <?php
         }
+			
             if (have_posts()) :
                 while (have_posts()) : the_post();
                 $product_images = get_post_meta($post->ID, 'product_images', true);
@@ -235,8 +238,8 @@ if (get_option('wpc_show_bc') == yes) {
                         
                             if (get_option('wpc_next_prev') == 1) {
                                 echo '<p class="wpc-next-prev">';
-                                previous_post_link('%link', 'Previous');
-                                next_post_link('%link', 'Next');
+                                previous_post_link( '%link', 'Previous', TRUE, ' ', 'wpccategories' );
+                                next_post_link( '%link', 'Next', TRUE, ' ', 'wpccategories' );
                                 echo '</p>';
                             }
                         ?>

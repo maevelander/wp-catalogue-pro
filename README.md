@@ -5,6 +5,9 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.2.8**
+* Pagination on detail page issue fixed
+
 **1.2.7**
 * Product Price field Issue Fixed
 
