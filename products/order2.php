@@ -478,11 +478,11 @@ $loop = new WP_Query(array(
     </table>
     <table cellpadding="0" class="widefat" border="0">
       <thead>
-      <th scope="col">Need Support</th>
+      <th scope="col"><?php _e('Need Support', 'wpc'); ?></th>
           </thead>
       <tbody>
         <tr>
-          <td style="border:0;"><?php _e('If you are having problems with plugin please talk about them on ','wpc') ?><a href="http://wordpress.org/support/plugin/wp-catalogue">Support Forums</a></td>
+          <td style="border:0;"><?php _e('If you are having problems with plugin please talk about them on ','wpc') ?><a href="http://enigmaplugins.com/contact-support"><?php _e('Support', 'wpc'); ?></a></td>
         </tr>
       </tbody>
     </table>

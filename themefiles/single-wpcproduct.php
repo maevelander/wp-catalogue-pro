@@ -53,7 +53,7 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 
 if (is_single()) {
     $pname = '&gt;&gt;&nbsp;' . get_the_title();
-    $show_title = get_the_title();
+    $show_title = the_title();
 }
 /* ========================= on/off breadcrumbs ======================== */
 if (get_option('wpc_show_bc') == yes) {
@@ -216,16 +216,16 @@ if (get_option('wpc_show_bc') == yes) {
             ?>
                     <h4>
                     <?php
-                        echo $show_title;
+                        echo the_title();
                 } else {
             ?>
                     <h4>
-                        Product Details
+                        <?php _e('Product Details', 'wpc'); ?>
             <?php
                 }
                 if ($wpc_product_price):
             ?>
-                    <span class="product-price">Price: <span><?php echo $wpc_product_price; ?></span></span>
+                    <span class="product-price"><?php _e('Price:', 'wpc') ?> <span><?php echo $wpc_product_price; ?></span></span>
             <?php
                 endif;
             ?>
