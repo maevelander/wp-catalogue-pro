@@ -116,8 +116,8 @@
                   <input name="wpc_image_width" type="text" id="wpc_image_width" value="<?php if(get_option('wpc_image_width')){ echo get_option('wpc_image_width'); }else {echo 500;} ?>" size="10">
                   &nbsp;&nbsp;&nbsp;<span><?php _e('Width','wpc') ?></span><br>
                   <select id="wpc_croping" name="wpc_croping">
-                    <option value="wpc_image_scale_crop" <?php if(get_option('wpc_croping')=='wpc_image_scale_crop'){echo 'selected="selected"';} ?>>Scale & Crop</option>
-                    <option value="image_scale_fit" <?php if(get_option('wpc_croping')=='image_scale_fit'){echo 'selected="selected"';} ?>>Scale To Fit</option>
+                    <option value="wpc_image_scale_crop" <?php if(get_option('wpc_croping')=='wpc_image_scale_crop'){echo 'selected="selected"';} ?>><?php _e('Scale & Crop', 'wpc') ?></option>
+                    <option value="image_scale_fit" <?php if(get_option('wpc_croping')=='image_scale_fit'){echo 'selected="selected"';} ?>><?php _e('Scale To Fit', 'wpc') ?></option>
                   </select></td>
               </tr>
               <tr>
@@ -209,7 +209,7 @@
         </thead>
       <tbody>
         <tr>
-          <td style="border:0;"><?php _e('Check out the','wpc') ?> <a href="http://enigmaplugins.com/documentation/" target="_blank"><?php _e('FAQs for Documentation','wpc'); ?></a> <?php _e('and','wpc') ?> <a href="http://wordpress.org/support/plugin/wp-catalogue" target="_blank"><?php _e('Support Forums','wpc') ?></a></td>
+          <td style="border:0;"><?php _e('Check out the','wpc') ?> <a href="http://enigmaplugins.com/documentation/" target="_blank"><?php _e('FAQs for Documentation','wpc'); ?></a> <?php _e('and','wpc') ?> <a href="http://enigmaplugins.com/contact-support" target="_blank"><?php _e('Support','wpc') ?></a></td>
         </tr>
       </tbody>
     </table>

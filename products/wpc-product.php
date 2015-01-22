@@ -8,14 +8,14 @@ function wpt_wpcproduct_posttype() {
             'labels' => array(
                     'name' => __( 'WP Catalogue +' ),
                     'singular_name' => __( 'WP Catalogue' ),
-                    'add_new' => __( 'Add New Product' ),
-                    'add_new_item' => __( 'Add New Product' ),
-                    'edit_item' => __( 'Edit Product' ),
-                    'new_item' => __( 'Add New Product' ),
-                    'view_item' => __( 'View Product' ),
-                    'search_items' => __( 'Search WPC Product' ),
-                    'not_found' => __( 'No Product found' ),
-                    'not_found_in_trash' => __( 'No Product found in trash' )
+                    'add_new' => __( 'Add New Product', 'wpc' ),
+                    'add_new_item' => __( 'Add New Product', 'wpc' ),
+                    'edit_item' => __( 'Edit Product', 'wpc' ),
+                    'new_item' => __( 'Add New Product', 'wpc' ),
+                    'view_item' => __( 'View Product', 'wpc' ),
+                    'search_items' => __( 'Search WPC Product', 'wpc' ),
+                    'not_found' => __( 'No Product found', 'wpc' ),
+                    'not_found_in_trash' => __( 'No Product found in trash', 'wpc' )
                 ),
             'public' => true,
             'menu_icon' => WP_CATALOGUE.'/images/shopping-basket.png',  // Icon Path
@@ -64,15 +64,15 @@ function create_wpcproduct_taxonomies(){
     $labels = array( 
             'name' => _x( 'Categories', 'taxonomy general name' ),
             'singular_name' => _x( 'Categories', 'taxonomy singular name' ),
-            'search_items' =>  __( 'Search Categories' ),
-            'all_items' => __( 'All Categories' ),
-            'parent_item' => __( 'Parent Categories' ),
-            'parent_item_colon' => __( 'Parent Categories:' ),
-            'edit_item' => __( 'Edit Categories' ), 
-            'update_item' => __( 'Update Categories' ),
-            'add_new_item' => __( 'Add New Categories' ),
-            'new_item_name' => __( 'New Categories Name' ),
-            'menu_name' => __( 'Categories' ),
+            'search_items' =>  __( 'Search Categories', 'wpc' ),
+            'all_items' => __( 'All Categories', 'wpc' ),
+            'parent_item' => __( 'Parent Categories', 'wpc' ),
+            'parent_item_colon' => __( 'Parent Categories:', 'wpc' ),
+            'edit_item' => __( 'Edit Categories', 'wpc' ), 
+            'update_item' => __( 'Update Categories', 'wpc' ),
+            'add_new_item' => __( 'Add New Categories', 'wpc' ),
+            'new_item_name' => __( 'New Categories Name', 'wpc' ),
+            'menu_name' => __( 'Categories', 'wpc' ),
         ); 	
     register_taxonomy('wpccategories',array('wpcproduct'), 
             array(

@@ -5,6 +5,11 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.2.9**
+* Marked missing strings for traslation
+* Support link updated
+* Function for getting the product title changed
+
 **1.2.8**
 * Pagination on detail page issue fixed
 

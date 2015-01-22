@@ -119,11 +119,11 @@ function customtaxorder() {
 <div class="wrap">
   <div id="icon-options-general" class="icon32"><br>
   </div>
-  <h2>Order</h2>
+  <h2><?php _e('Order', 'wpc') ?></h2>
   <div class="wpc-left-liquid">
     <div class="wpc-left">
       <div class="wpc-headings">
-        <h3>Order Categories</h3>
+        <h3><?php _e('Order Categories', 'wpc') ?></h3>
       </div>
       <div class="wpc-inner">
         <p class="description"><?php _e('Drag and drop items to customise the order of categories in WP Catalogue','wpc') ?> </p>
@@ -301,7 +301,7 @@ $loop = new WP_Query(array(
     
       <?php if ($loop->have_posts()): ?>
       <div class="wpc-headings">
-        <h3>Order Products</h3>
+        <h3><?php _e('Order Products', 'wpc') ?></h3>
       </div>
       <div class="wpc-inner">
         <p class="description"><?php _e('Drag and drop items to customise the order of products in WP Catalogue','wpc') ?> </p>
@@ -391,8 +391,8 @@ $loop = new WP_Query(array(
           <td style="border:0;"><?php _e('Check out the','wpc') ?>
             <a href="http://enigmaplugins.com/documentation/" target="_blank"><?php _e('FAQs for Documentation','wpc'); ?></a>
             <?php _e('and','wpc') ?>
-            <a href="http://wordpress.org/support/plugin/wp-catalogue" target="_blank">
-            <?php _e('Support Forums','wpc') ?>
+            <a href="http://enigmaplugins.com/contact-support" target="_blank">
+            <?php _e('Support','wpc') ?>
             </a></td>
         </tr>
       </tbody>

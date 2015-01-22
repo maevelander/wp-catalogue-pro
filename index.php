@@ -4,7 +4,7 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.2.8
+  Version: 1.2.9
   Author URI: http://www.enigmaplugins.com
  */
 //testing repo braches Development
@@ -223,7 +223,7 @@ $license_key = trim(get_option('wpc_pro_license_key'));
 
 // setup the updater
 $edd_updater = new EDD_SL_Plugin_Updater(WPC_PRO_STORE_URL, __FILE__, array(
-    'version' => '1.2.8', // current version number
+    'version' => '1.2.9', // current version number
     'license' => $license_key, // license key (used get_option above to retrieve from DB)
     'item_name' => WPC_PRO_ITEM_NAME, // name of this plugin
     'author' => 'Enigma Plugins'  // author of this plugin
@@ -244,9 +244,9 @@ function wpc_pro_license_page() {
     <div class="wrap">
         <div class="wpc-left-liquid">
             <h2>
-                <?php _e('Plugin License Options'); ?>
+                <?php _e('Plugin License Options', 'wpc'); ?>
             </h2>
-            <p><strong>Please enter and activate your license key in order to receive automatic updates and support for this plugin</strong></p>
+            <p><strong><?php _e('Please enter and activate your license key in order to receive automatic updates and support for this plugin', 'wpc') ?></strong></p>
             <form method="post" action="options.php">
     <?php settings_fields('wpc_pro_license'); ?>
                 <table class="form-table">
@@ -256,23 +256,23 @@ function wpc_pro_license_page() {
                             </th>
                             <td><input id="wpc_pro_license_key" name="wpc_pro_license_key" type="text" class="regular-text" value="<?php esc_attr_e($license); ?>" />
                                 <label class="description" for="wpc_pro_license_key">
-    <?php _e('Enter your license key'); ?>
+    <?php _e('Enter your license key', 'wpc'); ?>
                                 </label></td>
                         </tr>
     <?php if (false !== $license) { ?>
                             <tr valign="top">
-                                <th scope="row" valign="top"> <?php _e('Activate License'); ?>
+                                <th scope="row" valign="top"> <?php _e('Activate License', 'wpc'); ?>
                                 </th>
                                 <td><?php if ($status !== false && $status == 'valid') { ?>
                                         <span style="color:green;">
                                         <?php _e('active'); ?>
                                         </span>
                                         <?php wp_nonce_field('wpc_pro_nonce', 'wpc_pro_nonce'); ?>
-                                        <input type="submit" class="button-secondary" name="wpc_pro_license_deactivate" value="<?php _e('Deactivate License'); ?>"/>
+                                        <input type="submit" class="button-secondary" name="wpc_pro_license_deactivate" value="<?php _e('Deactivate License', 'wpc'); ?>"/>
                             <?php } else {
                                 wp_nonce_field('wpc_pro_nonce', 'wpc_pro_nonce');
                                 ?>
-                                        <input type="submit" class="button-secondary" name="wpc_pro_license_activate" value="<?php _e('Activate License'); ?>"/>
+                                        <input type="submit" class="button-secondary" name="wpc_pro_license_activate" value="<?php _e('Activate License', 'wpc'); ?>"/>
                     <?php } ?></td>
                             </tr>
     <?php } ?>
@@ -341,8 +341,8 @@ function wpc_pro_license_page() {
                         <td style="border:0;"><?php _e('Check out the', 'wpc') ?>
                             <a href="http://enigmaplugins.com/documentation/" target="_blank">FAQs</a>
     <?php _e('and', 'wpc') ?>
-                            <a href="http://wordpress.org/support/plugin/wp-catalogue" target="_blank">
-    <?php _e('Support Forums', 'wpc') ?>
+                            <a href="http://enigmaplugins.com/contact-support" target="_blank">
+    <?php _e('Support', 'wpc') ?>
                             </a></td>
                     </tr>
                 </tbody>
