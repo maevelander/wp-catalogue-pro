@@ -53,7 +53,7 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 
 if (is_single()) {
     $pname = '&gt;&gt;&nbsp;' . get_the_title();
-    $show_title = the_title();
+    //$show_title = the_title();
 }
 /* ========================= on/off breadcrumbs ======================== */
 if (get_option('wpc_show_bc') == yes) {
@@ -216,7 +216,7 @@ if (get_option('wpc_show_bc') == yes) {
             ?>
                     <h4>
                     <?php
-                        echo the_title();
+                        the_title();
                 } else {
             ?>
                     <h4>

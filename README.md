@@ -5,6 +5,9 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.2.10**
+* Function fixed for displaying product title
+
 **1.2.9**
 * Marked missing strings for traslation
 * Support link updated
