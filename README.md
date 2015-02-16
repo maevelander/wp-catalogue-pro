@@ -8,7 +8,7 @@ Changelog
 **1.3.1**
 * Function added to get the product price in the admin area.
 
-**1.3**
+**1.3.0**
 * Function fixed for displaying product title
 
 **1.2.9**

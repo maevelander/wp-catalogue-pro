@@ -7,8 +7,6 @@
   Version: 1.3.1
   Author URI: http://www.enigmaplugins.com
  */
-//testing repo braches Development
-//creating db tables
 
 error_reporting(0);
 
