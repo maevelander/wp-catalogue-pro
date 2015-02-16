@@ -4,7 +4,7 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.3
+  Version: 1.3.1
   Author URI: http://www.enigmaplugins.com
  */
 //testing repo braches Development
@@ -223,7 +223,7 @@ $license_key = trim(get_option('wpc_pro_license_key'));
 
 // setup the updater
 $edd_updater = new EDD_SL_Plugin_Updater(WPC_PRO_STORE_URL, __FILE__, array(
-    'version' => '1.3', // current version number
+    'version' => '1.3.1', // current version number
     'license' => $license_key, // license key (used get_option above to retrieve from DB)
     'item_name' => WPC_PRO_ITEM_NAME, // name of this plugin
     'author' => 'Enigma Plugins'  // author of this plugin
