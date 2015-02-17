@@ -254,6 +254,7 @@ function create_wpc_meta_box_price($post) {
 }
 
 function wpc_meta_box_price($post){
+   $wpc_product_price = get_post_meta($post->ID, 'wpc_product_price', TRUE);
 ?>
     <p>
         <input style="width:100%;" type="text" name="wpc_product_price" id="wpc_product_price" value="<?php echo $wpc_product_price; ?>" />
