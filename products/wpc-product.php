@@ -6,8 +6,8 @@ function wpt_wpcproduct_posttype() {
     register_post_type( 'wpcproduct',
         array(
             'labels' => array(
-                    'name' => __( 'WP Catalogue +' ),
-                    'singular_name' => __( 'WP Catalogue' ),
+                    'name' => __( 'WP Catalogue +', 'wpc' ),
+                    'singular_name' => __( 'WP Catalogue', 'wpc' ),
                     'add_new' => __( 'Add New Product', 'wpc' ),
                     'add_new_item' => __( 'Add New Product', 'wpc' ),
                     'edit_item' => __( 'Edit Product', 'wpc' ),
@@ -84,13 +84,41 @@ function create_wpcproduct_taxonomies(){
             ));
 } 
 
+add_action( 'init', 'wpc_custom_tags', 0 );
+function wpc_custom_tags() {
+	
+    $labels = array(
+                    'name' 		=>  __( 'WP Catalogue Tags', 'wpc' ),
+                    'singular_name' 	=>  __( 'WP Catalogue Tag', 'wpc' ),
+                    'search_items' 	=>  __( 'Search WP Catalogue Tags', 'wpc' ),
+                    'all_items' 	=>  __( 'All WP Catalogue Tags', 'wpc' ),
+                    'edit_item' 	=>  __( 'Edit WP Catalogue Tag', 'wpc' ),
+                    'update_item' 	=>  __( 'Update WP Catalogue Tag', 'wpc' ),
+                    'add_new_item' 	=>  __( 'Add New WP Catalogue Tag', 'wpc' ),
+                    'new_item_name' 	=>  __( 'New WP Catalogue Tag Name', 'wpc' ),
+                    'menu_name' 	=>  __( 'Tags', 'wpc' )
+            );
+
+    register_taxonomy( 'wpctags',
+                        array('wpcproduct'),
+                        array(
+                            'hierarchical'  =>  false,
+                            'labels'        =>  $labels,
+                            'show_ui'       =>  true,
+                            'query_var'     =>  true,
+                            'rewrite'       =>  array('slug' => 'wpctags', 'with_front' => true),
+                        )
+    );
+}
+
 add_filter( 'manage_edit-wpcproduct_columns', 'my_edit_wpcproduct_columns' ) ;
 function my_edit_wpcproduct_columns( $columns ) {
     $columns = array(
         'cb' => '<input type="checkbox" />',
-        'title' => __( 'Title' ),
-        'wpccategories' => __( '<a href="javascript:;">Category</a>' ),
-        'date' => __( 'Date' )
+        'title' => __( 'Title', "wpc" ),
+        'wpccategories' => '<a href="javascript:;">'.__("Category", "wpc").'</a>',
+        'wpc_tag' => __( 'Tags', "wpc" ),
+        'date' => __( 'Date', "wpc" )
     );
     return $columns;
 }
@@ -121,6 +149,9 @@ function my_manage_wpcproduct_columns( $column, $post_id ) {
             else{
                 _e( 'No Category' );
             }
+        break;
+        case  'wpc_tag':
+            echo get_the_term_list( $post->ID, 'wpctags' , ' ' , ', ' , '' );
         break;
             /* Just break out of the switch statement for everything else. */
             default :
@@ -174,7 +205,8 @@ function multiple_product_images($post){
                 <td><strong><?php _e('Image:','wpc'); ?></strong></td>
                 <td>
                     <p>
-                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value="<?php if ($field['product_img'] != '') echo esc_attr( $field['product_img'] ); else echo ''; ?>"><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="Upload">
+                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value="<?php if ($field['product_img'] != '') echo esc_attr( $field['product_img'] ); else echo ''; ?>">
+                        <input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc'); ?>">
                     </p>		
                 </td>
             </tr>
@@ -195,7 +227,7 @@ function multiple_product_images($post){
                 <td><strong><?php _e('Image:','wpc'); ?></strong></td>
                 <td>
                    <p>
-                       <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="Upload">
+                       <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc'); ?>">
                    </p>
                 </td>
             </tr>
@@ -206,7 +238,7 @@ function multiple_product_images($post){
                 <td><strong><?php _e('Image:','wpc'); ?></strong></td>
                 <td>
                     <p>
-                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="Upload">
+                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc') ?>">
                     </p>
                 </td>
             </tr>
