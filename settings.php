@@ -183,22 +183,13 @@
                                     <label><?php _e('Gallery Image','wpc') ?></label>
                                 </th>
                                 <td>
-                                    <input name="wpc_image_height" type="text" id="wpc_image_height" value="<?php if(get_option('wpc_image_height')){ echo get_option('wpc_image_height'); }else {echo 358;} ?>" size="10">
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span><?php _e('Height','wpc') ?></span>
-                                    &nbsp;&nbsp;&nbsp;
+                                    <span><?php _e('Width: ','wpc') ?></span>
+                                    &nbsp;
                                     <input name="wpc_image_width" type="text" id="wpc_image_width" value="<?php if(get_option('wpc_image_width')){ echo get_option('wpc_image_width'); }else {echo 500;} ?>" size="10">
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span><?php _e('Width','wpc') ?></span>
-                                    <br>
-                                    <select id="wpc_croping" name="wpc_croping">
-                                        <option value="wpc_image_scale_crop" <?php if(get_option('wpc_croping')=='wpc_image_scale_crop'){echo 'selected="selected"';} ?>>
-                                            <?php _e('Scale & Crop', 'wpc') ?>
-                                        </option>
-                                        <option value="image_scale_fit" <?php if(get_option('wpc_croping')=='image_scale_fit'){echo 'selected="selected"';} ?>>
-                                            <?php _e('Scale To Fit', 'wpc') ?>
-                                        </option>
-                                    </select>
+                                    &nbsp;&nbsp;
+                                    <span><?php _e('Height: ','wpc') ?></span>
+                                    &nbsp;
+                                    <input name="wpc_image_height" type="text" id="wpc_image_height" value="<?php if(get_option('wpc_image_height')){ echo get_option('wpc_image_height'); }else {echo 358;} ?>" size="10">
                                 </td>
                             </tr>
                             <tr>
@@ -206,22 +197,13 @@
                                     <label><?php _e('Thumbnail','wpc') ?></label>
                                 </th>
                                 <td>
-                                    <input name="wpc_thumb_height" type="text" id="wpc_thumb_height" value="<?php if(get_option('wpc_thumb_height')){ echo get_option('wpc_thumb_height'); }else {echo 151;} ?>" size="10">
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span><?php _e('Height','wpc') ?></span>
-                                    &nbsp;&nbsp;&nbsp;
+                                    <span><?php _e('Width: ','wpc') ?></span>
+                                    &nbsp;
                                     <input name="wpc_thumb_width" type="text" id="wpc_thumb_width" value="<?php if(get_option('wpc_thumb_width')){ echo get_option('wpc_thumb_width'); }else {echo 212;} ?>" size="10">
-                                    &nbsp;&nbsp;&nbsp;
-                                    <span><?php _e('Width','wpc') ?></span>
-                                    <br>
-                                    <select id="wpc_croping" name="wpc_tcroping">
-                                        <option value="wpc_thumb_scale_crop" <?php if(get_option('wpc_tcroping')=='wpc_thumb_scale_crop'){echo 'selected="selected"';} ?>>
-                                            <?php _e('Scale & Crop','wpc') ?>
-                                        </option>
-                                        <option value="thumb_scale_fit" <?php if(get_option('wpc_tcroping')=='thumb_scale_fit'){echo 'selected="selected"';} ?>>
-                                            <?php _e('Scale To Fit','wpc') ?>
-                                        </option>
-                                    </select>
+                                    &nbsp;&nbsp;
+                                    <span><?php _e('height: ','wpc') ?></span>
+                                    &nbsp;
+                                    <input name="wpc_thumb_height" type="text" id="wpc_thumb_height" value="<?php if(get_option('wpc_thumb_height')){ echo get_option('wpc_thumb_height'); }else {echo 151;} ?>" size="10">
                                 </td>
                             </tr>
                             <tr valign="top">

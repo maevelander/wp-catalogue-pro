@@ -141,32 +141,32 @@ if (get_option('wpc_show_bc') == yes) {
         if(strpos($wpc_path, '?s=')) {
 
                 if(have_posts()){
-                $tcropping	=	get_option('wpc_tcroping');
-                if(get_option('wpc_thumb_height')){
-                $theight	=	get_option('wpc_thumb_height');
-                }else{
-                        $theight	=	142;
-                }
-                if(get_option('wpc_thumb_width')){
-                        $twidth		=	get_option('wpc_thumb_width');
-                }else{
-                        $twidth		=	205;
-                }
-                $i = 1;		
 
                 if(get_option('wpc_sidebar')==yes) {
                 echo '  <!--col-2-->
 
-                                        <div id="wpc-col-2">
-                                        <div id="wpc-products">';
+					<div id="wpc-col-2">
+					<div id="wpc-products">';
                 } else {
                 echo '  <!--col-2-->
 
-                                        <div id="wpc-catalogue-wrapper">
-                                        <div id="wpc-products">';
+					<div id="wpc-catalogue-wrapper">
+					<div id="wpc-products">';
                 }
                 while(have_posts()): the_post();
-                $product_images = get_post_meta($post->ID, 'product_images', true);
+                $wpc_thumb_images = get_post_meta($post->ID, 'wpc_thumb_images', true);
+				$wpc_thumb_width = get_option('wpc_thumb_width');
+				
+				foreach ($wpc_thumb_images as $field_resize) {
+					$resize_img = wp_get_image_editor( $field_resize['wpc_thumb_img'] );
+				
+					if ( ! is_wp_error( $resize_img ) ) {
+						$wpc_resize = $resize_img->resize( $wpc_thumb_width, NULL, false );
+						if ($wpc_resize !== FALSE) {
+							$new_size = $resize_img->get_size();
+						}
+					}
+				}
                 
                 $title		=	get_the_title(); 
                 $permalink	=	get_permalink(); 
@@ -174,13 +174,12 @@ if (get_option('wpc_show_bc') == yes) {
 
                  echo '<!--wpc product-->';
                  echo '<div class="wpc-product">';
-                 echo '<div class="wpc-img" style="width:' . $twidth . 'px; height:' . $theight . 'px; overflow:hidden"><a href="'. $permalink .'" class="wpc-product-link">';
-                 foreach($product_images as $field ){
-                 echo '<img src="'.$field['product_img'].'" alt="" height="' . $theight . '" ';
-                 }
-                 if($tcropping == 'thumb_scale_fit'){
-                          echo  '" width="' .$twidth. '"'; }
-                 echo '" /></a></div>';
+                 echo '<div class="wpc-img" style="width:'.$new_size['width'].'px; height:'.$new_size['height'].'px; overflow:hidden"><a href="'. $permalink .'" class="wpc-product-link">';
+                 foreach($wpc_thumb_images as $field ){
+					$wpc_thumb_img_path = $field['wpc_thumb_img'];
+				 }
+				 echo '<img src="'.$wpc_thumb_img_path.'" alt="" />';
+                 echo '</a></div>';
                  echo '<p class="wpc-title"><a href="'. $permalink .'">' . $title . '</a></p>';
                  echo '</div>';
                  echo '<!--/wpc-product-->';
@@ -213,7 +212,8 @@ if (get_option('wpc_show_bc') == yes) {
 			
             if (have_posts()) :
                 while (have_posts()) : the_post();
-                $product_images = get_post_meta($post->ID, 'product_images', true);
+                $wpc_thumb_images = get_post_meta($post->ID, 'wpc_thumb_images', true);
+				$wpc_big_images = get_post_meta($post->ID, 'wpc_big_images', true);
 				
 				$wpc_vert_horiz = get_option('wpc_vert_horiz');
 				
@@ -225,34 +225,21 @@ if (get_option('wpc_show_bc') == yes) {
 				}
     ?>
                 <div id="wpc_my_carousel" class="wpc_my_carousel<?php echo $wpc_vert_horiz_class; ?>">
-                <?php
-					if (get_option('wpc_image_height')) {
-                        $img_height = get_option('wpc_image_height');
-                    } else {
-                        $img_height = 348;
-                    }
-                    if (get_option('wpc_image_width')) {
-                        $img_width = get_option('wpc_image_width');
-                    } else {
-                        $img_width = 490;
-                    }
-                    $iwpc_croping = get_option('wpc_croping');
-				?>
-                	<div class="wpc_hero_img" style="width:<?php echo $img_width; ?>px; height:<?php echo $img_height; ?>px;">
+                	<div class="wpc_hero_img">
                     	<img src="...">
                    	</div>
                     
                     <div class="wpc_carousel">
                         <ul>
                   	<?php
-						foreach ($product_images as $field) {
-							if ($field['product_img']) :
+					$count = 0;
+						foreach ($wpc_thumb_images as $wpc_imgs) {
+							$count++;
 					?>
-                                <li>
-                                    <img src="<?php echo $field['product_img']; ?>" alt="" />
-                                </li>
+                            <li>
+                                <img src="<?php echo $wpc_imgs['wpc_thumb_img']; ?>" alt="" data-resize="<?php echo $wpc_big_images[$count]['wpc_big_img']; ?>" />
+                            </li>
                   	<?php
-							endif;
 						}
 					?>
                         </ul>

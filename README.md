@@ -10,11 +10,12 @@ Changelog
 * Added support for larger number of pagination ...
 * Added support for tags.
 * Added support for multi sites.
+* Added new function for resizing product images.
+* Added support for accordion menu with multiple levels.
+* New jQuery carousel.
 * Replace template_redirect to template_include.
 * Replace get_bloginfo() to get_site_url().
-* Added support for accordion menu with multiple levels.
 * EDD Updater Classes and Functions issue fixed.
-* New jQuery carousel.
 * Function corrected for loading plugin text domain for translation.
 * Missing strings marked for translation. 
 

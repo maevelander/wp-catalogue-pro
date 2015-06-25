@@ -22,21 +22,21 @@
         }
 
         // Hero image selection
-        var wpc_hero_img = jQuery('.wpc_carousel ul li:first img').attr('src');
+        var wpc_hero_img = jQuery('.wpc_carousel ul li:first img').data('resize');
         jQuery('.wpc_hero_img img').attr('src', wpc_hero_img);
 
         jQuery('.wpc_carousel img').click(function () {
-            var img_src = jQuery(this).attr('src');
+            var img_src = jQuery(this).data('resize');
             jQuery('.wpc_hero_img img').attr('src', img_src);
         });
 
         // Setting window / reel / controls according to layout
         if (wpc_settings.layout === 'hort') {
             this.find('.wpc_carousel').width(wpc_settings.item_width * wpc_settings.visible_items);
-            this.find('ul').width(wpc_settings.reel_length * wpc_settings.item_width);
+            this.find('.wpc_carousel ul').width(wpc_settings.reel_length * wpc_settings.item_width);
         } else if (wpc_settings.layout === 'vert') {
             this.find('.wpc_carousel').height(wpc_settings.item_height * wpc_settings.visible_items);
-            this.find('ul').height(wpc_settings.reel_length * wpc_settings.item_height);
+            this.find('.wpc_carousel ul').height(wpc_settings.reel_length * wpc_settings.item_height);
         }
 
         // Slide control
@@ -44,9 +44,9 @@
             if (jQuery(this).hasClass('next-down')) {
                 if (wpc_settings.current_index !== (wpc_settings.reel_length - (wpc_settings.visible_items - 1))) {
                     if (wpc_settings.layout === 'hort') {
-                        jQuery(this).parents(this).find('ul').animate({left: '-=' + wpc_settings.item_width + 'px'}, 200);
+                        jQuery(this).parents(this).find('.wpc_carousel ul').animate({left: '-=' + wpc_settings.item_width + 'px'}, 200);
                     } else if (wpc_settings.layout === 'vert') {
-                        jQuery(this).parents(this).find('ul').animate({top: '-=' + wpc_settings.item_height + 'px'}, 200);
+                        jQuery(this).parents(this).find('.wpc_carousel ul').animate({top: '-=' + wpc_settings.item_height + 'px'}, 200);
                     }
                     wpc_settings.current_index++;
                 } else {
@@ -55,9 +55,9 @@
             } else {
                 if (wpc_settings.current_index !== 1) {
                     if (wpc_settings.layout === 'hort') {
-                        jQuery(this).parents(this).find('ul').animate({left: '+=' + wpc_settings.item_width + 'px'}, 200);
+                        jQuery(this).parents(this).find('.wpc_carousel ul').animate({left: '+=' + wpc_settings.item_width + 'px'}, 200);
                     } else if (wpc_settings.layout === 'vert') {
-                        jQuery(this).parents(this).find('ul').animate({top: '+=' + wpc_settings.item_height + 'px'}, 200);
+                        jQuery(this).parents(this).find('.wpc_carousel ul').animate({top: '+=' + wpc_settings.item_height + 'px'}, 300);
                     }
                     wpc_settings.current_index--;
                 } else {

@@ -104,37 +104,21 @@ function customtaxorder_init($wpc_networkwide) {
     $sidebar = array('option_name' => 'sidebar');
     $wpdb->update($wpc_prefix."options", $wpc_sidebar, $sidebar);
 
-    $wpc_image_height = array('option_name' => 'wpc_image_height');
-    $image_height = array('option_name' => 'image_height');
-    $wpdb->update($wpc_prefix."options", $wpc_image_height, $image_height);
-
     $wpc_image_width = array('option_name' => 'wpc_image_width');
     $image_width = array('option_name' => 'image_width');
     $wpdb->update($wpc_prefix."options", $wpc_image_width, $image_width);
-
-    $wpc_thumb_height = array('option_name' => 'wpc_thumb_height');
-    $thumb_height = array('option_name' => 'thumb_height');
-    $wpdb->update($wpc_prefix."options", $wpc_thumb_height, $thumb_height);
+	
+    $wpc_image_height = array('option_name' => 'wpc_image_height');
+    $image_height = array('option_name' => 'image_height');
+    $wpdb->update($wpc_prefix."options", $wpc_image_height, $image_height);
 
     $wpc_thumb_width = array('option_name' => 'wpc_thumb_width');
     $thumb_width = array('option_name' => 'thumb_width');
     $wpdb->update($wpc_prefix."options", $wpc_thumb_width, $thumb_width);
 
-    $wpc_image_scale_crop = array('option_name' => 'wpc_image_scale_crop');
-    $image_scale_crop = array('option_name' => 'image_scale_crop');
-    $wpdb->update($wpc_prefix."options", $wpc_image_scale_crop, $image_scale_crop);
-
-    $wpc_thumb_scale_crop = array('option_name' => 'wpc_thumb_scale_crop');
-    $thumb_scale_crop = array('option_name' => 'thumb_scale_crop');
-    $wpdb->update($wpc_prefix."options", $wpc_thumb_scale_crop, $thumb_scale_crop);
-
-    $wpc_croping = array('option_name' => 'wpc_croping');
-    $croping = array('option_name' => 'croping');
-    $wpdb->update($wpc_prefix."options", $wpc_croping, $croping);
-
-    $wpc_tcroping = array('option_name' => 'wpc_tcroping');
-    $tcroping = array('option_name' => 'tcroping');
-    $wpdb->update($wpc_prefix."options", $wpc_tcroping, $tcroping);
+    $wpc_thumb_height = array('option_name' => 'wpc_thumb_height');
+    $thumb_height = array('option_name' => 'thumb_height');
+    $wpdb->update($wpc_prefix."options", $wpc_thumb_height, $thumb_height);
 
     $wpc_next_prev = array('option_name' => 'wpc_next_prev');
     $next_prev = array('option_name' => 'next_prev');
@@ -163,6 +147,87 @@ function customtaxorder_init($wpc_networkwide) {
     } 
 }
 register_activation_hook(__FILE__, 'customtaxorder_init');
+
+function wpc_big_resize_img() {	
+	global $wpdb;	
+	$big_img_qry = $wpdb->get_results("Select * From ".$wpdb->postmeta." Where meta_key Like '%wpc_big_images%'");
+	if(!$big_img_qry) {
+		$wpc_product_images_sql =  "Select wpc_posts.ID, wpc_meta.*
+									From ".$wpdb->posts." As wpc_posts
+									Inner Join ".$wpdb->postmeta." As wpc_meta
+									On wpc_posts.ID = wpc_meta.post_id
+									Where wpc_meta.meta_key = 'product_images'";
+		$wpc_images_qry = $wpdb->get_results($wpc_product_images_sql);
+		
+		$upload_dir = wp_upload_dir();
+		$wpc_image_width = get_option('wpc_image_width');
+		$wpc_image_height = get_option('wpc_image_height');
+		$wpc_thumb_width = get_option('wpc_thumb_width');
+		$wpc_thumb_height = get_option('wpc_thumb_height');
+		
+		foreach($wpc_images_qry as $wpc_prod_images) {
+			
+			$wpc_post_id = $wpc_prod_images->post_id;
+			$wpc_product_images = get_post_meta($wpc_post_id, 'product_images', true);
+			
+			$img_count = 0;
+			foreach ($wpc_product_images as $wpc_prod_img) {
+				
+				$img_count++;
+				
+				$big_resize_img = wp_get_image_editor( $wpc_prod_img['product_img'] );
+				if ( ! is_wp_error( $big_resize_img ) ) {
+					$product_big_img = $wpc_prod_img['product_img'];
+					
+					$product_img_explode = explode('/', $product_big_img);
+					$product_img_name = end($product_img_explode);
+					$product_img_name_explode = explode('.', $product_img_name);
+					
+					$product_img_name = $product_img_name_explode[0];
+					$product_img_ext = $product_img_name_explode[1];
+					
+					/// For Big
+					$big_crop = array( 'center', 'center' );
+					$big_resize_img->resize( $wpc_image_width, $wpc_image_height, $big_crop);
+					$big_filename = $big_resize_img->generate_filename( 'big-'.$wpc_image_width.'x'.$wpc_image_height, $upload_dir['path'], NULL );
+					$big_resize_img->save($big_filename);
+					
+					$big_img_name = $product_img_name.'-big-'.$wpc_image_width.'x'.$wpc_image_height.'.'.$product_img_ext;
+					$big_img_path[$img_count]['wpc_big_img'] = $upload_dir['url'].'/'.$big_img_name;
+				}
+				
+				$thumb_resize_img = wp_get_image_editor( $wpc_prod_img['product_img'] );
+				if ( ! is_wp_error( $thumb_resize_img ) ) {
+					$product_big_img = $wpc_prod_img['product_img'];
+					
+					$product_img_explode = explode('/', $product_big_img);
+					$product_img_name = end($product_img_explode);
+					$product_img_name_explode = explode('.', $product_img_name);
+					
+					$product_img_name = $product_img_name_explode[0];
+					$product_img_ext = $product_img_name_explode[1];
+					
+					/// For Thumbs
+					$thumb_crop = array( 'center', 'center' );
+					$thumb_resize_img->resize( $wpc_thumb_width, $wpc_thumb_height, $thumb_crop);
+					
+					$thumb_filename = $thumb_resize_img->generate_filename( 'thumb-'.$wpc_thumb_width.'x'.$wpc_thumb_height, $upload_dir['path'], NULL );
+					$thumb_resize_img->save($thumb_filename);
+					
+					$thumb_img_name = $product_img_name.'-thumb-'.$wpc_thumb_width.'x'.$wpc_thumb_height.'.'.$product_img_ext;
+					
+					$thumb_img_path[$img_count]['wpc_thumb_img'] = $upload_dir['url'].'/'.$thumb_img_name;
+				}
+			}
+			$new_big_arr = $big_img_path;
+			update_post_meta($wpc_post_id, 'wpc_big_images', $new_big_arr);
+			
+			$new_thumb_arr = $thumb_img_path;
+			update_post_meta($wpc_post_id, 'wpc_thumb_images', $new_thumb_arr);
+		}
+	}
+}
+register_activation_hook(__FILE__, 'wpc_big_resize_img');
 
 register_uninstall_hook('uninstall.php', $callback);
 
@@ -554,14 +619,10 @@ function register_catalogue_settings() {
     register_setting('baw-settings-group', 'wpc_show_title'); // show title PRO-feature
     register_setting('baw-settings-group', 'wpc_sidebar'); // on/off sidebar premium feature
     register_setting('baw-settings-group', 'wpc_show_tags');
-    register_setting('baw-settings-group', 'wpc_image_height');
     register_setting('baw-settings-group', 'wpc_image_width');
-    register_setting('baw-settings-group', 'wpc_thumb_height');
+    register_setting('baw-settings-group', 'wpc_image_height');
     register_setting('baw-settings-group', 'wpc_thumb_width');
-    register_setting('baw-settings-group', 'wpc_image_scale_crop');
-    register_setting('baw-settings-group', 'wpc_thumb_scale_crop');
-    register_setting('baw-settings-group', 'wpc_croping');
-    register_setting('baw-settings-group', 'wpc_tcroping');
+    register_setting('baw-settings-group', 'wpc_thumb_height');
     register_setting('baw-settings-group', 'wpc_next_prev');
     register_setting('baw-settings-group', 'wpc_vert_horiz');
     register_setting('baw-settings-group', 'wpc_inn_temp_head');
@@ -636,6 +697,29 @@ function mw_enqueue_color_picker($hook_suffix) {
 
 add_action('wp_head', 'wpc_head_css');
 function wpc_head_css() {
+	global $post;
+	$product_images = get_post_meta($post->ID, 'product_images', true);
+	
+	$wpc_image_width = get_option('wpc_image_width');
+	$wpc_thumb_width = get_option('wpc_thumb_width');
+	
+	foreach ($product_images as $field) {
+		$img = wp_get_image_editor( $field['product_img'] );
+	
+		if ( ! is_wp_error( $img ) ) {
+			$resize_big = $img->resize( $wpc_image_width, NULL, false );
+			if ($resize_big !== FALSE) {
+				$new_big_size = $img->get_size();
+			}
+			
+			$resize_thumb = $img->resize( $wpc_thumb_width, NULL, false );
+			if ($resize_thumb !== FALSE) {
+				$thumb_new_size = $img->get_size();
+			}
+		}
+	}
+	
+	$wpc_image_width = get_option('wpc_image_width');
 ?>
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="HandheldFriendly" content="true">
@@ -701,435 +785,444 @@ function wpc_head_css() {
             text-decoration: none !important;
         }
 		
-        /*Carousel CSS*/
-        .wpc_my_carousel {
-                padding: 0 15px;
-                position: relative;
-                display: inline-block;
-                margin-bottom: 18px;
-        }
-        .wpc_carousel ul {
-                list-style: none;
-                position: absolute;
-                left: 0;
-                top: 0;
-        }
+		/*Carousel CSS*/
+		.wpc_my_carousel {
+			padding: 0 15px;
+			position: relative;
+			display: inline-block;
+			margin-bottom: 18px;
+		}
+		.wpc_carousel ul {
+			list-style: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
 	<?php
-            $wpc_vert_horiz = get_option('wpc_vert_horiz');
+		$wpc_vert_horiz = get_option('wpc_vert_horiz');
 		
-            // For Horizental
-            if($wpc_vert_horiz == 'wpc_h') {
-                if (get_option('wpc_image_height')) {
-                    $img_height = get_option('wpc_image_height');
-		} else {
-                    $img_height = 348;
-		}
-		if (get_option('wpc_image_width')) {
-                    $img_width = get_option('wpc_image_width');
-                } else {
-                    $img_width = 490;
-		}
-                $iwpc_croping = get_option('wpc_croping');
+		// For Horizental
+        if($wpc_vert_horiz == 'wpc_h') {
 	?>
 		.layout_hort .wpc_hero_img img {
-                    height: <?php echo $img_height; ?>px;
-                    <?php
-                    if($iwpc_croping == 'image_scale_fit') {
-                        echo 'width: ' . $img_width . 'px;';
-                    }
-                    ?>
+			width: <?php echo $new_big_size['width']; ?>px;
+			border: 4px solid #DCDBDB;
 		}
 		.layout_hort .wpc_hero_img {
-                    margin-bottom: 12px;
+			margin-bottom: 12px;
 		}
 		.layout_hort .wpc_carousel {
-                    overflow:hidden;
-                    position: relative;
-                    height: <?php echo get_option('wpc_thumb_height') ?>px;
-                    margin-left: 26px;
-                    z-index: 2;
+			overflow:hidden;
+			position: relative;
+            height: 160px;
+			margin-left: 32px;
+			z-index: 2;
 		}
 		.layout_hort .wpc_carousel ul li {
-                    width: <?php echo get_option('wpc_thumb_width') + 12; ?>px;
-                    height: <?php echo get_option('wpc_thumb_height') ?>px;
-                    text-align: center;
-                    float: left;
+			width: <?php echo $thumb_new_size['width'] + 10; ?>px;
+			text-align: center;
+			float: left;
 		}
 		.layout_hort ul li img {
-                    width: <?php echo get_option('wpc_thumb_width') ?>px;
-                    height: <?php echo get_option('wpc_thumb_height') ?>px;
+			width: <?php echo $thumb_new_size['width']; ?>px;
+			border: 3px solid #DCDBDB;
 		}
 		.layout_hort .wpc_controls {
-                    position: absolute;
-                    bottom: 63px;
-                    left: 0;
-                    width: 100%;
+			position: absolute;
+			bottom: 66px;
+			left: 0;
+			width: 100%;
 		}
 		.layout_hort .prev-up {
-                    float: left;
-                    cursor: pointer;
-                    background: rgba(0, 0, 0, 0) url("<?php echo plugin_dir_url(__FILE__) ?>/includes/css/images/prev-arrow.png") no-repeat scroll center top;
-                    display: block;
-                    height: 30px;
-                    text-indent: 9000px;
-                    width: 30px;
-                    margin-left: 14px;
+			float: left;
+			cursor: pointer;
+			background: rgba(0, 0, 0, 0) url("<?php echo plugin_dir_url(__FILE__) ?>/includes/css/images/prev-arrow.png") no-repeat scroll center top;
+			display: block;
+			height: 30px;
+			text-indent: -9000px;
+			width: 30px;
+			margin-left: 14px;
 		}
 		.layout_hort .next-down {
-                    float: right;
-                    cursor: pointer;
-                    background: rgba(0, 0, 0, 0) url("<?php echo plugin_dir_url(__FILE__) ?>/includes/css/images/next-arrow.png") no-repeat scroll center top;
-                    display: block;
-                    height: 30px;
-                    text-indent: 9000px;
-                    width: 30px;
-                    margin-right: 14px;
+			float: right;
+			cursor: pointer;
+			background: rgba(0, 0, 0, 0) url("<?php echo plugin_dir_url(__FILE__) ?>/includes/css/images/next-arrow.png") no-repeat scroll center top;
+			display: block;
+			height: 30px;
+			text-indent: -9000px;
+			width: 30px;
+			margin-right: 14px;
 		}
+		
 		/* For Horizental Responsive */
 		@media screen and (min-width: 769px) and (max-width: 1024px) {
-                    .layout_hort .wpc_hero_img {
-                        height: auto !important;
-                        margin-bottom: 12px;
-                        width: 100% !important;
-                    }
-                    .layout_hort .wpc_carousel {
-                        height: 128px;
-                        margin-left: 33px;
-                        overflow: hidden;
-                        position: relative;
-                        z-index: 2;
-                    }
-                    .layout_hort .wpc_controls {
-                        bottom: 50px;
-                        left: 0;
-                        position: absolute;
-                        width: 100%;
-                    }
-                    .layout_hort .wpc_carousel ul li {
-                        float: left;
-                        height: 129px;
-                        margin-right: 0;
-                        text-align: center;
-                        width: 204px;
-                    }
-                    .layout_hort ul li img {
-                        height: auto !important;
-                        width: 200px !important;
-                    }
-                    .wpc_my_carousel {
-                        display: inline-block;
-                        margin-bottom: 18px;
-                        padding: 0;
-                        position: relative;
-                        width: 100%;
-                    }
-                    .layout_hort .prev-up {
-                        margin-left: 0;
-                    }
-                    .layout_hort .next-down {
-                       margin-right: 0;
-                    }
+.layout_hort .wpc_hero_img {
+    height: auto !important;
+    margin-bottom: 12px;
+    width: 100% !important;
+}
+.layout_hort .wpc_carousel {
+    height: 128px;
+    margin-left: 33px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.layout_hort .wpc_controls {
+    bottom: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.layout_hort .wpc_carousel ul li {
+    float: left;
+    height: 129px;
+    margin-right: 0;
+    text-align: center;
+    width: 204px;
+}
+
+.layout_hort ul li img {
+    height: auto !important;
+    width: 200px !important;
+}
+
+.wpc_my_carousel {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+.layout_hort .prev-up {
+	margin-left: 0;
+}
+.layout_hort .next-down {
+	margin-right: 0;
+}
 		}
+		
 		@media screen and (min-width: 641px) and (max-width: 768px) {
-                    .layout_hort .wpc_carousel {
-                        height: 128px;
-                        margin-left: 46px;
-                        overflow: hidden;
-                        position: relative;
-                        z-index: 2;
-                    }
-                    .layout_hort .wpc_carousel ul li {
-                        float: left;
-                        height: 129px;
-                        text-align: center;
-                        width: 204px;
-                    }
-                    .layout_hort ul li img {
-                        height: auto !important;
-                        width: 200px !important;
-                    }
-                    .layout_hort .wpc_controls {
-                        bottom: 50px;
-                        left: 0;
-                        position: absolute;
-                        width: 100%;
-                    }
+
+.layout_hort .wpc_carousel {
+    height: 128px;
+    margin-left: 46px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.layout_hort .wpc_carousel ul li {
+    float: left;
+    height: 129px;
+    text-align: center;
+    width: 204px;
+}
+
+.layout_hort ul li img {
+    height: auto !important;
+    width: 200px !important;
+}
+
+.layout_hort .wpc_controls {
+    bottom: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
 		}
+
 		@media screen and (min-width: 481px) and (max-width: 640px) {
-                    .layout_hort .wpc_hero_img {
-                        height: auto !important;
-                        margin-bottom: 12px;
-                        width: 100% !important;
-                    }
-                    .layout_hort .wpc_hero_img img {
-                        height: auto;
-                        width: 100%;
-                    }
-                    .layout_hort .wpc_carousel {
-                        height: 111px;
-                        margin-left: 33px;
-                        overflow: hidden;
-                        position: relative;
-                        z-index: 2;
-                    }
-                    .layout_hort .wpc_controls {
-                        bottom: 42px;
-                        left: 0;
-                        position: absolute;
-                        width: 100%;
-                    }
-                    .layout_hort .wpc_carousel ul li {
-                        float: left;
-                        height: 111px;
-                        text-align: center;
-                        width: 176px;
-                    }
-                    .layout_hort ul li img {
-                        height: auto !important;
-                        width: 172px !important;
-                    }
-                    .wpc_my_carousel {
-                        padding: 0;
-                        width: 419px;
-                    }
-                    .layout_hort .prev-up {
-                        margin-left: 0;
-                    }
-                    .layout_hort .next-down {
-                        margin-right: 0;
-                    }
-                }
-                @media screen and (min-width: 320px) and (max-width: 480px) {
-                    .layout_hort .wpc_hero_img {
-                        height: auto !important;
-                        margin-bottom: 12px;
-                        width: 100% !important;
-                    }
-                    .layout_hort .wpc_hero_img img {
-                        height: auto;
-                        width: 100%;
-                    }
-                    .layout_hort .wpc_carousel {
-                        height: 63px;
-                        margin-left: 35px;
-                        overflow: hidden;
-                        position: relative;
-                        z-index: 2;
-                    }
-                    .layout_hort .wpc_controls {
-                        bottom: 16px;
-                        left: 0;
-                        position: absolute;
-                        width: 100%;
-                    }
-                    .layout_hort .wpc_carousel ul li {
-                        float: left;
-                        height: 63px;
-                        text-align: center;
-                        width: 99px;
-                    }
-                    .layout_hort ul li img {
-                        height: auto !important;
-                        width: 96px !important;
-                    }
-                    .wpc_my_carousel {
-                        padding: 0;
-                        width: 270px;
-                    }
-                    .layout_hort .prev-up {
-                        margin-left: 0;
-                    }
-                    .layout_hort .next-down {
-                        margin-right: 0;
-                    }
+.layout_hort .wpc_hero_img {
+    height: auto !important;
+    margin-bottom: 12px;
+    width: 100% !important;
+}
+
+.layout_hort .wpc_hero_img img {
+    height: auto;
+    width: 100%;
+}
+.layout_hort .wpc_carousel {
+    height: 111px;
+    margin-left: 33px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.layout_hort .wpc_controls {
+    bottom: 42px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.layout_hort .wpc_carousel ul li {
+    float: left;
+    height: 111px;
+    text-align: center;
+    width: 176px;
+}
+
+.layout_hort ul li img {
+    height: auto !important;
+    width: 172px !important;
+}
+
+.wpc_my_carousel {
+    padding: 0;
+	width: 419px;
+}
+.layout_hort .prev-up {
+	margin-left: 0;
+}
+.layout_hort .next-down {
+	margin-right: 0;
+}
 		}
+		@media screen and (min-width: 320px) and (max-width: 480px) {
+.layout_hort .wpc_hero_img {
+    height: auto !important;
+    margin-bottom: 12px;
+    width: 100% !important;
+}
+
+.layout_hort .wpc_hero_img img {
+    height: auto;
+    width: 100%;
+}
+.layout_hort .wpc_carousel {
+    height: 63px;
+    margin-left: 35px;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.layout_hort .wpc_controls {
+    bottom: 16px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.layout_hort .wpc_carousel ul li {
+    float: left;
+    height: 63px;
+    text-align: center;
+    width: 99px;
+}
+
+.layout_hort ul li img {
+    height: auto !important;
+    width: 96px !important;
+}
+
+.wpc_my_carousel {
+    padding: 0;
+	width: 270px;
+}
+.layout_hort .prev-up {
+	margin-left: 0;
+}
+.layout_hort .next-down {
+	margin-right: 0;
+}
+		}
+		
 	<?php
-            // For Vertical
-            } elseif($wpc_vert_horiz == 'wpc_v') {
+		// For Vertical
+		} elseif($wpc_vert_horiz == 'wpc_v') {
 	?>
+		.wpc_my_carousel {
+			padding: 0 15px;
+			position: relative;
+			display: inline-block;
+			height: 356px;
+		}
 		.wpc_carousel ul li img {
-                    width: 152px;
+			height:	92px;
+			border: 2px solid #DCDBDB;
 		}
 		.layout_vert .wpc_hero_img {
-                    float: left;
-                    margin-right: 20px;
+			float: left;
+			margin-right: 20px;
+			width: <?php echo $new_big_size['width']; ?>px;
 		}
-            <?php
-		if (get_option('wpc_image_height')) {
-                    $img_height = get_option('wpc_image_height');
-		} else {
-                    $img_height = 348;
-		}
-		if (get_option('wpc_image_width')) {
-                    $img_width = get_option('wpc_image_width');
-                } else {
-                    $img_width = 490;
-		}
-		$iwpc_croping = get_option('wpc_croping');
-            ?>
 		.layout_vert .wpc_hero_img img {
-                    height: <?php echo $img_height; ?>px;
-                    <?php
-                    if($iwpc_croping == 'image_scale_fit') {
-                    echo 'width: ' . $img_width . 'px;';
-                    }
-                    ?>
+			border: 4px solid #DCDBDB;
 		}
 		.layout_vert .wpc_carousel {
-                    overflow:hidden;
-                    position: relative;
-                    width: 152px;
-                    margin-top: 30px;
-                    float: left;
-                    z-index: 2;
+			overflow:hidden;
+			position: relative;
+			width: 136px;
+			margin-top: 35px;
+			float: left;
+			z-index: 2;
 		}
 		.layout_vert .wpc_carousel ul li {
-                    width: 152px;
-                    height: 104px;
-                    text-align: center;
-                    float: none;
+			text-align: center;
+			float: none;
+			padding-bottom: 1px;
 		}
 		.layout_vert .wpc_controls {
-                    position: absolute;
-                    right: 80px;
-                    height: 363px;
-                    width: 30px;
-                }
+  position: absolute;
+  right: 68px;
+  height: 363px;
+  width: 30px;
+}
 		.layout_vert .prev-up {
-                    cursor: pointer;
-                    background: rgba(0, 0, 0, 0) url("http://192.168.2.2/wpc_test/wp-content/plugins/wp-catalogue-pro//includes/css/images/up-arrow.png") no-repeat scroll center top;
-                    display: block;
-                    height: 30px;
-                    text-indent: 9000px;
-                    width: 30px;
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                }
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0) url("http://192.168.2.2/wpc_test/wp-content/plugins/wp-catalogue-pro//includes/css/images/up-arrow.png") no-repeat scroll center top;
+  display: block;
+  height: 30px;
+  text-indent: -9000px;
+  width: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 		.layout_vert .next-down {
-                    float: none;
-                    cursor: pointer;
-                    background: rgba(0, 0, 0, 0) url("http://192.168.2.2/wpc_test/wp-content/plugins/wp-catalogue-pro//includes/css/images/down-arrow.png") no-repeat scroll center top;
-                    display: block;
-                    height: 30px;
-                    text-indent: 9000px;
-                    width: 30px;
-                    right: 0;
-                    position: absolute;
-                    bottom: 0;
-                }
+  float: none;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0) url("http://192.168.2.2/wpc_test/wp-content/plugins/wp-catalogue-pro//includes/css/images/down-arrow.png") no-repeat scroll center top;
+  display: block;
+  height: 30px;
+  text-indent: -9000px;
+  width: 30px;
+  right: 0;
+  position: absolute;
+  bottom: 0;
+}
 		/* For Vertical Responsive */
-                @media screen and (min-width: 769px) and (max-width: 1024px) {
-                    .wpc_my_carousel {
-                        margin-bottom: 50px;
-                    }
-                    .layout_vert .wpc_carousel {
-                        float: none;
-                        margin: 38px auto 0;
-                        overflow: hidden;
-                        position: relative;
-                        width: 152px;
-                    }
-                    .layout_vert .wpc_controls {
-                        bottom: -21px;
-                        height: 363px;
-                        left: 50%;
-                        margin-left: -15px;
-                        position: absolute;
-                        right: inherit;
-                        width: 30px;
-                    }
-                    .layout_vert .wpc_hero_img {
-                        float: none;
-                    }
-                }
-                @media screen and (min-width: 641px) and (max-width: 768px) {
-                    .layout_vert .wpc_hero_img {
-                            float: none;
-                    }
-                    .wpc_my_carousel {
-                        margin-bottom: 50px;
-                    }
-                    .layout_vert .wpc_carousel {
-                        float: none;
-                        margin: 38px auto 0;
-                        overflow: hidden;
-                        position: relative;
-                        width: 152px;
-                    }
-                    .layout_vert .wpc_controls {
-                        bottom: -21px;
-                        height: 363px;
-                        left: 50%;
-                        margin-left: -15px;
-                        position: absolute;
-                        right: inherit;
-                        width: 30px;
-                    }
-                }
-                @media screen and (min-width: 481px) and (max-width: 640px) {
-                    .layout_vert .wpc_hero_img {
-                        float: none;
-                        width: 100% !important;
-                        height: auto !important;
-                    }
-                    .layout_vert .wpc_hero_img img {
-                        width: 100%;
-                        height: auto;
-                    }
-                    .wpc_my_carousel {
-                        margin-bottom: 50px;
-                    }
-                    .layout_vert .wpc_carousel {
-                        float: none;
-                        margin: 38px auto 0;
-                        overflow: hidden;
-                        position: relative;
-                        width: 152px;
-                    }
-                    .layout_vert .wpc_controls {
-                        bottom: -21px;
-                        height: 363px;
-                        left: 50%;
-                        margin-left: -15px;
-                        position: absolute;
-                        right: inherit;
-                        width: 30px;
-                    }
-                }
-                @media screen and (min-width: 320px) and (max-width: 480px) {
-                    .layout_vert .wpc_hero_img {
-                        float: none;
-                        width: 100% !important;
-                        height: auto !important;
-                    }
-                    .layout_vert .wpc_hero_img img {
-                        width: 100%;
-                        height: auto;
-                    }
-                    .wpc_my_carousel {
-                        margin-bottom: 50px;
-                    }
-                    .layout_vert .wpc_carousel {
-                        float: none;
-                        margin: 38px auto 0;
-                        overflow: hidden;
-                        position: relative;
-                        width: 152px;
-                    }
-                    .layout_vert .wpc_controls {
-                        bottom: -21px;
-                        height: 363px;
-                        left: 50%;
-                        margin-left: -15px;
-                        position: absolute;
-                        right: inherit;
-                        width: 30px;
-                    }
+		
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+.wpc_my_carousel {
+	margin-bottom: 50px;
+}
+.layout_vert .wpc_carousel {
+    float: none;
+    margin: 38px auto 0;
+    overflow: hidden;
+    position: relative;
+    width: 152px;
+}
+
+
+.layout_vert .wpc_controls {
+    bottom: -21px;
+    height: 363px;
+    left: 50%;
+    margin-left: -15px;
+    position: absolute;
+    right: inherit;
+    width: 30px;
+}
+.layout_vert .wpc_hero_img {
+	float: none;
+}
 		}
+	
+		
+@media screen and (min-width: 641px) and (max-width: 768px) {
+.layout_vert .wpc_hero_img {
+	float: none;
+}
+.wpc_my_carousel {
+	margin-bottom: 50px;
+}
+.layout_vert .wpc_carousel {
+    float: none;
+    margin: 38px auto 0;
+    overflow: hidden;
+    position: relative;
+    width: 152px;
+}
+
+
+.layout_vert .wpc_controls {
+    bottom: -21px;
+    height: 363px;
+    left: 50%;
+    margin-left: -15px;
+    position: absolute;
+    right: inherit;
+    width: 30px;
+}
+		}
+
+@media screen and (min-width: 481px) and (max-width: 640px) {
+.layout_vert .wpc_hero_img {
+	float: none;
+	width: 100% !important;
+	height: auto !important;
+}
+.layout_vert .wpc_hero_img img {
+	width: 100%;
+	height: auto;
+}
+.wpc_my_carousel {
+	margin-bottom: 50px;
+}
+.layout_vert .wpc_carousel {
+    float: none;
+    margin: 38px auto 0;
+    overflow: hidden;
+    position: relative;
+    width: 152px;
+}
+
+
+.layout_vert .wpc_controls {
+    bottom: -21px;
+    height: 363px;
+    left: 50%;
+    margin-left: -15px;
+    position: absolute;
+    right: inherit;
+    width: 30px;
+}
+		}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+.layout_vert .wpc_hero_img {
+	float: none;
+	width: 100% !important;
+	height: auto !important;
+}
+.layout_vert .wpc_hero_img img {
+	width: 100%;
+	height: auto;
+}
+.wpc_my_carousel {
+	margin-bottom: 50px;
+}
+.layout_vert .wpc_carousel {
+    float: none;
+    margin: 38px auto 0;
+    overflow: hidden;
+    position: relative;
+    width: 152px;
+}
+
+
+.layout_vert .wpc_controls {
+    bottom: -21px;
+    height: 363px;
+    left: 50%;
+    margin-left: -15px;
+    position: absolute;
+    right: inherit;
+    width: 30px;
+}
+		}
+
+		
 	<?php
-            }
-        ?>
+		}
+    ?>
     </style>
 <?php
 }
@@ -1201,26 +1294,26 @@ function wpc_jQuery_head() {
     }
     ?>
 		
-        // wpc Carousel
-        jQuery(function () {
-            jQuery('#wpc_my_carousel').b29_carousel({
-        <?php
-            $wpc_vert_horiz = get_option('wpc_vert_horiz');
+		// wpc Carousel
+		jQuery(function () {
+			jQuery('#wpc_my_carousel').b29_carousel({
+		<?php
+			$wpc_vert_horiz = get_option('wpc_vert_horiz');
 
-            if($wpc_vert_horiz == 'wpc_h') {
-        ?>
-                layout: 'hort',
-                visible_items: 2,
-        <?php
-            } elseif($wpc_vert_horiz == 'wpc_v') {
-        ?>
-                layout: 'vert',
-                visible_items: 3,
-        <?php
-            }
-        ?>
-            });
-        });
+        	if($wpc_vert_horiz == 'wpc_h') {
+		?>
+				layout: 'hort',
+            	visible_items: 2,
+		<?php
+			} elseif($wpc_vert_horiz == 'wpc_v') {
+		?>
+				layout: 'vert',
+            	visible_items: 3,
+		<?php
+			}
+		?>
+			});
+		});
 
     </script>
 <?php
@@ -1238,7 +1331,7 @@ function wpc_the_meta() {
         echo '<ul class="wpc-the-meta">';
         foreach ($custom_field_keys as $key => $value) {
             $valuet = trim($value);
-            if ('_' == $valuet{0} || 'product_images' == $valuet || 'is_featured' == $valuet || 'wpc_product_price' == $valuet || 'jfs_subtitle' == $valuet) {
+            if ('_' == $valuet{0} || 'product_images' == $valuet || 'is_featured' == $valuet || 'wpc_product_price' == $valuet || 'jfs_subtitle' == $valuet || 'wpc_big_images' == $valuet || 'wpc_thumb_images' == $valuet) {
                 continue;
             }
             $values = array_map('trim', get_post_custom_values($valuet));
