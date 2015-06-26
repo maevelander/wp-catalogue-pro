@@ -98,7 +98,7 @@
                             </tr>
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="breadcrumbs"><?php _e('Show Tags','wpc') ?></label>
+                                    <label for="breadcrumbs"><?php _e('Tags','wpc') ?></label>
                                 </th>
                                 <td>
                                     <label><?php _e('ON','wpc'); ?>
@@ -111,29 +111,15 @@
                             </tr>
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="accordion"><?php _e('Accordion Sidebar','wpc') ?></label>
+                                    <label for="sidebar"><?php _e('Custom Fields','wpc') ?></label>
                                 </th>
                                 <td>
                                     <label><?php _e('ON','wpc'); ?>
-                                        <input type="radio" name="wpc_accordion_setting" value="yes" <?php if(get_option('wpc_accordion_setting')==yes){echo 'checked="checked"';} ?> />
+                                        <input type="radio" name="wpc_custom_fields" value="yes" <?php if(get_option('wpc_custom_fields')==yes){echo 'checked="checked"';} ?>  />
                                     </label>
                                     <label><?php _e('OFF','wpc'); ?>
-                                        <input type="radio" name="wpc_accordion_setting" value="no" <?php if(get_option('wpc_accordion_setting')==no){echo 'checked="checked"';} ?> />
+                                        <input type="radio" name="wpc_custom_fields" value="no" <?php if(get_option('wpc_custom_fields')==no){echo 'checked="checked"';} ?> />
                                     </label>
-                                </td>
-                            </tr>
-                            <tr valign="top">
-                                <th scope="row">
-                                    <label for="all products categories label"><?php _e('Main Category Heading','wpc') ?></label>
-                                </th>
-                                <td>
-                                    <input type="text" name="wpc_all_product_label" value="<?php echo get_option('wpc_all_product_label'); ?>"  style="width:100%"  />
-                                    <p style="font-size:12px; font-weight:bold;">
-                                        <?php _e('Note:','wpc'); ?>
-                                        <span style="font-style:italic;">
-                                            <?php _e('You can change main category list heading. Default is "All Products"', 'wpc'); ?>
-                                        </span>
-                                    </p>
                                 </td>
                             </tr>
                             <tr valign="top">
@@ -147,6 +133,20 @@
                                     <label><?php _e('OFF','wpc'); ?>
                                         <input type="radio" name="wpc_show_title" value="no" <?php if(get_option('wpc_show_title')!=yes){echo 'checked="checked"';} ?> />
                                     </label>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <th scope="row">
+                                    <label for="pagination"><?php _e('Show Next/Prev Links','wpc') ?> </label>
+                                </th>
+                                <td>
+                                    <input type="radio" name="wpc_next_prev" value="1" <?php if(get_option('wpc_next_prev')==1){echo 'checked="checked"';} ?> />
+                                    <?php _e('Yes','wpc'); ?>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <input type="radio" name="wpc_next_prev" value="0" <?php if(get_option('wpc_next_prev')==0){echo 'checked="checked"';} ?>/>
+                                    <?php _e('No','wpc'); ?>
+                                    <br />
+                                    <span></span>
                                 </td>
                             </tr>
                             <tr valign="top">
@@ -166,30 +166,44 @@
                             </tr>
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="sidebar"><?php _e('Custom Fields','wpc') ?></label>
+                                    <label for="accordion"><?php _e('Accordion Sidebar','wpc') ?></label>
                                 </th>
                                 <td>
                                     <label><?php _e('ON','wpc'); ?>
-                                        <input type="radio" name="wpc_custom_fields" value="yes" <?php if(get_option('wpc_custom_fields')==yes){echo 'checked="checked"';} ?>  />
+                                        <input type="radio" name="wpc_accordion_setting" value="yes" <?php if(get_option('wpc_accordion_setting')==yes){echo 'checked="checked"';} ?> />
                                     </label>
                                     <label><?php _e('OFF','wpc'); ?>
-                                        <input type="radio" name="wpc_custom_fields" value="no" <?php if(get_option('wpc_custom_fields')==no){echo 'checked="checked"';} ?> />
+                                        <input type="radio" name="wpc_accordion_setting" value="no" <?php if(get_option('wpc_accordion_setting')==no){echo 'checked="checked"';} ?> />
                                     </label>
+                                </td>
+                            </tr>
+                            <tr valign="top">
+                                <th scope="row">
+                                    <label for="all products categories label"><?php _e('All Products Alias','wpc') ?></label>
+                                </th>
+                                <td>
+                                    <input type="text" name="wpc_all_product_label" value="<?php echo get_option('wpc_all_product_label'); ?>"  style="width:100%"  />
+                                    <p style="font-size:12px; font-weight:bold;">
+                                        <?php _e('Note:','wpc'); ?>
+                                        <span style="font-style:italic;">
+                                            <?php _e('The first category title in the sidebar labeled "All Products" but you can change that here', 'wpc'); ?>
+                                        </span>
+                                    </p>
                                 </td>
                             </tr>
               <!--WPC pro version 1.0's feature closing-->
                             <tr>
                                 <th scope="row">
-                                    <label><?php _e('Gallery Image','wpc') ?></label>
+                                    <label><?php _e('Large Image','wpc') ?></label>
                                 </th>
                                 <td>
-                                    <span><?php _e('Width: ','wpc') ?></span>
-                                    &nbsp;
-                                    <input name="wpc_image_width" type="text" id="wpc_image_width" value="<?php if(get_option('wpc_image_width')){ echo get_option('wpc_image_width'); }else {echo 500;} ?>" size="10">
-                                    &nbsp;&nbsp;
                                     <span><?php _e('Height: ','wpc') ?></span>
                                     &nbsp;
                                     <input name="wpc_image_height" type="text" id="wpc_image_height" value="<?php if(get_option('wpc_image_height')){ echo get_option('wpc_image_height'); }else {echo 358;} ?>" size="10">
+                                    &nbsp;&nbsp;
+                                    <span><?php _e('Width: ','wpc') ?></span>
+                                    &nbsp;
+                                    <input name="wpc_image_width" type="text" id="wpc_image_width" value="<?php if(get_option('wpc_image_width')){ echo get_option('wpc_image_width'); }else {echo 500;} ?>" size="10">
                                 </td>
                             </tr>
                             <tr>
@@ -197,32 +211,18 @@
                                     <label><?php _e('Thumbnail','wpc') ?></label>
                                 </th>
                                 <td>
-                                    <span><?php _e('Width: ','wpc') ?></span>
-                                    &nbsp;
-                                    <input name="wpc_thumb_width" type="text" id="wpc_thumb_width" value="<?php if(get_option('wpc_thumb_width')){ echo get_option('wpc_thumb_width'); }else {echo 212;} ?>" size="10">
-                                    &nbsp;&nbsp;
                                     <span><?php _e('height: ','wpc') ?></span>
                                     &nbsp;
                                     <input name="wpc_thumb_height" type="text" id="wpc_thumb_height" value="<?php if(get_option('wpc_thumb_height')){ echo get_option('wpc_thumb_height'); }else {echo 151;} ?>" size="10">
+                                    &nbsp;&nbsp;
+                                    <span><?php _e('Width: ','wpc') ?></span>
+                                    &nbsp;
+                                    <input name="wpc_thumb_width" type="text" id="wpc_thumb_width" value="<?php if(get_option('wpc_thumb_width')){ echo get_option('wpc_thumb_width'); }else {echo 212;} ?>" size="10">
                                 </td>
                             </tr>
                             <tr valign="top">
                                 <th scope="row">
-                                    <label for="pagination"><?php _e('Show Next/Prev Links','wpc') ?> </label>
-                                </th>
-                                <td>
-                                    <input type="radio" name="wpc_next_prev" value="1" <?php if(get_option('wpc_next_prev')==1){echo 'checked="checked"';} ?> />
-                                    <?php _e('Yes','wpc'); ?>
-                                    &nbsp;&nbsp;&nbsp;
-                                    <input type="radio" name="wpc_next_prev" value="0" <?php if(get_option('wpc_next_prev')==0){echo 'checked="checked"';} ?>/>
-                                    <?php _e('No','wpc'); ?>
-                                    <br />
-                                    <span></span>
-                                </td>
-                            </tr>
-                            <tr valign="top">
-                                <th scope="row">
-                                    <label for="pagination"><?php _e('Select Slider Effect','wpc') ?></label>
+                                    <label for="pagination"><?php _e('Gallery Layout','wpc') ?></label>
                                 </th>
                                 <td>
                                     <input type="radio" name="wpc_vert_horiz" value="wpc_h" <?php if(get_option('wpc_vert_horiz')=='wpc_h'){echo 'checked="checked"';} ?> />

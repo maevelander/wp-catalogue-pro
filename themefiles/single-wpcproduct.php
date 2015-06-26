@@ -155,18 +155,18 @@ if (get_option('wpc_show_bc') == yes) {
                 }
                 while(have_posts()): the_post();
                 $wpc_thumb_images = get_post_meta($post->ID, 'wpc_thumb_images', true);
-				$wpc_thumb_width = get_option('wpc_thumb_width');
-				
-				foreach ($wpc_thumb_images as $field_resize) {
-					$resize_img = wp_get_image_editor( $field_resize['wpc_thumb_img'] );
-				
-					if ( ! is_wp_error( $resize_img ) ) {
-						$wpc_resize = $resize_img->resize( $wpc_thumb_width, NULL, false );
-						if ($wpc_resize !== FALSE) {
-							$new_size = $resize_img->get_size();
-						}
-					}
-				}
+                $wpc_thumb_width = get_option('wpc_thumb_width');
+
+                foreach ($wpc_thumb_images as $field_resize) {
+                        $resize_img = wp_get_image_editor( $field_resize['wpc_thumb_img'] );
+
+                        if ( ! is_wp_error( $resize_img ) ) {
+                                $wpc_resize = $resize_img->resize( $wpc_thumb_width, NULL, false );
+                                if ($wpc_resize !== FALSE) {
+                                        $new_size = $resize_img->get_size();
+                                }
+                        }
+                }
                 
                 $title		=	get_the_title(); 
                 $permalink	=	get_permalink(); 
@@ -176,9 +176,9 @@ if (get_option('wpc_show_bc') == yes) {
                  echo '<div class="wpc-product">';
                  echo '<div class="wpc-img" style="width:'.$new_size['width'].'px; height:'.$new_size['height'].'px; overflow:hidden"><a href="'. $permalink .'" class="wpc-product-link">';
                  foreach($wpc_thumb_images as $field ){
-					$wpc_thumb_img_path = $field['wpc_thumb_img'];
-				 }
-				 echo '<img src="'.$wpc_thumb_img_path.'" alt="" />';
+                    $wpc_thumb_img_path = $field['wpc_thumb_img'];
+                    echo '<img src="'.$wpc_thumb_img_path.'" alt="" />';
+                 }
                  echo '</a></div>';
                  echo '<p class="wpc-title"><a href="'. $permalink .'">' . $title . '</a></p>';
                  echo '</div>';
@@ -213,16 +213,16 @@ if (get_option('wpc_show_bc') == yes) {
             if (have_posts()) :
                 while (have_posts()) : the_post();
                 $wpc_thumb_images = get_post_meta($post->ID, 'wpc_thumb_images', true);
-				$wpc_big_images = get_post_meta($post->ID, 'wpc_big_images', true);
-				
-				$wpc_vert_horiz = get_option('wpc_vert_horiz');
-				
-				$wpc_vert_horiz_class = '';
-				if($wpc_vert_horiz == 'wpc_h') {
-					$wpc_vert_horiz_class = ' layout_hort';
-				} elseif($wpc_vert_horiz == 'wpc_v') {
-					$wpc_vert_horiz_class = ' layout_vert';
-				}
+                $wpc_big_images = get_post_meta($post->ID, 'wpc_big_images', true);
+
+                $wpc_vert_horiz = get_option('wpc_vert_horiz');
+
+                $wpc_vert_horiz_class = '';
+                if($wpc_vert_horiz == 'wpc_h') {
+                    $wpc_vert_horiz_class = ' layout_hort';
+                } elseif($wpc_vert_horiz == 'wpc_v') {
+                    $wpc_vert_horiz_class = ' layout_vert';
+                }
     ?>
                 <div id="wpc_my_carousel" class="wpc_my_carousel<?php echo $wpc_vert_horiz_class; ?>">
                 	<div class="wpc_hero_img">
@@ -232,16 +232,16 @@ if (get_option('wpc_show_bc') == yes) {
                     <div class="wpc_carousel">
                         <ul>
                   	<?php
-					$count = 0;
-						foreach ($wpc_thumb_images as $wpc_imgs) {
-							$count++;
-					?>
+                            $count = 0;
+                            foreach ($wpc_thumb_images as $wpc_imgs) {
+                                $count++;
+                        ?>
                             <li>
                                 <img src="<?php echo $wpc_imgs['wpc_thumb_img']; ?>" alt="" data-resize="<?php echo $wpc_big_images[$count]['wpc_big_img']; ?>" />
                             </li>
                   	<?php
-						}
-					?>
+                            }
+                        ?>
                         </ul>
                     </div>
                 </div>
