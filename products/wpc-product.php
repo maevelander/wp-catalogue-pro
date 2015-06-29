@@ -6,8 +6,8 @@ function wpt_wpcproduct_posttype() {
     register_post_type( 'wpcproduct',
         array(
             'labels' => array(
-                    'name' => __( 'WP Catalogue +' ),
-                    'singular_name' => __( 'WP Catalogue' ),
+                    'name' => __( 'WP Catalogue +', 'wpc' ),
+                    'singular_name' => __( 'WP Catalogue', 'wpc' ),
                     'add_new' => __( 'Add New Product', 'wpc' ),
                     'add_new_item' => __( 'Add New Product', 'wpc' ),
                     'edit_item' => __( 'Edit Product', 'wpc' ),
@@ -84,13 +84,41 @@ function create_wpcproduct_taxonomies(){
             ));
 } 
 
+add_action( 'init', 'wpc_custom_tags', 0 );
+function wpc_custom_tags() {
+	
+    $labels = array(
+                    'name' 		=>  __( 'WP Catalogue Tags', 'wpc' ),
+                    'singular_name' 	=>  __( 'WP Catalogue Tag', 'wpc' ),
+                    'search_items' 	=>  __( 'Search WP Catalogue Tags', 'wpc' ),
+                    'all_items' 	=>  __( 'All WP Catalogue Tags', 'wpc' ),
+                    'edit_item' 	=>  __( 'Edit WP Catalogue Tag', 'wpc' ),
+                    'update_item' 	=>  __( 'Update WP Catalogue Tag', 'wpc' ),
+                    'add_new_item' 	=>  __( 'Add New WP Catalogue Tag', 'wpc' ),
+                    'new_item_name' 	=>  __( 'New WP Catalogue Tag Name', 'wpc' ),
+                    'menu_name' 	=>  __( 'Tags', 'wpc' )
+            );
+
+    register_taxonomy( 'wpctags',
+                        array('wpcproduct'),
+                        array(
+                            'hierarchical'  =>  false,
+                            'labels'        =>  $labels,
+                            'show_ui'       =>  true,
+                            'query_var'     =>  true,
+                            'rewrite'       =>  array('slug' => 'wpctags', 'with_front' => true),
+                        )
+    );
+}
+
 add_filter( 'manage_edit-wpcproduct_columns', 'my_edit_wpcproduct_columns' ) ;
 function my_edit_wpcproduct_columns( $columns ) {
     $columns = array(
         'cb' => '<input type="checkbox" />',
-        'title' => __( 'Title' ),
-        'wpccategories' => __( '<a href="javascript:;">Category</a>' ),
-        'date' => __( 'Date' )
+        'title' => __( 'Title', "wpc" ),
+        'wpccategories' => '<a href="javascript:;">'.__("Category", "wpc").'</a>',
+        'wpc_tag' => __( 'Tags', "wpc" ),
+        'date' => __( 'Date', "wpc" )
     );
     return $columns;
 }
@@ -121,6 +149,9 @@ function my_manage_wpcproduct_columns( $column, $post_id ) {
             else{
                 _e( 'No Category' );
             }
+        break;
+        case  'wpc_tag':
+            echo get_the_term_list( $post->ID, 'wpctags' , ' ' , ', ' , '' );
         break;
             /* Just break out of the switch statement for everything else. */
             default :
@@ -174,7 +205,12 @@ function multiple_product_images($post){
                 <td><strong><?php _e('Image:','wpc'); ?></strong></td>
                 <td>
                     <p>
-                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value="<?php if ($field['product_img'] != '') echo esc_attr( $field['product_img'] ); else echo ''; ?>"><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="Upload">
+                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value="<?php if ($field['product_img'] != '') echo esc_attr( $field['product_img'] ); else echo ''; ?>">
+                        <input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc'); ?>">
+                    </p>
+                    <p>
+                    	Please Upload Images <?php echo get_option('wpc_image_width'); ?> x <?php echo get_option('wpc_image_height'); ?>
+                        Dimension or above
                     </p>		
                 </td>
             </tr>
@@ -195,8 +231,12 @@ function multiple_product_images($post){
                 <td><strong><?php _e('Image:','wpc'); ?></strong></td>
                 <td>
                    <p>
-                       <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="Upload">
+                       <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc'); ?>">
                    </p>
+                   <p>
+                    	Please Upload Images <?php echo get_option('wpc_image_width'); ?> x <?php echo get_option('wpc_image_height'); ?>
+                        Dimension or above
+                    </p>
                 </td>
             </tr>
         </table>
@@ -206,7 +246,11 @@ function multiple_product_images($post){
                 <td><strong><?php _e('Image:','wpc'); ?></strong></td>
                 <td>
                     <p>
-                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="Upload">
+                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc') ?>">
+                    </p>
+                    <p>
+                    	Please Upload Images <?php echo get_option('wpc_image_width'); ?> x <?php echo get_option('wpc_image_height'); ?>
+                        Dimension or above
                     </p>
                 </td>
             </tr>
@@ -222,6 +266,7 @@ function multiple_product_images($post){
 <?php
 }
 
+// Save Images
 add_action('save_post', 'save_multiple_images');
 function save_multiple_images() {
     global $post;
@@ -236,7 +281,7 @@ function save_multiple_images() {
         if(($product_img[$i] != '')){
             $product_images_new[$i]['product_img'] = stripslashes( $product_img[$i] ); 
             // and however you want to sanitize
-	}
+		}
     }
  
     if(!empty($product_images_new) && $product_images_new != $product_images_old){
@@ -246,6 +291,87 @@ function save_multiple_images() {
     }
 }
 
+// Crop for big image and Save Images
+add_action('save_post', 'wpc_big_images');
+function wpc_big_images(){
+	global $post;
+
+	$upload_dir = wp_upload_dir();
+	$wpc_image_width = get_option('wpc_image_width');
+	$wpc_image_height = get_option('wpc_image_height');
+	$wpc_resize_images = get_post_meta($post->ID, 'product_images', true);
+	
+	$img_count = 0;
+	foreach ($wpc_resize_images as $wpc_prod_img) {
+		$img_count++;
+		
+		$resize_img = wp_get_image_editor( $wpc_prod_img['product_img'] );
+		if ( ! is_wp_error( $resize_img ) ) {
+			
+			// Explode Images Name and Ext
+			$product_img = $wpc_prod_img['product_img'];
+
+			$product_img_explode = explode('/', $product_img);
+			$product_img_name = end($product_img_explode);
+			$product_img_name_explode = explode('.', $product_img_name);
+			
+			$product_img_name = $product_img_name_explode[0];
+			$product_img_ext = $product_img_name_explode[1];
+			
+			$crop = array( 'center', 'center' );
+			$resize_img->resize( $wpc_image_width, $wpc_image_height, $crop);
+			
+			$big_filename = $resize_img->generate_filename( 'big-'.$wpc_image_width.'x'.$wpc_image_height, $upload_dir['path'], NULL );
+			$resize_img->save($big_filename);
+			
+			$big_img_name = $product_img_name.'-big-'.$wpc_image_width.'x'.$wpc_image_height.'.'.$product_img_ext;
+			$big_img_path[$img_count]['wpc_big_img'] = $upload_dir['url'].'/'.$big_img_name;
+		}
+	}
+	update_post_meta($post->ID, 'wpc_big_images', $big_img_path);
+}
+
+// Save Resize Thumb Images
+add_action('save_post', 'wpc_thumb_images');
+function wpc_thumb_images(){
+	global $post;
+
+	$upload_dir = wp_upload_dir();
+	$wpc_thumb_width = get_option('wpc_thumb_width');
+	$wpc_thumb_height = get_option('wpc_thumb_height');
+	$wpc_resize_images = get_post_meta($post->ID, 'product_images', true);
+	
+	$img_count = 0;
+	foreach ($wpc_resize_images as $wpc_prod_img) {
+		$img_count++;
+		
+		$resize_img = wp_get_image_editor( $wpc_prod_img['product_img'] );
+		if ( ! is_wp_error( $resize_img ) ) {
+			
+			// Explode Images Name and Ext
+			$product_img = $wpc_prod_img['product_img'];
+
+			$product_img_explode = explode('/', $product_img);
+			$product_img_name = end($product_img_explode);
+			$product_img_name_explode = explode('.', $product_img_name);
+			
+			$product_img_name = $product_img_name_explode[0];
+			$product_img_ext = $product_img_name_explode[1];
+			
+			$crop = array( 'center', 'center' );
+			$resize_img->resize( $wpc_thumb_width, $wpc_thumb_height, $crop);
+			
+			$thumb_filename = $resize_img->generate_filename( 'thumb-'.$wpc_thumb_width.'x'.$wpc_thumb_height, $upload_dir['path'], NULL );
+			$resize_img->save($thumb_filename);
+			
+			$thumb_img_name = $product_img_name.'-thumb-'.$wpc_thumb_width.'x'.$wpc_thumb_height.'.'.$product_img_ext;
+			$thumb_img_path[$img_count]['wpc_thumb_img'] = $upload_dir['url'].'/'.$thumb_img_name;
+		}
+	}
+	update_post_meta($post->ID, 'wpc_thumb_images', $thumb_img_path);
+}
+
+// WPC Price Meta Box
 add_action('add_meta_boxes', 'create_wpc_meta_box_price');
 function create_wpc_meta_box_price($post) {
     $wpc_product_price = get_post_meta($post->ID, 'wpc_product_price', true);

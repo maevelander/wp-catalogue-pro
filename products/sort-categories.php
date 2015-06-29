@@ -80,7 +80,7 @@ $count	=	count($terms);
         <?php _e("There doesn't seem to be any {$label} yet. Click below to add one.", WPC_ORDER); ?>
     </p>
     <p>
-        <a href="<?php echo admin_url("post-new.php?post_type={$post_type}"); ?>" class="button-primary"><?php _e("Add {$post_type_object->labels->singular_name}", WPC_ORDER); ?></a>
+        <a href="<?php echo admin_url("post-new.php?post_type={$post_type}"); ?>" class="button-primary"><?php _e(__("Add", 'wpc')." {$post_type_object->labels->singular_name}", WPC_ORDER); ?></a>
     </p>
     <?php endif; ?>
 

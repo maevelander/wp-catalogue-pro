@@ -185,20 +185,7 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 						<div id="wpc-col-2">
 						<div id="wpc-products">';
 				while($featuredproducts->have_posts()): $featuredproducts->the_post();
-					$wpc_thumb_images = get_post_meta($post->ID, 'wpc_thumb_images', true);
-						$wpc_thumb_width = get_option('wpc_thumb_width');
-						$wpc_thumb_height = get_option('wpc_thumb_height');
-					
-					foreach ($wpc_thumb_images as $field_resize) {
-						$resize_img = wp_get_image_editor( $field_resize['wpc_thumb_img'] );
-					
-						if ( ! is_wp_error( $resize_img ) ) {
-							$wpc_resize = $resize_img->resize( $wpc_thumb_width, NULL, false );
-							if ($wpc_resize !== FALSE) {
-								$new_size = $resize_img->get_size();
-							}
-						}
-					}
+					$product_images = get_post_meta($post->ID, 'product_images', true);
 				
 				$title		=	get_the_title(); 
 				$permalink	=	get_permalink(); 
@@ -208,12 +195,14 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 				 echo '<!--wpc product-->';
 				
 				 echo '<div class="wpc-product">';
-				 echo '<div class="wpc-img" style="width:'.$wpc_thumb_width.'px; height:'.$wpc_thumb_height.'px; overflow:hidden"><a href="'. $permalink .'" class="wpc-product-link">';
-				 foreach($wpc_thumb_images as $field ){
-					$wpc_thumb_img_path = $field['wpc_thumb_img'];
-				 echo '<img src="'.$wpc_thumb_img_path.'" alt="" />';
+				 echo '<div class="wpc-img" style="width:' . $twidth . 'px; height:' . $theight . 'px; overflow:hidden"><a href="'. $permalink .'" class="wpc-product-link">';
+				 foreach($product_images as $field ){
+				 echo '<img src="'.$field['product_img'].'" alt="" height="' . $theight . '" ';
 				 }
-				echo '</a></div>';
+				 if($tcropping == 'thumb_scale_fit'){
+					  echo  '" width="' .$twidth. '"'; }
+				 echo '" />';
+		echo '</a></div>';
 				 echo '<p class="wpc-title"><a href="'. $permalink .'">' . $title . '</a></p>';
 				 echo '</div>';
 				 echo '<!--/wpc-product-->';
@@ -372,6 +361,17 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 		// =============================================
 		
 		if($products->have_posts()){
+			$tcropping	=	get_option('wpc_tcroping');
+			if(get_option('wpc_thumb_height')){
+			$theight	=	get_option('wpc_thumb_height');
+			}else{
+				$theight	=	142;
+			}
+			if(get_option('wpc_thumb_width')){
+				$twidth		=	get_option('wpc_thumb_width');
+			}else{
+				$twidth		=	205;
+			}
 			$i = 1;		
 			
 			if(get_option('wpc_sidebar')==yes) {
@@ -386,21 +386,24 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 						<div id="wpc-products">';
 			}
                         while($products->have_posts()): $products->the_post();
-                        $wpc_thumb_images = get_post_meta($post->ID, 'wpc_thumb_images', true);
-						$wpc_thumb_width = get_option('wpc_thumb_width');
-						$wpc_thumb_height = get_option('wpc_thumb_height');
-						
+                        $product_images = get_post_meta($post->ID, 'product_images', true);
+                        /*echo "<pre>";
+                            print_r($product_images);
+                        echo "</pre>";*/
+
                         $title		=	get_the_title(); 
                         $permalink	=	get_permalink(); 
                         $price		=	get_post_meta(get_the_id(),'product_price',true); 
 
                          echo '<!--wpc product-->';
                          echo '<div class="wpc-product">';
-                         echo '<div class="wpc-img" style="width:'.$wpc_thumb_width.'px; height:'.$wpc_thumb_height.'px; overflow:hidden">';
-						 echo '<a href="'. $permalink .'" class="wpc-product-link">';
-                         foreach($wpc_thumb_images as $field ){
-                         	$wpc_thumb_img_path = $field['wpc_thumb_img'];
-				echo '<img src="'.$wpc_thumb_img_path.'" alt="" />';
+                         echo '<div class="wpc-img" style="width:' . $twidth . 'px; height:' . $theight . 'px; overflow:hidden"><a href="'. $permalink .'" class="wpc-product-link">';
+                         foreach($product_images as $field ){
+                         echo '<img src="'.$field['product_img'].'" alt="" height="' . $theight . '" ';
+                         
+                         if($tcropping == 'thumb_scale_fit'){
+                                  echo  '" width="' .$twidth. '"'; }
+                         echo '" />';
                          }
                          echo '</a></div>';
                          echo '<p class="wpc-title"><a href="'. $permalink .'">' . $title . '</a></p>';

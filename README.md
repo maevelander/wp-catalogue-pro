@@ -5,6 +5,20 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.4**
+* Added option for layout selection of thumbnail reel in the single product page.
+* Added support for larger number of pagination ...
+* Added support for tags.
+* Added support for multi sites.
+* Added new function for resizing product images.
+* Added support for accordion menu with multiple levels.
+* New jQuery carousel.
+* Replace template_redirect to template_include.
+* Replace get_bloginfo() to get_site_url().
+* EDD Updater Classes and Functions issue fixed.
+* Function corrected for loading plugin text domain for translation.
+* Missing strings marked for translation. 
+
 **1.3.1**
 * Function added to get the product price in the admin area.
 
