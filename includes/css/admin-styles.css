@@ -185,3 +185,64 @@ div.wpc-headings{
     margin-bottom: 3px;
     padding: 0.6em 1em;
 }
+
+#menu-posts-wpcproduct ul.wp-submenu li:last-child {
+	display: none;
+}
+
+.wpc_image_wrap {
+	float: left;
+	border-radius: 4px;
+	background-color: #FFF;
+	width: 100%;
+	height: auto;
+	padding-bottom: 12px;
+}
+.wpc_image_body {
+	background-color: #f2f0f0;
+    float: left;
+    height: auto;
+    margin: 14px 14px 0;
+    width: 97%;
+}
+.wpc_image_body table {
+	margin-bottom: 8px;
+}
+.wpc_image_body h3 {
+	margin: 0 0 8px;
+	padding: 4px 4px;
+}
+.wpc_images {
+	border-top: 1px solid #CCC;
+	padding-top: 6px;
+	float: left;
+	width: 97%;
+	margin-left: 10px;
+	margin-bottom: 6px;
+}
+.wpc_images img {
+	width: 100px;
+	margin-right: 5px;
+	border-radius: 3px;
+}
+.wpc_img_button {
+	float: right;
+	margin: 14px 19px 0 0;
+    width: 103px;
+	height: auto;
+}
+.wpc_img_button a {
+	background: #00a0d2 none repeat scroll 0 0;
+    border-color: #0073aa;
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 10px;
+	border-radius: 3px;
+}
+.wpc_img_button a:hover {
+	background: #0091cd none repeat scroll 0 0;
+    border-color: #0073aa;
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.6) inset;
+    color: #fff;
+}

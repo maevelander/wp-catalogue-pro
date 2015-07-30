@@ -5,6 +5,9 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.4.1**
+* Resizing product images issue fixed.
+
 **1.4**
 * Added option for layout selection of thumbnail reel in the single product page.
 * Added support for larger number of pagination ...
