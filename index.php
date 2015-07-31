@@ -4,17 +4,19 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.4
+  Version: 1.4.1
   Author URI: http://www.enigmaplugins.com
  */
 
 error_reporting(0);
 
+/* ========================  Plugin Text Domain =========================== */
 add_action('init', 'wpc_plugin_load_textdomain');
 function wpc_plugin_load_textdomain() {
     load_plugin_textdomain('wpc', false, dirname(plugin_basename(__FILE__)) . '/languages');
 }
 
+/* ========================  Plugin Activation Hook =========================== */
 function customtaxorder_init($wpc_networkwide) {
     global $wpdb;
     $init_query = $wpdb->query("SHOW COLUMNS FROM $wpdb->terms LIKE 'term_order'");
@@ -144,96 +146,17 @@ function customtaxorder_init($wpc_networkwide) {
             switch_to_blog($wpc_old_blog);
             return;
         }   
-    } 
+    }
 }
 register_activation_hook(__FILE__, 'customtaxorder_init');
 
-function wpc_big_resize_img() {	
-    global $wpdb;	
-    $big_img_qry = $wpdb->get_results("Select * From ".$wpdb->postmeta." Where meta_key Like '%wpc_big_images%'");
-    if(!$big_img_qry) {
-        $wpc_product_images_sql =  "Select wpc_posts.ID, wpc_meta.*
-                                    From ".$wpdb->posts." As wpc_posts
-                                    Inner Join ".$wpdb->postmeta." As wpc_meta
-                                    On wpc_posts.ID = wpc_meta.post_id
-                                    Where wpc_meta.meta_key = 'product_images'";
-        $wpc_images_qry = $wpdb->get_results($wpc_product_images_sql);
-
-        $upload_dir = wp_upload_dir();
-        $wpc_image_width = get_option('wpc_image_width');
-        $wpc_image_height = get_option('wpc_image_height');
-        $wpc_thumb_width = get_option('wpc_thumb_width');
-        $wpc_thumb_height = get_option('wpc_thumb_height');
-
-        foreach($wpc_images_qry as $wpc_prod_images) {
-
-            $wpc_post_id = $wpc_prod_images->post_id;
-            $wpc_product_images = get_post_meta($wpc_post_id, 'product_images', true);
-
-            $img_count = 0;
-            foreach ($wpc_product_images as $wpc_prod_img) {
-
-                $img_count++;
-
-                /// For Big
-                $big_resize_img = wp_get_image_editor( $wpc_prod_img['product_img'] );
-                if ( ! is_wp_error( $big_resize_img ) ) {
-                    $product_big_img = $wpc_prod_img['product_img'];
-
-                    $product_img_explode = explode('/', $product_big_img);
-                    $product_img_name = end($product_img_explode);
-                    $product_img_name_explode = explode('.', $product_img_name);
-
-                    $product_img_name = $product_img_name_explode[0];
-                    $product_img_ext = $product_img_name_explode[1];
-
-                    $big_crop = array( 'center', 'center' );
-                    $big_resize_img->resize( $wpc_image_width, $wpc_image_height, $big_crop);
-                    $big_filename = $big_resize_img->generate_filename( 'big-'.$wpc_image_width.'x'.$wpc_image_height, $upload_dir['path'], NULL );
-                    $big_resize_img->save($big_filename);
-
-                    $big_img_name = $product_img_name.'-big-'.$wpc_image_width.'x'.$wpc_image_height.'.'.$product_img_ext;
-                    $big_img_path[$img_count]['wpc_big_img'] = $upload_dir['url'].'/'.$big_img_name;
-                }
-
-                /// For Thumbs
-                $thumb_resize_img = wp_get_image_editor( $wpc_prod_img['product_img'] );
-                if ( ! is_wp_error( $thumb_resize_img ) ) {
-                    $product_big_img = $wpc_prod_img['product_img'];
-
-                    $product_img_explode = explode('/', $product_big_img);
-                    $product_img_name = end($product_img_explode);
-                    $product_img_name_explode = explode('.', $product_img_name);
-
-                    $product_img_name = $product_img_name_explode[0];
-                    $product_img_ext = $product_img_name_explode[1];
-
-                    $thumb_crop = array( 'center', 'center' );
-                    $thumb_resize_img->resize( $wpc_thumb_width, $wpc_thumb_height, $thumb_crop);
-
-                    $thumb_filename = $thumb_resize_img->generate_filename( 'thumb-'.$wpc_thumb_width.'x'.$wpc_thumb_height, $upload_dir['path'], NULL );
-                    $thumb_resize_img->save($thumb_filename);
-
-                    $thumb_img_name = $product_img_name.'-thumb-'.$wpc_thumb_width.'x'.$wpc_thumb_height.'.'.$product_img_ext;
-
-                    $thumb_img_path[$img_count]['wpc_thumb_img'] = $upload_dir['url'].'/'.$thumb_img_name;
-                }
-            }
-            $new_big_arr = $big_img_path;
-            update_post_meta($wpc_post_id, 'wpc_big_images', $new_big_arr);
-
-            $new_thumb_arr = $thumb_img_path;
-            update_post_meta($wpc_post_id, 'wpc_thumb_images', $new_thumb_arr);
-        }
-    }
-}
-register_activation_hook(__FILE__, 'wpc_big_resize_img');
-
+/* ========================  Plugin Uninstall Hook =========================== */
 register_uninstall_hook('uninstall.php', $callback);
 
 require 'wpc-catalogue.php';
 require 'products/wpc-product.php';
 
+/* ========================  Define Values =========================== */
 define('WP_CATALOGUE', plugin_dir_url(__FILE__));
 define('WP_CATALOGUE_PRODUCTS', WP_CATALOGUE . 'products');
 define('WP_CATALOGUE_INCLUDES', WP_CATALOGUE . 'includes');
@@ -243,6 +166,19 @@ define('WP_CATALOGUE_JS', WP_CATALOGUE_INCLUDES . '/js');
 define('WPC_SCRIPT', 'WPC_SCRIPT');
 define('WPC_STYLE', 'WPC_STYLE');
 define('WPCACHEHOME', WP_CATALOGUE);
+
+/* ======================== Redirect to Resize Images Page after Activate Plugin (For Old Users) =========================== */
+add_action('activated_plugin', 'wpc_redirct_plugin');
+function wpc_redirct_plugin() {
+	global $wpdb;
+	
+	$wpc_new_plugin_qry = $wpdb->get_results("SELECT * From ".$wpdb->options." Where option_name = 'wpc_all_product_label'");
+	
+	if(($wpc_new_plugin_qry)) {
+		wp_redirect(site_url()."/wp-admin/edit.php?post_type=wpcproduct&page=image_resize");
+		exit;
+	}
+}
 
 // licensing
 // adding scripts and styles to admin
@@ -292,6 +228,7 @@ function wp_catalogue_menu() {
     add_submenu_page('edit.php?post_type=wpcproduct', 'Order', __('Order', 'wpc'), 'manage_options', 'customtaxorder', 'customtaxorder', 2);
     add_submenu_page('edit.php?post_type=wpcproduct', 'Settings', __('Settings', 'wpc'), 'manage_options', 'catalogue_settings', 'wp_catalogue_settings');
     add_submenu_page('edit.php?post_type=wpcproduct', 'Plugin License', __('Activate License', 'wpc'), 'manage_options', 'wpc-license', 'wpc_pro_license_page');
+	add_submenu_page('edit.php?post_type=wpcproduct', '', '', 'manage_options', 'image_resize', 'wpc_image_resize');
 }
 
 // this is the URL our updater / license checker pings. This should be the URL of the site with EDD installed
@@ -313,7 +250,7 @@ function wpc_plugin_updater() {
 
     // setup the updater
     $edd_updater = new EDD_SL_Plugin_Updater( WPC_PRO_STORE_URL, __FILE__, array(
-                    'version' 	=> '1.4', 				// current version number
+                    'version' 	=> '1.4.1', 				// current version number
                     'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
                     'item_name' => WPC_PRO_ITEM_NAME, 	// name of this plugin
                     'author' 	=> 'Enigma Plugins'  // author of this plugin
@@ -639,6 +576,10 @@ function wp_catalogue_settings() {
     require 'settings.php';
 }
 
+function wpc_image_resize() {
+    require 'image_resize.php';
+}
+
 require 'products/order.php';
 
 // Redirect file templates
@@ -684,14 +625,11 @@ function style_current_cat_single_post($val) {
 }
 
 /* ========================  pick color through Iris =========================== */
-
 add_action('admin_enqueue_scripts', 'mw_enqueue_color_picker');
 function mw_enqueue_color_picker($hook_suffix) {
     wp_enqueue_style('wp-color-picker');
     wp_enqueue_script('my-script-handle', plugins_url('my-script.js', __FILE__), array('wp-color-picker'), false, true);
 }
-
-/* ========================  Multicolor =========================== */
 
 /* ========================  Take User Defined color =========================== */
 
@@ -1301,3 +1239,32 @@ function wpc_responsive_menu() {
 <?php
 }
 add_action('wp_head', 'wpc_responsive_menu');
+
+/* ========================  Redirect Page After Complete Resized Images =========================== */
+add_action('admin_head', 'wpc_after_redirect');
+function wpc_after_redirect() {
+	global $wpdb;
+	
+	$wpc_per_limit = 15;
+			
+	$wpc_first_sql = $wpdb->get_results("SELECT ID, post_title
+										 FROM wp_posts
+										 WHERE post_type = 'wpcproduct'
+										 And post_status = 'publish'");
+	$wpc_prod_total = count($wpc_first_sql);
+	
+	$wpc_prod_total = ceil($wpc_prod_total / $wpc_per_limit);
+	
+	if (isset($_GET["products"])) {
+		$products = $_GET["products"];
+	} else {
+		$products = 1;
+	}
+	
+	if($products > $wpc_prod_total) {
+?>
+	<meta http-equiv="refresh" content="6; URL=<?php echo site_url() ?>/wp-admin/edit.php?post_type=wpcproduct&page=catalogue_settings">
+<?php
+	}
+}
+?>
