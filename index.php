@@ -181,7 +181,7 @@ function wpc_redirct_plugin() {
 }
 
 // licensing
-// adding scripts and styles to amdin
+// adding scripts and styles to admin
 add_action('admin_enqueue_scripts', 'wp_catalogue_scripts_method');
 function wp_catalogue_scripts_method() {
     global $current_screen;

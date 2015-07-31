@@ -19,11 +19,10 @@
         echo "<div class='updated'>
                 <p>
                     <em><strong>".__('Notice:','wpc')."</strong></em>
-                    ".__('This is an upgrade from an older version of WPC Pro and we have detected','wpc')."
+                    ".__('Thank you for upgrading WP Catalogue Pro. We have detected','wpc')."
                     { <strong>".$wpc_count_products."</strong> }
-                    ".__('products. As of version 1.4.1 we have added a new resizing functionality 
-                    and it would require to resize all of your images please proceed to start resizing your images by RESIZE IMAGES button. 
-                    Please be aware that this will take some time depending upon the volume of your product images.','wpc')."
+                    ".__('products which need to be resized. To proceed please click the RESIZE IMAGES button. 
+                    If you have a large number of product images this could take a while.','wpc')."
                 </p>
               </div>";
     ?>
@@ -139,7 +138,7 @@
 
             if($products > $wpc_prod_total) {
                 echo "<div style='float: left; color: #82d302; font-size: 18px; font-weight: bold; margin: 12px;'>
-                        ".__('Congratulations, Your all Product Images Resized Successfully.','wpc')."
+                        ".__('Congratulations, all Product Images Resized Successfully.','wpc')."
                       </div>";
                 $wpc_button_style = "style='display: none;'";
         ?>

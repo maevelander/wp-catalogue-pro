@@ -7,6 +7,8 @@ Changelog
 
 **1.4.1**
 * Resizing product images issue fixed.
+* Added new French translation
+* Updated default translation file
 
 **1.4**
 * Added option for layout selection of thumbnail reel in the single product page.
