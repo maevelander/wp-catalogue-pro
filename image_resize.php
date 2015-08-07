@@ -6,30 +6,10 @@
         $wpc_plugin_path = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     ?>
     
-    <div style="float: left; width: 100%; margin: 12px 0;">
-    <?php
-        global $wpdb;
-
-        $wpc_count_qry = $wpdb->get_results("Select ID
-                                             From ".$wpdb->posts."
-                                             Where post_type = 'wpcproduct'
-                                             And post_status = 'publish'");
-        $wpc_count_products = count($wpc_count_qry);
-
-        echo "<div class='updated'>
-                <p>
-                    <em><strong>".__('Notice:','wpc')."</strong></em>
-                    ".__('Thank you for upgrading WP Catalogue Pro. We have detected','wpc')."
-                    { <strong>".$wpc_count_products."</strong> }
-                    ".__('products which need to be resized. To proceed please click the RESIZE IMAGES button. 
-                    If you have a large number of product images this could take a while.','wpc')."
-                </p>
-              </div>";
-    ?>
-    </div>
-
     <div class="wpc_image_wrap">
     <?php
+        global $wpdb;
+    
         $wpc_resize = $_GET['action'];
         if (isset($wpc_resize)) {
             $wpc_per_limit = 15;
@@ -153,14 +133,6 @@
             <div class="wpc_img_button" <?php echo $wpc_button_style; ?>>
                 <a href="edit.php?post_type=wpcproduct&page=image_resize&action=wpc_resize&products=<?php echo $wpc_next_prod; ?>">
                     <?php _e('Next Batch','wpc'); ?>
-                </a>
-            </div>
-    <?php
-        } else {
-    ?>
-            <div class="wpc_img_button" <?php echo $wpc_button_style; ?>>
-                <a href="edit.php?post_type=wpcproduct&page=image_resize&action=wpc_resize&products=1">
-                    <?php _e('Resize Images','wpc'); ?>
                 </a>
             </div>
     <?php
