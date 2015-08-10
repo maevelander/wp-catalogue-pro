@@ -233,14 +233,14 @@ if (get_option('wpc_show_bc') == yes) {
                             <div class="wpc_carousel">
                                 <ul>
                                     <?php
-                                    $count = 0;
+                                    $count = -1;
                                     foreach ($wpc_thumb_images as $wpc_imgs) {
+                                        $count++;
                                         ?>
                                         <li>
                                             <img src="<?php echo $wpc_imgs['wpc_thumb_img']; ?>" alt="" data-resize="<?php echo $wpc_big_images[$count]['wpc_big_img']; ?>" />
                                         </li>
                                         <?php
-                                        $count++;
                                     }
                                     ?>
                                 </ul>
@@ -284,54 +284,6 @@ if (get_option('wpc_show_bc') == yes) {
                             </article>
                             <?php
                         endwhile;
-//                        global $wpdb;
-//                        $wpc_product_images_sql = "Select wpc_posts.ID, wpc_meta.*
-//                                    From " . $wpdb->posts . " As wpc_posts
-//                                Inner Join " . $wpdb->postmeta . " As wpc_meta
-//                                On wpc_posts.ID = wpc_meta.post_id
-//                                Where wpc_meta.meta_key = 'product_images'";
-//                        $wpc_images_qry = $wpdb->get_results($wpc_product_images_sql);
-//
-//                        $upload_dir = wp_upload_dir();
-//                        $wpc_image_width = get_option('wpc_image_width');
-//                        $wpc_image_height = get_option('wpc_image_height');
-//                        $wpc_thumb_width = get_option('wpc_thumb_width');
-//                        $wpc_thumb_height = get_option('wpc_thumb_height');
-//                        
-//                        
-//                        foreach ($wpc_images_qry as $wpc_prod_images) {
-//                            $wpc_post_id = $wpc_prod_images->ID;
-//                            $wpc_product_images = get_post_meta($wpc_post_id, 'product_images', true);
-//                            
-//                            echo $wpc_post_id;
-//                            
-//                            $big_img_name = array();
-//                            $thumb_img_name = array();
-//                            foreach($wpc_product_images as $img) {
-//                                $product_big_img = $img['product_img'];
-//
-//                                $product_img_explode = explode('/', $product_big_img);
-//                                $product_img_name = end($product_img_explode);
-//                                $product_img_name_explode = explode('.', $product_img_name);
-//
-//                                $product_img_name = $product_img_name_explode[0];
-//                                $product_img_ext = $product_img_name_explode[1];
-//                                
-//                                $big_img_name[]['product_big_img'] = $upload_dir['url'].'/'.$product_img_name . '-big-' . $wpc_image_width . 'x' . $wpc_image_height . '-NEW.' . $product_img_ext;
-//                                $thumb_img_name[]['product_thumb_img'] = $upload_dir['url'].'/'.$product_img_name . '-big-' . $wpc_thumb_width . 'x' . $wpc_thumb_height . '-NEW.' . $product_img_ext;
-//                               
-//                            }
-//                            echo "<div style='border:red 5px solid; margin: 0 0 30px;'><pre>";
-//                            print_r($wpc_product_images);
-//                            echo '</pre><hr>';
-//                            echo '<pre>';
-//                            print_r($big_img_name);
-//                            echo '</pre><hr>';
-//                            echo "<pre>";
-//                                print_r($thumb_img_name);
-//                            echo "</pre>";
-//                            echo '</div>';
-//                        }
                     endif;
                     ?>
             </div>

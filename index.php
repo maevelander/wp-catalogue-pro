@@ -4,7 +4,7 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.4.1
+  Version: 1.4.2
   Author URI: http://www.enigmaplugins.com
  */
 
@@ -168,16 +168,43 @@ define('WPC_STYLE', 'WPC_STYLE');
 define('WPCACHEHOME', WP_CATALOGUE);
 
 /* ======================== Redirect to Resize Images Page after Activate Plugin (For Old Users) =========================== */
-add_action('activated_plugin', 'wpc_redirct_plugin');
-function wpc_redirct_plugin() {
-	global $wpdb;
-	
-	$wpc_new_plugin_qry = $wpdb->get_results("SELECT * From ".$wpdb->options." Where option_name = 'wpc_all_product_label'");
-	
-	if(($wpc_new_plugin_qry)) {
-		wp_redirect(site_url()."/wp-admin/edit.php?post_type=wpcproduct&page=image_resize");
-		exit;
-	}
+add_action('admin_notices', 'wpc_plugin_notices');
+function wpc_plugin_notices() {
+    global $wpdb;
+
+    $wpc_new_plugin_qry = $wpdb->get_results("SELECT * From ".$wpdb->options." Where option_name = 'wpc_all_product_label'");
+
+    if($wpc_new_plugin_qry) {
+        $plugin = plugin_basename(__FILE__);
+        $wpc_plugin_path = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+
+        $wpc_plugin_qry = $wpdb->get_results("SELECT *
+                                              FROM ".$wpdb->postmeta."
+                                              WHERE meta_key
+                                              IN ('wpc_big_images', 'wpc_thumb_images')");
+
+        if ((is_plugin_active($plugin)) && (strpos($wpc_plugin_path, 'wp-admin/plugins.php')) && (!$wpc_plugin_qry)) {
+                $wpc_count_qry = $wpdb->get_results("Select ID
+                                             From ".$wpdb->posts."
+                                             Where post_type = 'wpcproduct'
+                                             And post_status = 'publish'");
+                $wpc_count_products = count($wpc_count_qry);
+
+                echo "<div class='updated'>
+                        <p>
+                            <em><strong>".__('Notice:','wpc')."</strong></em>
+                            ".__('Thank you for upgrading WP Catalogue Pro. We have detected','wpc')."
+                            { <strong>".$wpc_count_products."</strong> }
+                            ".__('products which need to be resized. To proceed please click the RESIZE IMAGES button. 
+                            If you have a large number of product images this could take a while.','wpc')."
+                        </p>
+                        
+                        <a class='wpc_update_a' href='edit.php?post_type=wpcproduct&page=image_resize&action=wpc_resize&products=1'>
+                            ".__('Resize Images','wpc')."
+                        </a>
+                      </div>";
+        }
+    }
 }
 
 // licensing
@@ -250,7 +277,7 @@ function wpc_plugin_updater() {
 
     // setup the updater
     $edd_updater = new EDD_SL_Plugin_Updater( WPC_PRO_STORE_URL, __FILE__, array(
-                    'version' 	=> '1.4.1', 				// current version number
+                    'version' 	=> '1.4.2', 				// current version number
                     'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
                     'item_name' => WPC_PRO_ITEM_NAME, 	// name of this plugin
                     'author' 	=> 'Enigma Plugins'  // author of this plugin
@@ -1239,32 +1266,4 @@ function wpc_responsive_menu() {
 <?php
 }
 add_action('wp_head', 'wpc_responsive_menu');
-
-/* ========================  Redirect Page After Complete Resized Images =========================== */
-add_action('admin_head', 'wpc_after_redirect');
-function wpc_after_redirect() {
-	global $wpdb;
-	
-	$wpc_per_limit = 15;
-			
-	$wpc_first_sql = $wpdb->get_results("SELECT ID, post_title
-										 FROM wp_posts
-										 WHERE post_type = 'wpcproduct'
-										 And post_status = 'publish'");
-	$wpc_prod_total = count($wpc_first_sql);
-	
-	$wpc_prod_total = ceil($wpc_prod_total / $wpc_per_limit);
-	
-	if (isset($_GET["products"])) {
-		$products = $_GET["products"];
-	} else {
-		$products = 1;
-	}
-	
-	if($products > $wpc_prod_total) {
-?>
-	<meta http-equiv="refresh" content="6; URL=<?php echo site_url() ?>/wp-admin/edit.php?post_type=wpcproduct&page=catalogue_settings">
-<?php
-	}
-}
 ?>

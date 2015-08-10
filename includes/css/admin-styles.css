@@ -232,16 +232,34 @@ div.wpc-headings{
 	height: auto;
 }
 .wpc_img_button a {
-	background: #00a0d2 none repeat scroll 0 0;
+    background: #00a0d2 none repeat scroll 0 0;
     border-color: #0073aa;
     box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
     color: #fff;
     text-decoration: none;
     padding: 6px 10px;
-	border-radius: 3px;
+    border-radius: 3px;
 }
 .wpc_img_button a:hover {
-	background: #0091cd none repeat scroll 0 0;
+    background: #0091cd none repeat scroll 0 0;
+    border-color: #0073aa;
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.6) inset;
+    color: #fff;
+}
+.update a.wpc_update_a {
+    display: inline-block;
+    background: #00a0d2 none repeat scroll 0 0;
+    border-color: #0073aa;
+    box-shadow: 0 1px 0 rgba(120, 200, 230, 0.5) inset, 0 1px 0 rgba(0, 0, 0, 0.15);
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+.update a.wpc_update_a:hover {
+    background: #0091cd none repeat scroll 0 0;
     border-color: #0073aa;
     box-shadow: 0 1px 0 rgba(120, 200, 230, 0.6) inset;
     color: #fff;

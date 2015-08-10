@@ -5,10 +5,13 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.4.2**
+* Refresh issue fixed.
+* Redirect to plugin page after plugin activated issue fixed.
+* First image not showing issue fixed.
+
 **1.4.1**
 * Resizing product images issue fixed.
-* Added new French translation
-* Updated default translation file
 
 **1.4**
 * Added option for layout selection of thumbnail reel in the single product page.
