@@ -4,7 +4,7 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.4.2
+  Version: 1.4.3
   Author URI: http://www.enigmaplugins.com
  */
 
@@ -167,46 +167,6 @@ define('WPC_SCRIPT', 'WPC_SCRIPT');
 define('WPC_STYLE', 'WPC_STYLE');
 define('WPCACHEHOME', WP_CATALOGUE);
 
-/* ======================== Redirect to Resize Images Page after Activate Plugin (For Old Users) =========================== */
-add_action('admin_notices', 'wpc_plugin_notices');
-function wpc_plugin_notices() {
-    global $wpdb;
-
-    $wpc_new_plugin_qry = $wpdb->get_results("SELECT * From ".$wpdb->options." Where option_name = 'wpc_all_product_label'");
-
-    if($wpc_new_plugin_qry) {
-        $plugin = plugin_basename(__FILE__);
-        $wpc_plugin_path = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-
-        $wpc_plugin_qry = $wpdb->get_results("SELECT *
-                                              FROM ".$wpdb->postmeta."
-                                              WHERE meta_key
-                                              IN ('wpc_big_images', 'wpc_thumb_images')");
-
-        if ((is_plugin_active($plugin)) && (strpos($wpc_plugin_path, 'wp-admin/plugins.php')) && (!$wpc_plugin_qry)) {
-                $wpc_count_qry = $wpdb->get_results("Select ID
-                                             From ".$wpdb->posts."
-                                             Where post_type = 'wpcproduct'
-                                             And post_status = 'publish'");
-                $wpc_count_products = count($wpc_count_qry);
-
-                echo "<div class='updated'>
-                        <p>
-                            <em><strong>".__('Notice:','wpc')."</strong></em>
-                            ".__('Thank you for upgrading WP Catalogue Pro. We have detected','wpc')."
-                            { <strong>".$wpc_count_products."</strong> }
-                            ".__('products which need to be resized. To proceed please click the RESIZE IMAGES button. 
-                            If you have a large number of product images this could take a while.','wpc')."
-                        </p>
-                        
-                        <a class='wpc_update_a' href='edit.php?post_type=wpcproduct&page=image_resize&action=wpc_resize&products=1'>
-                            ".__('Resize Images','wpc')."
-                        </a>
-                      </div>";
-        }
-    }
-}
-
 // licensing
 // adding scripts and styles to admin
 add_action('admin_enqueue_scripts', 'wp_catalogue_scripts_method');
@@ -277,7 +237,7 @@ function wpc_plugin_updater() {
 
     // setup the updater
     $edd_updater = new EDD_SL_Plugin_Updater( WPC_PRO_STORE_URL, __FILE__, array(
-                    'version' 	=> '1.4.2', 				// current version number
+                    'version' 	=> '1.4.3', 				// current version number
                     'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
                     'item_name' => WPC_PRO_ITEM_NAME, 	// name of this plugin
                     'author' 	=> 'Enigma Plugins'  // author of this plugin
@@ -739,6 +699,7 @@ function wpc_head_css() {
         position: relative;
         display: inline-block;
         margin-bottom: 18px;
+        width  : 100%;
     }
     .wpc_carousel ul {
         list-style: none;
@@ -751,7 +712,12 @@ function wpc_head_css() {
 
             // For Horizental
         if($wpc_vert_horiz == 'wpc_h') {
+            $wpc_thumb_height = get_option('wpc_thumb_height');
     ?>
+            .wpc_carousel_wrap {
+                position: relative;
+                width: <?php echo $wpc_thumb_width * 2.5; ?>px;
+            }
             .layout_hort .wpc_hero_img img {
                 width: <?php echo $wpc_image_width; ?>px;
                 border: 4px solid #DCDBDB;
@@ -762,8 +728,8 @@ function wpc_head_css() {
             .layout_hort .wpc_carousel {
                 overflow:hidden;
                 position: relative;
-                height: 160px;
-                margin-left: 32px;
+                height: <?php echo $wpc_thumb_height + 6; ?>px;
+                margin: 0 auto;
                 z-index: 2;
             }
             .layout_hort .wpc_carousel ul li {
@@ -780,6 +746,8 @@ function wpc_head_css() {
                 bottom: 66px;
                 left: 0;
                 width: 100%;
+                top: 50%;
+                margin-top: -18px;
             }
             .layout_hort .prev-up {
                 float: left;
@@ -789,7 +757,6 @@ function wpc_head_css() {
                 height: 30px;
                 text-indent: -9000px;
                 width: 30px;
-                margin-left: 14px;
             }
             .layout_hort .next-down {
                 float: right;
@@ -799,7 +766,6 @@ function wpc_head_css() {
                 height: 30px;
                 text-indent: -9000px;
                 width: 30px;
-                margin-right: 14px;
             }
             /* For Horizental Responsive */
             @media screen and (min-width: 769px) and (max-width: 1024px) {
@@ -984,7 +950,7 @@ function wpc_head_css() {
             .layout_vert .wpc_carousel {
                 overflow:hidden;
                 position: relative;
-                width: 136px;
+                width: 142px;
                 margin-top: 35px;
                 float: left;
                 z-index: 2;
@@ -996,7 +962,7 @@ function wpc_head_css() {
             }
             .layout_vert .wpc_controls {
                 position: absolute;
-                right: 68px;
+                right: 111px;
                 height: 363px;
                 width: 30px;
             }
