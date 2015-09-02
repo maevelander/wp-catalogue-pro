@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wpc-pro\n"
-"POT-Creation-Date: 2014-02-17 19:40+0200\n"
-"PO-Revision-Date: 2014-02-17 19:40+0200\n"
-"Last-Translator: George Stamate <stamate_george@yahoo.com>\n"
+"POT-Creation-Date: 2015-09-02 13:15+0800\n"
+"PO-Revision-Date: 2015-09-02 13:15+0800\n"
+"Last-Translator: Maeve Lander <support@enigmaplugins.com>\n"
 "Language-Team: Enigma Plugins <maeve@enigmaplugins.com>\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-KeywordsList: _;__;_e\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -17,11 +17,36 @@ msgstr ""
 "X-Poedit-SearchPath-2: products\n"
 "X-Poedit-SearchPath-3: themefiles\n"
 
-#: index.php:125
+#: image_resize.php:3
+msgid "WP Catalogue Pro Image Resizing"
+msgstr ""
+
+#: image_resize.php:121
+msgid "Congratulations, all Product Images Resized Successfully."
+msgstr ""
+
+#: image_resize.php:135
+msgid "Next Batch"
+msgstr ""
+
+#: index.php:215 products/order.php:122
+#, fuzzy
+msgid "Order"
+msgstr "Se ordoneaza"
+
+#: index.php:216 settings.php:13
+msgid "Settings"
+msgstr "Setari"
+
+#: index.php:217 index.php:291 index.php:304
+msgid "Activate License"
+msgstr "Activati licenta"
+
+#: index.php:262
 msgid "Plugin License Options"
 msgstr "Optiuni licentiere plugin"
 
-#: index.php:126
+#: index.php:267
 msgid ""
 "Please enter and activate your license key in order to receive automatic "
 "updates and support for this plugin"
@@ -29,51 +54,47 @@ msgstr ""
 "Va rugam sa introduceti si sa activati cheia de licentiere pentru a avea "
 "acces la actualizari automate si suport pentru acest plugin"
 
-#: index.php:135
+#: index.php:279
 msgid "License Key"
 msgstr "Cheie Licenta"
 
-#: index.php:139
+#: index.php:283
 msgid "Enter your license key"
 msgstr "Introduceti cheia de licentiere"
 
-#: index.php:145 index.php:154
-msgid "Activate License"
-msgstr "Activati licenta"
-
-#: index.php:149
+#: index.php:297
 msgid "active"
 msgstr "activati"
 
-#: index.php:151
+#: index.php:299
 msgid "Deactivate License"
 msgstr "Deactivati licenta"
 
-#: index.php:168 products/order.php:343 settings.php:135
+#: index.php:323 settings.php:292 products/order.php:345
 msgid "How to use this plugin"
 msgstr "Cum sa folositi acest plugin"
 
-#: index.php:172 products/order.php:347 settings.php:139
+#: index.php:328 settings.php:297 products/order.php:349
 msgid "You can use 3 shortcodes"
 msgstr "Puteti folosi trei coduri scurte (shortcodes)"
 
-#: index.php:176 products/order.php:351 settings.php:143
+#: index.php:332 settings.php:301 products/order.php:353
 msgid "to display complete catalogue"
 msgstr "pentru a afisa catalogul complet"
 
-#: index.php:180 products/order.php:355
+#: index.php:336 settings.php:306 products/order.php:357
 msgid "to display featured products anywhere on your blog."
 msgstr "petru a afisa produsele recomandate oriunde in blog-ul dumneavoastra"
 
-#: index.php:183 products/order.php:358
+#: index.php:340 settings.php:311 products/order.php:360
 msgid "to display products from specific category."
 msgstr "pentru a afisa produse dintr-o categorie specificata"
 
-#: index.php:189 products/order.php:364 settings.php:156
+#: index.php:347 settings.php:320 products/order.php:366
 msgid "Help Improve This Plugin!"
 msgstr "Ajutati la imbunatatirea acestui plugin!"
 
-#: index.php:193 settings.php:160
+#: index.php:352 settings.php:326
 msgid ""
 "Enjoyed this plugin? All donations are used to improve and further develop "
 "this plugin. Thanks for your contribution."
@@ -81,33 +102,236 @@ msgstr ""
 "Va place acest plugin? Toate donatiile sunt folosite pentru dezvoltarea si "
 "imbunatatirea acestui plugin. Multumim pentru contributia dumneavoastra."
 
-#: index.php:204 products/order.php:379 settings.php:171
+#: index.php:363 settings.php:341 products/order.php:381
 msgid "you can also help by"
 msgstr "de asemenea ne puteti ajuta si"
 
-#: index.php:204 products/order.php:379 settings.php:171
+#: index.php:365 settings.php:343 products/order.php:381
 msgid "rating this plugin on wordpress.org"
 msgstr "accordand o nota acestui plugin pe wordpress.org"
 
-#: index.php:210 settings.php:177
+#: index.php:372 settings.php:352 products/order.php:387
 msgid "Need Support?"
 msgstr "Aveti nevoie de suport?"
 
-#: index.php:214 settings.php:181
+#: index.php:376 settings.php:357 products/order.php:391
 msgid "Check out the"
 msgstr "Verificati"
 
-#: index.php:214 settings.php:181
+#: index.php:378 settings.php:361 products/order.php:393
 msgid "and"
 msgstr "si"
 
-#: index.php:214 settings.php:181
-msgid "Support Forums"
-msgstr "Furumul de Suport"
+#: index.php:380 settings.php:363 products/order.php:395
+#, fuzzy
+msgid "Support"
+msgstr "Aveti nevoie de suport?"
+
+#: settings.php:3
+msgid " Settings"
+msgstr " Setari"
+
+#: settings.php:8
+msgid "Settings updated successfully"
+msgstr "Setarile au fost actualizate cu succes"
+
+#: settings.php:18
+msgid ""
+"Adjust the basic presentation of your product catalogue here. It is "
+"important to set this up before you start uploading products so the plugin "
+"knows what size to generate thumbnails and product images"
+msgstr ""
+"Ajustati aici modul primar in care v-a arata catalogul de produse. Este "
+"important sa faceti aceste setari inainte de a incepe sa incarcati "
+"produsele, pentru ca plugin-ul sa stie la ce marime sa genereze miniaturile "
+"pozelor."
+
+#: settings.php:21
+msgid ""
+"You can further customise the design of your product catalogue in your theme "
+"css."
+msgstr ""
+"Mai puteti face modificari de desing ale catalogului de produse si din css-"
+"ul temei dumneavoastra."
+
+#: settings.php:32
+msgid "Grid Rows"
+msgstr "Randuri grila"
+
+#: settings.php:64
+msgid "products per row"
+msgstr "produse pe rand"
+
+#: settings.php:70
+msgid "Choose Theme Color"
+msgstr "Alegeti culoarea temei"
+
+#: settings.php:78
+msgid "Pagination"
+msgstr "Paginare"
+
+#: settings.php:97
+#, fuzzy
+msgid "products per page"
+msgstr "produse pe rand"
+
+#: settings.php:103
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+#: settings.php:106 settings.php:119 settings.php:132 settings.php:145
+#: settings.php:174 settings.php:187
+msgid "ON"
+msgstr ""
+
+#: settings.php:109 settings.php:122 settings.php:135 settings.php:148
+#: settings.php:177 settings.php:190
+msgid "OFF"
+msgstr ""
+
+#: settings.php:116 products/wpc-product.php:99 products/wpc-product.php:120
+msgid "Tags"
+msgstr ""
+
+#: settings.php:129
+msgid "Custom Fields"
+msgstr ""
+
+#: settings.php:142
+msgid "Show Product Titles"
+msgstr "Afisati titlul produselor"
+
+#: settings.php:155
+msgid "Show Next/Prev Links"
+msgstr "Afisati link-urile Urmator/Anterior"
+
+#: settings.php:159
+msgid "Yes"
+msgstr ""
+
+#: settings.php:162
+msgid "No"
+msgstr ""
+
+#: settings.php:170
+msgid "Sidebar"
+msgstr "Bara laterala"
+
+#: settings.php:184
+msgid "Accordion Sidebar"
+msgstr ""
+
+#: settings.php:197
+msgid "All Products Alias"
+msgstr ""
+
+#: settings.php:202
+msgid "Note:"
+msgstr ""
+
+#: settings.php:204
+msgid ""
+"The first category title in the sidebar labeled \"All Products\" but you can "
+"change that here"
+msgstr ""
+
+#: settings.php:212
+#, fuzzy
+msgid "Large Image"
+msgstr "Galerie imagini"
+
+#: settings.php:215
+#, fuzzy
+msgid "Height: "
+msgstr "Inaltime"
+
+#: settings.php:219 settings.php:233
+#, fuzzy
+msgid "Width: "
+msgstr "Latime"
+
+#: settings.php:226
+msgid "Thumbnail"
+msgstr "Miniatura"
+
+#: settings.php:229
+#, fuzzy
+msgid "height: "
+msgstr "Inaltime"
+
+#: settings.php:240
+#, fuzzy
+msgid "Gallery Layout"
+msgstr "Galerie imagini"
+
+#: settings.php:244
+msgid "Horizontal"
+msgstr ""
+
+#: settings.php:247
+msgid "Vertical"
+msgstr ""
+
+#: settings.php:254
+msgid "Inner Template Header"
+msgstr "Format antet interior"
+
+#: settings.php:259
+msgid ""
+"Use this area to add your theme layout divs if you are having problems with "
+"inner pages of the catalogue."
+msgstr ""
+"Utilizati aceasta zona pentru a adauga div-urile specifice temei "
+"dumneavoastra, daca aveti probleme cu paginile interioare ale catalogului."
+
+#: settings.php:265
+msgid "Inner Template Footer"
+msgstr "Format subsol interior"
+
+#: settings.php:270
+msgid "Use this area to close the open divs after the WP Catalogue."
+msgstr ""
+"Folositi aceasta zona ca sa inchideti div-urile deschise dupa WP Catalogue."
+
+#: settings.php:278
+msgid "Save Changes"
+msgstr ""
+
+#: settings.php:359 products/order.php:392
+msgid "FAQs for Documentation"
+msgstr ""
+
+#: wpc_plugin_updater.php:176
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+
+#: wpc_plugin_updater.php:183
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+
+#: wpc_plugin_updater.php:323
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: wpc_plugin_updater.php:323
+msgid "Error"
+msgstr ""
 
 #: products/order.php:38
 msgid "Custom Taxonomy Order settings "
 msgstr "Setari personalizate odonare taxonomie"
+
+#: products/order.php:126
+#, fuzzy
+msgid "Order Categories"
+msgstr "Cautare Categorii"
 
 #: products/order.php:129
 msgid ""
@@ -116,21 +340,26 @@ msgstr ""
 "Trageti si eliberati obiectele pentru a personaliza ordinea categoriilor in "
 "WP Catalogue"
 
-#: products/order.php:156
+#: products/order.php:171
 msgid "Save Order"
 msgstr "Salvati ordonarea"
 
-#: products/order.php:162
+#: products/order.php:178
 msgid "No terms found"
 msgstr "Nu s-au gasit termeni"
 
-#: products/order.php:305
+#: products/order.php:304
+#, fuzzy
+msgid "Order Products"
+msgstr "Editare Produs"
+
+#: products/order.php:307
 msgid "Drag and drop items to customise the order of products in WP Catalogue"
 msgstr ""
 "Trageti si eliberati obiectele pentru a personaliza ordinea produselor in WP "
 "Catalogue"
 
-#: products/order.php:368
+#: products/order.php:370
 msgid ""
 "Enjoyed this plugin? All donations are used to improve and further develop "
 "this plugin. Thanks for your contributaion."
@@ -138,15 +367,11 @@ msgstr ""
 "Va place acest plugin? Toate donatiile sunt folosite pentru dezvoltarea si "
 "imbunatatirea acestui plugin. Multumim pentru contributia dumneavoastra."
 
-#: products/order.php:389
-msgid "If you are having problems with plugin please talk about them on "
-msgstr "Daca aveti probleme cu acest plugin va rugam sa vorbiti despre ele pe"
-
-#: products/order.php:419
+#: products/order.php:426 products/order.php:453
 msgid "Order updated successfully."
 msgstr "Ordonarea s-a salvat cu succes."
 
-#: products/order.php:423
+#: products/order.php:430 products/order.php:457
 msgid "An error occured, order has not been saved."
 msgstr "Am intampinat o eroare, ordonarea nu a fost salvata."
 
@@ -157,6 +382,10 @@ msgstr "Se ordoneaza"
 #: products/sort-categories.php:54 products/sort-products.php:53
 msgid "Drag and drop items to set the custom order."
 msgstr "Trageti si eliberati pentru a seta o odonare personalizata."
+
+#: products/sort-categories.php:83
+msgid "Add"
+msgstr ""
 
 #: products/wpc-product.php:9
 msgid "WP Catalogue +"
@@ -191,174 +420,147 @@ msgstr "Nu s-a gasit"
 msgid "No Product found in trash"
 msgstr "Nu s-a gasit in gunoi"
 
-#: products/wpc-product.php:136
+#: products/wpc-product.php:67
 msgid "Search Categories"
 msgstr "Cautare Categorii"
 
-#: products/wpc-product.php:137
+#: products/wpc-product.php:68
 msgid "All Categories"
 msgstr "Toate Categoriile"
 
-#: products/wpc-product.php:138
+#: products/wpc-product.php:69
 msgid "Parent Categories"
 msgstr "Categorii Parinte"
 
-#: products/wpc-product.php:139
+#: products/wpc-product.php:70
 msgid "Parent Categories:"
 msgstr "Categorii Parinte:"
 
-#: products/wpc-product.php:140
+#: products/wpc-product.php:71
 msgid "Edit Categories"
 msgstr "Editare Categorii"
 
-#: products/wpc-product.php:141
+#: products/wpc-product.php:72
 msgid "Update Categories"
 msgstr "Actualizare Categorii"
 
-#: products/wpc-product.php:142
+#: products/wpc-product.php:73
 msgid "Add New Categories"
 msgstr "Adauga Categorii Noi"
 
-#: products/wpc-product.php:143
+#: products/wpc-product.php:74
 msgid "New Categories Name"
 msgstr "Nume Categorii Noi"
 
-#: products/wpc-product.php:144
+#: products/wpc-product.php:75
 msgid "Categories"
 msgstr "Categorii"
 
-#: products/wpc-product.php:159
+#: products/wpc-product.php:91
+#, fuzzy
+msgid "WP Catalogue Tags"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:92
+#, fuzzy
+msgid "WP Catalogue Tag"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:93
+#, fuzzy
+msgid "Search WP Catalogue Tags"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:94
+#, fuzzy
+msgid "All WP Catalogue Tags"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:95
+#, fuzzy
+msgid "Edit WP Catalogue Tag"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:96
+#, fuzzy
+msgid "Update WP Catalogue Tag"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:97
+#, fuzzy
+msgid "Add New WP Catalogue Tag"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:98
+#, fuzzy
+msgid "New WP Catalogue Tag Name"
+msgstr "WP Catalogue +"
+
+#: products/wpc-product.php:118
 msgid "Title"
 msgstr "Titlu"
 
-#: products/wpc-product.php:160
-msgid "<a href=\"javascript:;\">Category</a>"
-msgstr "<a href=\"javascript:;\">Categorie</a>"
+#: products/wpc-product.php:119
+#, fuzzy
+msgid "Category"
+msgstr "Fara Categorie"
 
-#: products/wpc-product.php:161
+#: products/wpc-product.php:121
 msgid "Date"
 msgstr "Data"
 
-#: products/wpc-product.php:192
+#: products/wpc-product.php:150
 msgid "No Category"
 msgstr "Fara Categorie"
 
-#: settings.php:4
-msgid " Settings"
-msgstr " Setari"
-
-#: settings.php:7
-msgid "Settings updated successfully"
-msgstr "Setarile au fost actualizate cu succes"
-
-#: settings.php:11
-msgid "Settings"
-msgstr "Setari"
-
-#: settings.php:14
-msgid ""
-"Adjust the basic presentation of your product catalogue here. It is "
-"important to set this up before you start uploading products so the plugin "
-"knows what size to generate thumbnails and product images"
+#: products/wpc-product.php:205 products/wpc-product.php:231
+#: products/wpc-product.php:246
+msgid "Image:"
 msgstr ""
-"Ajustati aici modul primar in care v-a arata catalogul de produse. Este "
-"important sa faceti aceste setari inainte de a incepe sa incarcati "
-"produsele, pentru ca plugin-ul sa stie la ce marime sa genereze miniaturile "
-"pozelor."
 
-#: settings.php:15
-msgid ""
-"You can further customise the design of your product catalogue in your theme "
-"css."
+#: products/wpc-product.php:209 products/wpc-product.php:234
+#: products/wpc-product.php:249
+msgid "Upload"
 msgstr ""
-"Mai puteti face modificari de desing ale catalogului de produse si din css-"
-"ul temei dumneavoastra."
 
-#: settings.php:21
-msgid "Grid Rows"
-msgstr "Randuri grila"
+#: products/wpc-product.php:220 products/wpc-product.php:260
+msgid "Remove"
+msgstr ""
 
-#: settings.php:33
-msgid "products per row"
-msgstr "produse pe rand"
+#: products/wpc-product.php:265
+msgid "Add Another Image"
+msgstr ""
 
-#: settings.php:38
-msgid "Choose Theme Color"
-msgstr "Alegeti culoarea temei"
-
-#: settings.php:42
-msgid "Pagination"
-msgstr "Paginare"
-
-#: settings.php:44
-msgid "products per page (use 0 for unlimited)"
-msgstr "produse pe pagina (folositi 0 pentru nelimitat)"
-
-#: settings.php:49
-msgid "Breadcrumbs"
-msgstr "Breadcrumbs"
-
-#: settings.php:60
-msgid "Show Product Titles"
+#: themefiles/single-wpcproduct.php:274
+#, fuzzy
+msgid "Product Details"
 msgstr "Afisati titlul produselor"
 
-#: settings.php:71
-msgid "Sidebar"
-msgstr "Bara laterala"
-
-#: settings.php:82
-msgid "Gallery Image"
-msgstr "Galerie imagini"
-
-#: settings.php:84 settings.php:95
-msgid "Height"
-msgstr "Inaltime"
-
-#: settings.php:86 settings.php:97
-msgid "Width"
-msgstr "Latime"
-
-#: settings.php:93
-msgid "Thumbnail"
-msgstr "Miniatura"
-
-#: settings.php:99
-msgid "Scale & Crop"
-msgstr "Mariti si taiati"
-
-#: settings.php:100
-msgid "Scale To Fit"
-msgstr "Potrivire"
-
-#: settings.php:104
-msgid "Show Next/Prev Links"
-msgstr "Afisati link-urile Urmator/Anterior"
-
-#: settings.php:112
-msgid "Inner Template Header"
-msgstr "Format antet interior"
-
-#: settings.php:114
-msgid ""
-"Use this area to add your theme layout divs if you are having problems with "
-"inner pages of the catalogue."
+#: themefiles/single-wpcproduct.php:279
+msgid "Price:"
 msgstr ""
-"Utilizati aceasta zona pentru a adauga div-urile specifice temei "
-"dumneavoastra, daca aveti probleme cu paginile interioare ale catalogului."
 
-#: settings.php:117
-msgid "Inner Template Footer"
-msgstr "Format subsol interior"
+#~ msgid "Support Forums"
+#~ msgstr "Furumul de Suport"
 
-#: settings.php:119
-msgid "Use this area to close the open divs after the WP Catalogue."
-msgstr ""
-"Folositi aceasta zona ca sa inchideti div-urile deschise dupa WP Catalogue."
+#~ msgid "If you are having problems with plugin please talk about them on "
+#~ msgstr ""
+#~ "Daca aveti probleme cu acest plugin va rugam sa vorbiti despre ele pe"
 
-#: settings.php:147
-msgid "to display featured products category"
-msgstr "pentru a afisa categoria de produse recomandate"
+#~ msgid "<a href=\"javascript:;\">Category</a>"
+#~ msgstr "<a href=\"javascript:;\">Categorie</a>"
 
-#: settings.php:150
-msgid "to display a specific category"
-msgstr "pentru a afisa o categorie specificata"
+#~ msgid "products per page (use 0 for unlimited)"
+#~ msgstr "produse pe pagina (folositi 0 pentru nelimitat)"
+
+#~ msgid "Scale & Crop"
+#~ msgstr "Mariti si taiati"
+
+#~ msgid "Scale To Fit"
+#~ msgstr "Potrivire"
+
+#~ msgid "to display featured products category"
+#~ msgstr "pentru a afisa categoria de produse recomandate"
+
+#~ msgid "to display a specific category"
+#~ msgstr "pentru a afisa o categorie specificata"

@@ -8,6 +8,7 @@ Changelog
 **1.4.3**
 * Simplified Image resizing functionality.
 * First image not showing bug fixed.
+* Cleaned up translations
 
 **1.4.2**
 * Refresh issue fixed.

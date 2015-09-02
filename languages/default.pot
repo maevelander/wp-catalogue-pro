@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wpc-pro\n"
-"POT-Creation-Date: 2015-09-02 13:15+0800\n"
-"PO-Revision-Date: 2015-09-02 13:15+0800\n"
+"POT-Creation-Date: 2015-09-02 13:16+0800\n"
+"PO-Revision-Date: 2015-09-02 13:16+0800\n"
 "Last-Translator: Maeve Lander <support@enigmaplugins.com>\n"
 "Language-Team: Enigma Plugins <maeve@enigmaplugins.com>\n"
-"Language: en\n"
+"Language: English\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,110 +30,104 @@ msgid "Next Batch"
 msgstr ""
 
 #: index.php:215 products/order.php:122
-#, fuzzy
 msgid "Order"
-msgstr "Razvrščanje"
+msgstr ""
 
 #: index.php:216 settings.php:13
 msgid "Settings"
-msgstr "Nastavitve"
+msgstr ""
 
 #: index.php:217 index.php:291 index.php:304
 msgid "Activate License"
-msgstr "Aktivirajte Licenco"
+msgstr ""
 
 #: index.php:262
 msgid "Plugin License Options"
-msgstr "Možnosti licence vtičnika"
+msgstr ""
 
 #: index.php:267
 msgid ""
 "Please enter and activate your license key in order to receive automatic "
 "updates and support for this plugin"
 msgstr ""
-"Prosimo vnesite in aktivirajte licenčni ključ, da boste lahko prejeli "
-"avtomatske posodobitve in podporo za ta vtičnik"
 
 #: index.php:279
 msgid "License Key"
-msgstr "Licenčni Ključ"
+msgstr ""
 
 #: index.php:283
 msgid "Enter your license key"
-msgstr "Vnesite vaš licenčni ključ"
+msgstr ""
 
 #: index.php:297
 msgid "active"
-msgstr "aktivno"
+msgstr ""
 
 #: index.php:299
 msgid "Deactivate License"
-msgstr "Deaktivirajte Licenco"
+msgstr ""
 
 #: index.php:323 settings.php:292 products/order.php:345
 msgid "How to use this plugin"
-msgstr "Kako uporabljati ta vtičnik"
+msgstr ""
 
 #: index.php:328 settings.php:297 products/order.php:349
 msgid "You can use 3 shortcodes"
-msgstr "Lahko uporabite 3 kratke kode"
+msgstr ""
 
 #: index.php:332 settings.php:301 products/order.php:353
 msgid "to display complete catalogue"
-msgstr "da se prikaže celoten katalog"
+msgstr ""
 
 #: index.php:336 settings.php:306 products/order.php:357
 msgid "to display featured products anywhere on your blog."
-msgstr "da se prikažejo izdelki iz izložbe kjerkoli na vašem blogu."
+msgstr ""
 
 #: index.php:340 settings.php:311 products/order.php:360
 msgid "to display products from specific category."
-msgstr "da se prikažejo izdelki iz določene kategorije."
+msgstr ""
 
 #: index.php:347 settings.php:320 products/order.php:366
 msgid "Help Improve This Plugin!"
-msgstr "Pomagajte izboljšati ta vtičnik!"
+msgstr ""
 
 #: index.php:352 settings.php:326
 msgid ""
 "Enjoyed this plugin? All donations are used to improve and further develop "
 "this plugin. Thanks for your contribution."
 msgstr ""
-"Vam je vtičnik všeč? Vse donacije so porabljene za izboljšanje in nadaljnjo "
-"razvijanje tega vtičnika. Hvala za vaš prispevek."
 
 #: index.php:363 settings.php:341 products/order.php:381
 msgid "you can also help by"
-msgstr "lahko pomagate tudi z"
+msgstr ""
 
 #: index.php:365 settings.php:343 products/order.php:381
 msgid "rating this plugin on wordpress.org"
-msgstr "ocenitvijo tega vtičnika na wordpress.org"
+msgstr ""
 
 #: index.php:372 settings.php:352 products/order.php:387
 msgid "Need Support?"
-msgstr "Potrebujete Pomoč?"
+msgstr ""
 
 #: index.php:376 settings.php:357 products/order.php:391
 msgid "Check out the"
-msgstr "Preverite"
+msgstr ""
 
 #: index.php:378 settings.php:361 products/order.php:393
 msgid "and"
-msgstr "in"
+msgstr ""
 
 #: index.php:380 settings.php:363 products/order.php:395
-#, fuzzy
 msgid "Support"
-msgstr "Potrebujete Pomoč?"
+msgstr ""
 
 #: settings.php:3
 msgid " Settings"
-msgstr "Nastavitve"
+msgstr ""
 
 #: settings.php:8
 msgid "Settings updated successfully"
-msgstr "Nastavitve so bile uspešno posodbljene"
+msgstr ""
 
 #: settings.php:18
 msgid ""
@@ -141,42 +135,36 @@ msgid ""
 "important to set this up before you start uploading products so the plugin "
 "knows what size to generate thumbnails and product images"
 msgstr ""
-"Tukaj nastavite osnovno prezentacijo vašega kataloga izdelkov. Postopek je "
-"potrebno narediti preden začnete nalagati izdelke, da vtičnik generira "
-"pravilno velikost predoglednih sličic in slik izdelkov."
 
 #: settings.php:21
 msgid ""
 "You can further customise the design of your product catalogue in your theme "
 "css."
 msgstr ""
-"Nadalje lahko oblikujete izgled vašega kataloga izdelkov po meri v css "
-"datoteki vaše teme."
 
 #: settings.php:32
 msgid "Grid Rows"
-msgstr "Vrstice Mreže"
+msgstr ""
 
 #: settings.php:64
 msgid "products per row"
-msgstr "izdelki na vrstico"
+msgstr ""
 
 #: settings.php:70
 msgid "Choose Theme Color"
-msgstr "Izberite Barvo Teme"
+msgstr ""
 
 #: settings.php:78
 msgid "Pagination"
-msgstr "Številčenje strani"
+msgstr ""
 
 #: settings.php:97
-#, fuzzy
 msgid "products per page"
-msgstr "izdelki na vrstico"
+msgstr ""
 
 #: settings.php:103
 msgid "Breadcrumbs"
-msgstr "Navigacijska vrstica"
+msgstr ""
 
 #: settings.php:106 settings.php:119 settings.php:132 settings.php:145
 #: settings.php:174 settings.php:187
@@ -198,11 +186,11 @@ msgstr ""
 
 #: settings.php:142
 msgid "Show Product Titles"
-msgstr "Pokaži Naslove Izdelkov"
+msgstr ""
 
 #: settings.php:155
 msgid "Show Next/Prev Links"
-msgstr "Pokaži povezave Naslednji/Prejšnji"
+msgstr ""
 
 #: settings.php:159
 msgid "Yes"
@@ -214,7 +202,7 @@ msgstr ""
 
 #: settings.php:170
 msgid "Sidebar"
-msgstr "Stranska vrstica"
+msgstr ""
 
 #: settings.php:184
 msgid "Accordion Sidebar"
@@ -235,33 +223,28 @@ msgid ""
 msgstr ""
 
 #: settings.php:212
-#, fuzzy
 msgid "Large Image"
-msgstr "Slika galerije"
+msgstr ""
 
 #: settings.php:215
-#, fuzzy
 msgid "Height: "
-msgstr "Višina"
+msgstr ""
 
 #: settings.php:219 settings.php:233
-#, fuzzy
 msgid "Width: "
-msgstr "Širina"
+msgstr ""
 
 #: settings.php:226
 msgid "Thumbnail"
-msgstr "Predogledna sličica"
+msgstr ""
 
 #: settings.php:229
-#, fuzzy
 msgid "height: "
-msgstr "Višina"
+msgstr ""
 
 #: settings.php:240
-#, fuzzy
 msgid "Gallery Layout"
-msgstr "Slika galerije"
+msgstr ""
 
 #: settings.php:244
 msgid "Horizontal"
@@ -273,24 +256,21 @@ msgstr ""
 
 #: settings.php:254
 msgid "Inner Template Header"
-msgstr "Glava notranje predloge"
+msgstr ""
 
 #: settings.php:259
 msgid ""
 "Use this area to add your theme layout divs if you are having problems with "
 "inner pages of the catalogue."
 msgstr ""
-"Uporabite to polje za dodajanje div značk vaše teme, če imate probleme z "
-"notranjimi stranmi kataloga."
 
 #: settings.php:265
 msgid "Inner Template Footer"
-msgstr "Noga notranje predloge"
+msgstr ""
 
 #: settings.php:270
 msgid "Use this area to close the open divs after the WP Catalogue."
 msgstr ""
-"Uporabite to polje za zaključne značke odprtih div značk po WP Katalogu."
 
 #: settings.php:278
 msgid "Save Changes"
@@ -325,61 +305,54 @@ msgstr ""
 
 #: products/order.php:38
 msgid "Custom Taxonomy Order settings "
-msgstr "nastavitve Vrstnega Reda Taksonomije po meri"
+msgstr ""
 
 #: products/order.php:126
-#, fuzzy
 msgid "Order Categories"
-msgstr "Išči Kategorije"
+msgstr ""
 
 #: products/order.php:129
 msgid ""
 "Drag and drop items to customise the order of categories in WP Catalogue"
 msgstr ""
-"Uporabi metodo vleci in spusti, za spremembo vrstnega reda kategorij v WP "
-"Katalogu"
 
 #: products/order.php:171
 msgid "Save Order"
-msgstr "Shranite vrstni red"
+msgstr ""
 
 #: products/order.php:178
 msgid "No terms found"
-msgstr "Ni najdenih izrazov"
+msgstr ""
 
 #: products/order.php:304
-#, fuzzy
 msgid "Order Products"
-msgstr "Uredi Izdelek"
+msgstr ""
 
 #: products/order.php:307
 msgid "Drag and drop items to customise the order of products in WP Catalogue"
 msgstr ""
-"Povleci in spusti elemente za spremembo vrstnega reda izdelkov v WP Katalogu "
 
 #: products/order.php:370
 msgid ""
 "Enjoyed this plugin? All donations are used to improve and further develop "
 "this plugin. Thanks for your contributaion."
 msgstr ""
-"Vam je vtičnik všeč? Vse donacije so porabljene za izboljšave in nadaljnji "
-"razvoj tega vtičnika. Hvala za vaš prispevek."
 
 #: products/order.php:426 products/order.php:453
 msgid "Order updated successfully."
-msgstr "Vrstni red je uspešno posodobljen."
+msgstr ""
 
 #: products/order.php:430 products/order.php:457
 msgid "An error occured, order has not been saved."
-msgstr "Prišlo je do napake, vrstni red ni shranjen."
+msgstr ""
 
 #: products/sort-categories.php:39
 msgid "Ordering "
-msgstr "Razvrščanje"
+msgstr ""
 
 #: products/sort-categories.php:54 products/sort-products.php:53
 msgid "Drag and drop items to set the custom order."
-msgstr "Povleci in spusti element za nastavitev vrstnega reda po meri."
+msgstr ""
 
 #: products/sort-categories.php:83
 msgid "Add"
@@ -387,129 +360,120 @@ msgstr ""
 
 #: products/wpc-product.php:9
 msgid "WP Catalogue +"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:10
 msgid "WP Catalogue"
-msgstr "WP Katalog"
+msgstr ""
 
 #: products/wpc-product.php:11 products/wpc-product.php:12
 #: products/wpc-product.php:14
 msgid "Add New Product"
-msgstr "Dodaj Nov Izdelek"
+msgstr ""
 
 #: products/wpc-product.php:13
 msgid "Edit Product"
-msgstr "Uredi Izdelek"
+msgstr ""
 
 #: products/wpc-product.php:15
 msgid "View Product"
-msgstr "Ogled Izdelka"
+msgstr ""
 
 #: products/wpc-product.php:16
 msgid "Search WPC Product"
-msgstr "Išči WPC izdelek"
+msgstr ""
 
 #: products/wpc-product.php:17
 msgid "No Product found"
-msgstr "Ni najdenih izdelkov"
+msgstr ""
 
 #: products/wpc-product.php:18
 msgid "No Product found in trash"
-msgstr "V smetnjaku ni najdenih izdelkov"
+msgstr ""
 
 #: products/wpc-product.php:67
 msgid "Search Categories"
-msgstr "Išči Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:68
 msgid "All Categories"
-msgstr "Vse Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:69
 msgid "Parent Categories"
-msgstr "Starševske Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:70
 msgid "Parent Categories:"
-msgstr "Starševske Kategorije:"
+msgstr ""
 
 #: products/wpc-product.php:71
 msgid "Edit Categories"
-msgstr "Uredi Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:72
 msgid "Update Categories"
-msgstr "Posodobi Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:73
 msgid "Add New Categories"
-msgstr "Dodaj Nove Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:74
 msgid "New Categories Name"
-msgstr "Ime Nove Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:75
 msgid "Categories"
-msgstr "Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:91
-#, fuzzy
 msgid "WP Catalogue Tags"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:92
-#, fuzzy
 msgid "WP Catalogue Tag"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:93
-#, fuzzy
 msgid "Search WP Catalogue Tags"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:94
-#, fuzzy
 msgid "All WP Catalogue Tags"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:95
-#, fuzzy
 msgid "Edit WP Catalogue Tag"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:96
-#, fuzzy
 msgid "Update WP Catalogue Tag"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:97
-#, fuzzy
 msgid "Add New WP Catalogue Tag"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:98
-#, fuzzy
 msgid "New WP Catalogue Tag Name"
-msgstr "WP Katalog +"
+msgstr ""
 
 #: products/wpc-product.php:118
 msgid "Title"
-msgstr "Naslov"
+msgstr ""
 
 #: products/wpc-product.php:119
-#, fuzzy
 msgid "Category"
-msgstr "Ni Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:121
 msgid "Date"
-msgstr "Datum"
+msgstr ""
 
 #: products/wpc-product.php:150
 msgid "No Category"
-msgstr "Ni Kategorije"
+msgstr ""
 
 #: products/wpc-product.php:205 products/wpc-product.php:231
 #: products/wpc-product.php:246
@@ -530,34 +494,9 @@ msgid "Add Another Image"
 msgstr ""
 
 #: themefiles/single-wpcproduct.php:274
-#, fuzzy
 msgid "Product Details"
-msgstr "Pokaži Naslove Izdelkov"
+msgstr ""
 
 #: themefiles/single-wpcproduct.php:279
 msgid "Price:"
 msgstr ""
-
-#~ msgid "Support Forums"
-#~ msgstr "Forum za Podporo"
-
-#~ msgid "products per page (use 0 for unlimited)"
-#~ msgstr "izdelki na stran (uporabite 0 za neskončno)"
-
-#~ msgid "Scale & Crop"
-#~ msgstr "Prilagodi velikost in obreži"
-
-#~ msgid "Scale To Fit"
-#~ msgstr "Prilagodi velikost da zapolni"
-
-#~ msgid "to display featured products category"
-#~ msgstr "za prikaz kategorije izložba"
-
-#~ msgid "to display a specific category"
-#~ msgstr "za prikaz določene kategorije"
-
-#~ msgid "If you are having problems with plugin please talk about them on "
-#~ msgstr "Če imate težave z vtičnikom vas prosimo, da o njih razpravljate na"
-
-#~ msgid "<a href=\"javascript:;\">Category</a>"
-#~ msgstr "<a href=\"javascript:;\">Kategorija</a>"
