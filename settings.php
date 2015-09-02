@@ -78,8 +78,23 @@
                                     <label for="pagination"><?php _e('Pagination','wpc') ?> </label>
                                 </th>
                                 <td>
-                                    <input name="wpc_pagination" type="text" id="wpc_pagination" value="<?php if(get_option('wpc_pagination') or get_option('wpc_pagination')==0){ echo get_option('wpc_pagination'); }else {echo 20;} ?>" size="15">
-                                    <span><?php _e('products per page (use 0 for unlimited)','wpc') ?></span>
+                                    <select id="wpc_pagination" name="wpc_pagination">
+                                    <option value="2" <?php if(get_option('wpc_pagination')==2){echo 'selected="selected"';} ?> >2</option>
+                                    <option value="3" <?php if(get_option('wpc_pagination')==3){echo 'selected="selected"';} ?>>3</option>
+                                    <option value="4" <?php if(get_option('wpc_pagination')==4){echo 'selected="selected"';} ?>>4</option>
+                                    <option value="5" <?php if(get_option('wpc_pagination')==5){echo 'selected="selected"';} ?>>5</option>
+                                    <option value="6" <?php if(get_option('wpc_pagination')==6){echo 'selected="selected"';} ?>>6</option>
+                                    <option value="7" <?php if(get_option('wpc_pagination')==7){echo 'selected="selected"';} ?>>7</option>
+                                    <option value="8" <?php if(get_option('wpc_pagination')==8){echo 'selected="selected"';} ?>>8</option>
+                                    <option value="9" <?php if(get_option('wpc_pagination')==9){echo 'selected="selected"';} ?>>9</option>
+                                    <option value="10" <?php if(get_option('wpc_pagination')==10){echo 'selected="selected"';} ?>>10</option>
+                                    <option value="11" <?php if(get_option('wpc_pagination')==11){echo 'selected="selected"';} ?>>11</option>
+                                    <option value="12" <?php if(get_option('wpc_pagination')==12){echo 'selected="selected"';} ?>>12</option>
+                                    <option value="13" <?php if(get_option('wpc_pagination')==13){echo 'selected="selected"';} ?>>13</option>
+                                    <option value="14" <?php if(get_option('wpc_pagination')==14){echo 'selected="selected"';} ?>>14</option>
+                                    <option value="15" <?php if(get_option('wpc_pagination')==15){echo 'selected="selected"';} ?>>15</option>
+                                  </select>
+                                  <span><?php _e('products per page','wpc') ?></span></td>
                                 </td>
                             </tr>
                             <!--WPC pro cersion 1.0's features-->

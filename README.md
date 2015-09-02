@@ -5,6 +5,10 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.4.3**
+* Simplified Image resizing functionality.
+* First image not showing bug fixed.
+
 **1.4.2**
 * Refresh issue fixed.
 * Redirect to plugin page after plugin activated issue fixed.

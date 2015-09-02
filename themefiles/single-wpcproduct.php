@@ -215,7 +215,9 @@ if (get_option('wpc_show_bc') == yes) {
                     while (have_posts()) : the_post();
                         $wpc_thumb_images = get_post_meta($post->ID, 'wpc_thumb_images', true);
                         $wpc_big_images = get_post_meta($post->ID, 'wpc_big_images', true);
-
+                        
+                        $wpc_new_arr = array_values($wpc_big_images);
+      
                         $wpc_vert_horiz = get_option('wpc_vert_horiz');
 
                         $wpc_vert_horiz_class = '';
@@ -229,22 +231,35 @@ if (get_option('wpc_show_bc') == yes) {
                             <div class="wpc_hero_img">
                                 <img src="...">
                             </div>
-
-                            <div class="wpc_carousel">
-                                <ul>
-                                    <?php
-                                    $count = -1;
-                                    foreach ($wpc_thumb_images as $wpc_imgs) {
-                                        $count++;
-                                        ?>
-                                        <li>
-                                            <img src="<?php echo $wpc_imgs['wpc_thumb_img']; ?>" alt="" data-resize="<?php echo $wpc_big_images[$count]['wpc_big_img']; ?>" />
-                                        </li>
+                        <?php
+                            if ($wpc_vert_horiz == 'wpc_h') {
+                        ?>
+                            <div class="wpc_carousel_wrap">
+                        <?php
+                            }
+                        ?>
+                                <div class="wpc_carousel">
+                                    <ul>
                                         <?php
-                                    }
-                                    ?>
-                                </ul>
+                                        $count = 0;
+                                        foreach ($wpc_thumb_images as $wpc_imgs) {
+                                            ?>
+                                            <li>
+                                                <img src="<?php echo $wpc_imgs['wpc_thumb_img']; ?>" alt="" data-resize="<?php echo $wpc_new_arr[$count]['wpc_big_img']; ?>" />
+                                            </li>
+                                            <?php
+                                            $count++;
+                                        }
+                                        ?>
+                                    </ul>
+                                </div>
+                        <?php
+                            if ($wpc_vert_horiz == 'wpc_h') {
+                        ?>
                             </div>
+                        <?php
+                            }
+                        ?>
                         </div>
                         <?php
                         $wpc_product_price = get_post_meta($post->ID, 'wpc_product_price', true);
