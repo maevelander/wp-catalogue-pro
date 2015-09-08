@@ -166,18 +166,18 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
 		echo '<div id="wpc-col-1">';
 		echo '<a class="wpc-visible-phone checking" href="#">Categories</a>';
         
+                    echo '<ul class="wpc-categories">';
 		
 		// generating sidebar
 		if($count>0){
-                    echo '<ul class="wpc_all_products">';
-			echo '<li class="wpc-category ' . $class . ' wpc_all_product_label"><a href="'. get_option('catalogue_page_url') .'">'.$all_product_label.'</a></li></ul>';	
+			echo '<li class="wpc-category ' . $class . ' wpc_all_product_label"><a href="'. get_option('catalogue_page_url') .'">'.$all_product_label.'</a></li>';	
        		
-				
 			echo  '<ul class="wpc-categories">'.wp_list_categories($val).'</ul>'; 	
 			
 		}else{
-			echo  '<ul><li class="wpc-category"><a href="#">No category</a></li></ul>';	
+			echo  '<ul><li class="wpc-category"><a href="#">No category</a></li>';	
 		}
+                echo '</ul>';
         echo ' </div>';
 		}
 			echo '  <!--col-2-->

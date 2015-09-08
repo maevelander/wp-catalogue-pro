@@ -5,10 +5,12 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.4.4**
+* Fixed the broken image issue when users upgrade from free version to pro version of the plugin.
+
 **1.4.3**
 * Simplified Image resizing functionality.
 * First image not showing bug fixed.
-* Cleaned up translations
 
 **1.4.2**
 * Refresh issue fixed.

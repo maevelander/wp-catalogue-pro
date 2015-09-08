@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: wpc-pro\n"
-"POT-Creation-Date: 2015-09-02 13:14+0800\n"
-"PO-Revision-Date: 2015-09-02 13:14+0800\n"
-"Last-Translator: Maeve Lander <support@enigmaplugins.com>\n"
+"POT-Creation-Date: 2014-02-14 12:53+0800\n"
+"PO-Revision-Date: 2014-03-12 10:24+0800\n"
+"Last-Translator: Edwin Izelaar <e.izelaar9@upcmail.nl>\n"
 "Language-Team: Enigma Plugins <maeve@enigmaplugins.com>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -18,36 +18,11 @@ msgstr ""
 "X-Poedit-SearchPath-2: products\n"
 "X-Poedit-SearchPath-3: themefiles\n"
 
-#: image_resize.php:3
-msgid "WP Catalogue Pro Image Resizing"
-msgstr ""
-
-#: image_resize.php:121
-msgid "Congratulations, all Product Images Resized Successfully."
-msgstr ""
-
-#: image_resize.php:135
-msgid "Next Batch"
-msgstr ""
-
-#: index.php:215 products/order.php:122
-#, fuzzy
-msgid "Order"
-msgstr "Sorteren"
-
-#: index.php:216 settings.php:13
-msgid "Settings"
-msgstr "Instellingen"
-
-#: index.php:217 index.php:291 index.php:304
-msgid "Activate License"
-msgstr "Licentie activeren"
-
-#: index.php:262
+#: index.php:125
 msgid "Plugin License Options"
 msgstr "Plugin licentie opties"
 
-#: index.php:267
+#: index.php:126
 msgid ""
 "Please enter and activate your license key in order to receive automatic "
 "updates and support for this plugin"
@@ -55,47 +30,51 @@ msgstr ""
 "Voer uw licentiesleutel in en activeer deze zodat u automatische updates en "
 "support kunt ontvangen voor deze plugin"
 
-#: index.php:279
+#: index.php:135
 msgid "License Key"
 msgstr "Licentie code"
 
-#: index.php:283
+#: index.php:139
 msgid "Enter your license key"
 msgstr "Licentie invoeren"
 
-#: index.php:297
+#: index.php:145 index.php:154
+msgid "Activate License"
+msgstr "Licentie activeren"
+
+#: index.php:149
 msgid "active"
 msgstr "actief"
 
-#: index.php:299
+#: index.php:151
 msgid "Deactivate License"
 msgstr "Licentie deactiveren"
 
-#: index.php:323 settings.php:292 products/order.php:345
+#: index.php:168 settings.php:135 products/order.php:343
 msgid "How to use this plugin"
 msgstr "Gebruik van deze plugin"
 
-#: index.php:328 settings.php:297 products/order.php:349
+#: index.php:172 settings.php:139 products/order.php:347
 msgid "You can use 3 shortcodes"
 msgstr "U kunt 3 shortcodes gebruiken"
 
-#: index.php:332 settings.php:301 products/order.php:353
+#: index.php:176 settings.php:143 products/order.php:351
 msgid "to display complete catalogue"
 msgstr "om de complete product catalogus te tonen."
 
-#: index.php:336 settings.php:306 products/order.php:357
+#: index.php:180 products/order.php:355
 msgid "to display featured products anywhere on your blog."
 msgstr "om de uitgelichte producten te tonen op de gewenste pagina."
 
-#: index.php:340 settings.php:311 products/order.php:360
+#: index.php:183 products/order.php:358
 msgid "to display products from specific category."
 msgstr "om de producten van een specifieke categorie te tonen."
 
-#: index.php:347 settings.php:320 products/order.php:366
+#: index.php:189 settings.php:156 products/order.php:364
 msgid "Help Improve This Plugin!"
 msgstr "Verbeter deze plugin!"
 
-#: index.php:352 settings.php:326
+#: index.php:193 settings.php:160
 msgid ""
 "Enjoyed this plugin? All donations are used to improve and further develop "
 "this plugin. Thanks for your contribution."
@@ -103,40 +82,43 @@ msgstr ""
 "Tevreden over deze plugin? Alle donaties zullen worden gebruikt om deze "
 "plugin te verbeteren en verder te ontwikkelen. Bedankt voor uw bijdrage."
 
-#: index.php:363 settings.php:341 products/order.php:381
+#: index.php:204 settings.php:171 products/order.php:379
 msgid "you can also help by"
 msgstr "U kunt ook helpen door"
 
-#: index.php:365 settings.php:343 products/order.php:381
+#: index.php:204 settings.php:171 products/order.php:379
 msgid "rating this plugin on wordpress.org"
 msgstr "deze plugin een waardering te geven op wordpress.org"
 
-#: index.php:372 settings.php:352 products/order.php:387
+#: index.php:210 settings.php:177
 msgid "Need Support?"
 msgstr "Hulp nodig?"
 
-#: index.php:376 settings.php:357 products/order.php:391
+#: index.php:214 settings.php:181
 msgid "Check out the"
 msgstr "Raadpleeg de"
 
-#: index.php:378 settings.php:361 products/order.php:393
+#: index.php:214 settings.php:181
 msgid "and"
 msgstr "en"
 
-#: index.php:380 settings.php:363 products/order.php:395
-#, fuzzy
-msgid "Support"
-msgstr "Hulp nodig?"
+#: index.php:214 settings.php:181
+msgid "Support Forums"
+msgstr "Support Forums"
 
-#: settings.php:3
+#: settings.php:4
 msgid " Settings"
 msgstr "Instellingen"
 
-#: settings.php:8
+#: settings.php:7
 msgid "Settings updated successfully"
 msgstr "Instellingen zijn gewijzigd"
 
-#: settings.php:18
+#: settings.php:11
+msgid "Settings"
+msgstr "Instellingen"
+
+#: settings.php:14
 msgid ""
 "Adjust the basic presentation of your product catalogue here. It is "
 "important to set this up before you start uploading products so the plugin "
@@ -147,136 +129,78 @@ msgstr ""
 "plugin weet in welke grootte de thumbnails en product afbeeldingen moeten "
 "worden gegenereerd."
 
-#: settings.php:21
+#: settings.php:15
 msgid ""
 "You can further customise the design of your product catalogue in your theme "
 "css."
 msgstr ""
 "U kunt het design van de product catalogus verder aanpassen in uw thema css."
 
-#: settings.php:32
+#: settings.php:21
 msgid "Grid Rows"
 msgstr "Raster"
 
-#: settings.php:64
+#: settings.php:33
 msgid "products per row"
 msgstr "producten per regel"
 
-#: settings.php:70
+#: settings.php:38
 msgid "Choose Theme Color"
 msgstr "Kies thema kleur"
 
-#: settings.php:78
+#: settings.php:42
 msgid "Pagination"
 msgstr "Paginering"
 
-#: settings.php:97
-#, fuzzy
-msgid "products per page"
-msgstr "producten per regel"
+#: settings.php:44
+msgid "products per page (use 0 for unlimited)"
+msgstr "producten per pagina (gebruik 0 voor onbeperkt)"
 
-#: settings.php:103
+#: settings.php:49
 msgid "Breadcrumbs"
 msgstr "Kruimelpad"
 
-#: settings.php:106 settings.php:119 settings.php:132 settings.php:145
-#: settings.php:174 settings.php:187
-msgid "ON"
-msgstr ""
-
-#: settings.php:109 settings.php:122 settings.php:135 settings.php:148
-#: settings.php:177 settings.php:190
-msgid "OFF"
-msgstr ""
-
-#: settings.php:116 products/wpc-product.php:99 products/wpc-product.php:120
-msgid "Tags"
-msgstr ""
-
-#: settings.php:129
-msgid "Custom Fields"
-msgstr ""
-
-#: settings.php:142
+#: settings.php:60
 msgid "Show Product Titles"
 msgstr "Toon product titels"
 
-#: settings.php:155
-msgid "Show Next/Prev Links"
-msgstr "Toon Volgende/Vorige"
-
-#: settings.php:159
-msgid "Yes"
-msgstr ""
-
-#: settings.php:162
-msgid "No"
-msgstr ""
-
-#: settings.php:170
+#: settings.php:71
 msgid "Sidebar"
 msgstr "Menu"
 
-#: settings.php:184
-msgid "Accordion Sidebar"
-msgstr ""
-
-#: settings.php:197
-msgid "All Products Alias"
-msgstr ""
-
-#: settings.php:202
-msgid "Note:"
-msgstr ""
-
-#: settings.php:204
-msgid ""
-"The first category title in the sidebar labeled \"All Products\" but you can "
-"change that here"
-msgstr ""
-
-#: settings.php:212
-#, fuzzy
-msgid "Large Image"
+#: settings.php:82
+msgid "Gallery Image"
 msgstr "Galerij afbeelding"
 
-#: settings.php:215
-#, fuzzy
-msgid "Height: "
+#: settings.php:84 settings.php:95
+msgid "Height"
 msgstr "Hoogte"
 
-#: settings.php:219 settings.php:233
-#, fuzzy
-msgid "Width: "
+#: settings.php:86 settings.php:97
+msgid "Width"
 msgstr "Breedte"
 
-#: settings.php:226
+#: settings.php:93
 msgid "Thumbnail"
 msgstr "Thumbnail"
 
-#: settings.php:229
-#, fuzzy
-msgid "height: "
-msgstr "Hoogte"
+#: settings.php:99
+msgid "Scale & Crop"
+msgstr "Schalen en bijsnijden"
 
-#: settings.php:240
-#, fuzzy
-msgid "Gallery Layout"
-msgstr "Galerij afbeelding"
+#: settings.php:100
+msgid "Scale To Fit"
+msgstr "Passend maken"
 
-#: settings.php:244
-msgid "Horizontal"
-msgstr ""
+#: settings.php:104
+msgid "Show Next/Prev Links"
+msgstr "Toon Volgende/Vorige"
 
-#: settings.php:247
-msgid "Vertical"
-msgstr ""
-
-#: settings.php:254
+#: settings.php:112
 msgid "Inner Template Header"
 msgstr "Ingesloten sjabloon koptekst"
 
-#: settings.php:259
+#: settings.php:114
 msgid ""
 "Use this area to add your theme layout divs if you are having problems with "
 "inner pages of the catalogue."
@@ -284,53 +208,25 @@ msgstr ""
 "Gebruik dit veld om uw thema layout divs toe te voegen als u problemen "
 "ondervindt met de ingesloten pagina's van de catalogus."
 
-#: settings.php:265
+#: settings.php:117
 msgid "Inner Template Footer"
 msgstr "Ingesloten sjabloon voettekst"
 
-#: settings.php:270
+#: settings.php:119
 msgid "Use this area to close the open divs after the WP Catalogue."
 msgstr "Gebruik dit veld om de open divs na WP Catalogue te sluiten."
 
-#: settings.php:278
-msgid "Save Changes"
-msgstr ""
+#: settings.php:147
+msgid "to display featured products category"
+msgstr "om de uitgelichte producten categorie te tonen"
 
-#: settings.php:359 products/order.php:392
-msgid "FAQs for Documentation"
-msgstr ""
-
-#: wpc_plugin_updater.php:176
-#, php-format
-msgid ""
-"There is a new version of %1$s available. <a target=\"_blank\" class="
-"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
-msgstr ""
-
-#: wpc_plugin_updater.php:183
-#, php-format
-msgid ""
-"There is a new version of %1$s available. <a target=\"_blank\" class="
-"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
-"\">update now</a>."
-msgstr ""
-
-#: wpc_plugin_updater.php:323
-msgid "You do not have permission to install plugin updates"
-msgstr ""
-
-#: wpc_plugin_updater.php:323
-msgid "Error"
-msgstr ""
+#: settings.php:150
+msgid "to display a specific category"
+msgstr "om een specifieke categorie te tonen"
 
 #: products/order.php:38
 msgid "Custom Taxonomy Order settings "
 msgstr "Aangepaste taxonomie volgorde instellingen "
-
-#: products/order.php:126
-#, fuzzy
-msgid "Order Categories"
-msgstr "Categorieën zoeken"
 
 #: products/order.php:129
 msgid ""
@@ -339,25 +235,20 @@ msgstr ""
 "Drag & drop items om de volgorde van categorieën aan te passen in WP "
 "Catalogue"
 
-#: products/order.php:171
+#: products/order.php:156
 msgid "Save Order"
 msgstr "Bijwerken"
 
-#: products/order.php:178
+#: products/order.php:162
 msgid "No terms found"
 msgstr "Geen termen gevonden"
 
-#: products/order.php:304
-#, fuzzy
-msgid "Order Products"
-msgstr "Product bewerken"
-
-#: products/order.php:307
+#: products/order.php:305
 msgid "Drag and drop items to customise the order of products in WP Catalogue"
 msgstr ""
 "Drag & drop items om de volgorde van producten aan te passen in WP Catalogue"
 
-#: products/order.php:370
+#: products/order.php:368
 msgid ""
 "Enjoyed this plugin? All donations are used to improve and further develop "
 "this plugin. Thanks for your contributaion."
@@ -365,11 +256,15 @@ msgstr ""
 "Tevreden over deze plugin? Uw eventuele donatie zal worden gebruikt om deze "
 "plugin te verbeteren en verder te ontwikkelen. Bedankt voor uw bijdrage."
 
-#: products/order.php:426 products/order.php:453
+#: products/order.php:389
+msgid "If you are having problems with plugin please talk about them on "
+msgstr "Als u problemen ondervindt met deze plugin kunt u dat bespreken op "
+
+#: products/order.php:419
 msgid "Order updated successfully."
 msgstr "Wijzigingen zijn opgeslagen."
 
-#: products/order.php:430 products/order.php:457
+#: products/order.php:423
 msgid "An error occured, order has not been saved."
 msgstr "Er is een fout opgetreden, wijzigingen zijn niet opgeslagen."
 
@@ -380,10 +275,6 @@ msgstr "Sorteren"
 #: products/sort-categories.php:54 products/sort-products.php:53
 msgid "Drag and drop items to set the custom order."
 msgstr "Drag en drop items om de volgorde aan te passen."
-
-#: products/sort-categories.php:83
-msgid "Add"
-msgstr ""
 
 #: products/wpc-product.php:9
 msgid "WP Catalogue +"
@@ -418,146 +309,54 @@ msgstr "Geen product gevonden"
 msgid "No Product found in trash"
 msgstr "Geen product gevonden in prullenbak"
 
-#: products/wpc-product.php:67
+#: products/wpc-product.php:136
 msgid "Search Categories"
 msgstr "Categorieën zoeken"
 
-#: products/wpc-product.php:68
+#: products/wpc-product.php:137
 msgid "All Categories"
 msgstr "Alle categorieën"
 
-#: products/wpc-product.php:69
+#: products/wpc-product.php:138
 msgid "Parent Categories"
 msgstr "Bovenliggende categorie"
 
-#: products/wpc-product.php:70
+#: products/wpc-product.php:139
 msgid "Parent Categories:"
 msgstr "Bovenliggende categorie:"
 
-#: products/wpc-product.php:71
+#: products/wpc-product.php:140
 msgid "Edit Categories"
 msgstr "Categorie bewerken"
 
-#: products/wpc-product.php:72
+#: products/wpc-product.php:141
 msgid "Update Categories"
 msgstr "Bijwerken"
 
-#: products/wpc-product.php:73
+#: products/wpc-product.php:142
 msgid "Add New Categories"
 msgstr "Nieuwe categorieën toevoegen"
 
-#: products/wpc-product.php:74
+#: products/wpc-product.php:143
 msgid "New Categories Name"
 msgstr "Categorie naam"
 
-#: products/wpc-product.php:75
+#: products/wpc-product.php:144
 msgid "Categories"
 msgstr "Categorieën"
 
-#: products/wpc-product.php:91
-#, fuzzy
-msgid "WP Catalogue Tags"
-msgstr "WP Catalogue +"
-
-#: products/wpc-product.php:92
-#, fuzzy
-msgid "WP Catalogue Tag"
-msgstr "WP Catalogue +"
-
-#: products/wpc-product.php:93
-#, fuzzy
-msgid "Search WP Catalogue Tags"
-msgstr "WP Catalogue +"
-
-#: products/wpc-product.php:94
-#, fuzzy
-msgid "All WP Catalogue Tags"
-msgstr "WP Catalogue +"
-
-#: products/wpc-product.php:95
-#, fuzzy
-msgid "Edit WP Catalogue Tag"
-msgstr "WP Catalogue +"
-
-#: products/wpc-product.php:96
-#, fuzzy
-msgid "Update WP Catalogue Tag"
-msgstr "WP Catalogue +"
-
-#: products/wpc-product.php:97
-#, fuzzy
-msgid "Add New WP Catalogue Tag"
-msgstr "WP Catalogue +"
-
-#: products/wpc-product.php:98
-#, fuzzy
-msgid "New WP Catalogue Tag Name"
-msgstr "WP Catalogue +"
-
-#: products/wpc-product.php:118
+#: products/wpc-product.php:159
 msgid "Title"
 msgstr "Naam"
 
-#: products/wpc-product.php:119
-#, fuzzy
-msgid "Category"
-msgstr "Geen categorie"
+#: products/wpc-product.php:160
+msgid "<a href=\"javascript:;\">Category</a>"
+msgstr "<a href=\"javascript:;\">Categorie</a>"
 
-#: products/wpc-product.php:121
+#: products/wpc-product.php:161
 msgid "Date"
 msgstr "Datum"
 
-#: products/wpc-product.php:150
+#: products/wpc-product.php:192
 msgid "No Category"
 msgstr "Geen categorie"
-
-#: products/wpc-product.php:205 products/wpc-product.php:231
-#: products/wpc-product.php:246
-msgid "Image:"
-msgstr ""
-
-#: products/wpc-product.php:209 products/wpc-product.php:234
-#: products/wpc-product.php:249
-msgid "Upload"
-msgstr ""
-
-#: products/wpc-product.php:220 products/wpc-product.php:260
-msgid "Remove"
-msgstr ""
-
-#: products/wpc-product.php:265
-msgid "Add Another Image"
-msgstr ""
-
-#: themefiles/single-wpcproduct.php:274
-#, fuzzy
-msgid "Product Details"
-msgstr "Toon product titels"
-
-#: themefiles/single-wpcproduct.php:279
-msgid "Price:"
-msgstr ""
-
-#~ msgid "Support Forums"
-#~ msgstr "Support Forums"
-
-#~ msgid "products per page (use 0 for unlimited)"
-#~ msgstr "producten per pagina (gebruik 0 voor onbeperkt)"
-
-#~ msgid "Scale & Crop"
-#~ msgstr "Schalen en bijsnijden"
-
-#~ msgid "Scale To Fit"
-#~ msgstr "Passend maken"
-
-#~ msgid "to display featured products category"
-#~ msgstr "om de uitgelichte producten categorie te tonen"
-
-#~ msgid "to display a specific category"
-#~ msgstr "om een specifieke categorie te tonen"
-
-#~ msgid "If you are having problems with plugin please talk about them on "
-#~ msgstr "Als u problemen ondervindt met deze plugin kunt u dat bespreken op "
-
-#~ msgid "<a href=\"javascript:;\">Category</a>"
-#~ msgstr "<a href=\"javascript:;\">Categorie</a>"

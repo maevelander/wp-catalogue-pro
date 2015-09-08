@@ -4,7 +4,7 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.4.3
+  Version: 1.4.4
   Author URI: http://www.enigmaplugins.com
  */
 
@@ -73,6 +73,95 @@ function customtaxorder_init($wpc_networkwide) {
         delete_post_meta($post_id, 'product_img1');
         delete_post_meta($post_id, 'product_img2');
         delete_post_meta($post_id, 'product_img3');
+    endforeach;
+    
+    $postBigSql = $wpdb->get_results("SELECT DISTINCT post_id
+                                      FROM ".$wpdb->postmeta." AS meta
+                                      INNER JOIN ".$wpdb->posts." AS post
+                                      ON post.ID = meta.post_id
+                                      WHERE post_type = 'wpcproduct'
+                                      AND post_status = 'publish'
+                                      AND meta_key IN ('product_img1_big', 'product_img2_big', 'product_img3_big')");
+    foreach($postBigSql as $postBigRow) :
+        $post_big_id = $postBigRow->post_id;
+        $big_meta_key = "wpc_big_images";
+
+        $big_sql = $wpdb->get_results("Select post.*, meta.*
+                                       From ".$wpdb->posts." As post
+                                       Inner Join ".$wpdb->postmeta." As meta
+                                       On post.ID = meta.post_id
+                                       Where post_type = 'wpcproduct' 
+                                       And post_status = 'publish'
+                                       And meta_key IN ('product_img1_big', 'product_img2_big', 'product_img3_big')
+                                       And post_id = ".$post_big_id);
+
+        $big_a = 0;
+        foreach($big_sql as $big_row) :                    
+            $big_response[$big_a] = $big_row->meta_key;
+            $big_response[$big_a] = $big_row->meta_value;
+
+            $big_data[$big_a]["wpc_big_img"] = $big_response[$big_a];
+
+            $big_data = array_filter(array_map('array_filter', $big_data));
+
+            $big_a = $big_a + 1;
+        endforeach;
+        $big_data_serialize = serialize($big_data);
+      
+        $wpc_big_images_data = array(
+                                'post_id' => $post_big_id,
+                                'meta_key' => $big_meta_key,
+                                'meta_value' => $big_data_serialize
+                           );
+        $wpdb->insert($wpc_prefix."postmeta", $wpc_big_images_data);
+
+        delete_post_meta($post_big_id, 'product_img1_big');
+        delete_post_meta($post_big_id, 'product_img2_big');
+        delete_post_meta($post_big_id, 'product_img3_big');
+    endforeach;
+    
+    $postThumbSql = $wpdb->get_results("SELECT DISTINCT post_id
+                                      FROM ".$wpdb->postmeta." AS meta
+                                      INNER JOIN ".$wpdb->posts." AS post
+                                      ON post.ID = meta.post_id
+                                      WHERE post_type = 'wpcproduct'
+                                      AND post_status = 'publish'
+                                      AND meta_key IN ('product_img1_thumb', 'product_img2_thumb', 'product_img3_thumb')");
+    foreach($postThumbSql as $postThumbRow) :
+        $post_thumb_id = $postThumbRow->post_id;
+        $thumb_meta_key = "wpc_thumb_images";
+
+        $thumb_sql = $wpdb->get_results("Select post.*, meta.*
+                                         From ".$wpdb->posts." As post
+                                         Inner Join ".$wpdb->postmeta." As meta
+                                         On post.ID = meta.post_id
+                                         Where post_type = 'wpcproduct' 
+                                         And post_status = 'publish'
+                                         And meta_key IN ('product_img1_thumb', 'product_img2_thumb', 'product_img3_thumb')
+                                         And post_id = ".$post_thumb_id);
+        $thumb_a = 0;
+        foreach($thumb_sql as $thumb_row) :                    
+            $thumb_response[$thumb_a] = $thumb_row->meta_key;
+            $thumb_response[$thumb_a] = $thumb_row->meta_value;
+
+            $thumb_data[$thumb_a]["wpc_thumb_img"] = $thumb_response[$thumb_a];
+
+            $thumb_data = array_filter(array_map('array_filter', $thumb_data));
+
+            $thumb_a = $thumb_a + 1;
+        endforeach;
+        $thumb_data_serialize = serialize($thumb_data);
+      
+        $wpc_thumb_images_data = array(
+                                    'post_id' => $post_thumb_id,
+                                    'meta_key' => $thumb_meta_key,
+                                    'meta_value' => $thumb_data_serialize
+                               );
+        $wpdb->insert($wpc_prefix."postmeta", $wpc_thumb_images_data);
+
+        delete_post_meta($post_thumb_id, 'product_img1_thumb');
+        delete_post_meta($post_thumb_id, 'product_img2_thumb');
+        delete_post_meta($post_thumb_id, 'product_img3_thumb');
     endforeach;
 
     $support_sql = $wpdb->get_results("Select * From ".$wpc_prefix."postmeta Where meta_key Like '%product_price%'");
@@ -237,7 +326,7 @@ function wpc_plugin_updater() {
 
     // setup the updater
     $edd_updater = new EDD_SL_Plugin_Updater( WPC_PRO_STORE_URL, __FILE__, array(
-                    'version' 	=> '1.4.3', 				// current version number
+                    'version' 	=> '1.4.4', 				// current version number
                     'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
                     'item_name' => WPC_PRO_ITEM_NAME, 	// name of this plugin
                     'author' 	=> 'Enigma Plugins'  // author of this plugin
@@ -1208,7 +1297,7 @@ function wpc_the_meta() {
         echo '<ul class="wpc-the-meta">';
         foreach ($custom_field_keys as $key => $value) {
             $valuet = trim($value);
-            if ('_' == $valuet{0} || 'product_images' == $valuet || 'is_featured' == $valuet || 'wpc_product_price' == $valuet || 'jfs_subtitle' == $valuet || 'wpc_big_images' == $valuet || 'wpc_thumb_images' == $valuet) {
+            if ('_' == $valuet{0} || 'product_images' == $valuet || 'is_featured' == $valuet || 'wpc_product_price' == $valuet || 'jfs_subtitle' == $valuet || 'wpc_big_images' == $valuet || 'wpc_thumb_images' == $valuet || 'product_img1_thumb' == $valuet || 'product_img2_thumb' == $valuet || 'product_img3_thumb' == $valuet || 'product_img1_big' == $valuet || 'product_img2_big' == $valuet || 'product_img3_big' == $valuet) {
                 continue;
             }
             $values = array_map('trim', get_post_custom_values($valuet));
