@@ -371,7 +371,7 @@
     <?php
             }
         } else {
-            echo 'No Products';
+            echo __('No Products','wpc');
         }
     ?>
         </div>

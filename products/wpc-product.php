@@ -32,13 +32,15 @@ add_action( 'init', 'wpt_wpcproduct_posttype' );
 add_action( 'add_meta_boxes', 'add_wpcproduct_metaboxes' );
 
 function add_wpcproduct_metaboxes($post) {
-    add_meta_box('wpt_product_featured', 'Featured Product', 'wpt_product_featured', 'wpcproduct', 'side');
+    add_meta_box('wpt_product_featured', __('Featured Product','wpc'), 'wpt_product_featured', 'wpcproduct', 'side');
 }
 
 function wpt_product_featured($post) {
     $featured = get_post_meta($post->ID, 'is_featured', true);
 	
-    echo '<p>Mark this product as Featured? &nbsp;&nbsp;&nbsp;&nbsp;
+    echo '<p>';
+    echo __('Mark this product as Featured?','wpc');
+    echo '&nbsp;&nbsp;&nbsp;&nbsp;
             <label>
                 <input name="is_featured" type="checkbox" value="is_featured"';
                 if($featured == "is_featured"){
@@ -62,8 +64,8 @@ add_action('save_post', 'wpt_save_wpcproduct_meta', 1, 2); // save the custom fi
 add_action('init','create_wpcproduct_taxonomies',0);
 function create_wpcproduct_taxonomies(){
     $labels = array( 
-            'name' => _x( 'Categories', 'taxonomy general name' ),
-            'singular_name' => _x( 'Categories', 'taxonomy singular name' ),
+            'name' => __( 'Categories', 'taxonomy general name' ),
+            'singular_name' => __( 'Categories', 'taxonomy singular name' ),
             'search_items' =>  __( 'Search Categories', 'wpc' ),
             'all_items' => __( 'All Categories', 'wpc' ),
             'parent_item' => __( 'Parent Categories', 'wpc' ),
@@ -172,7 +174,7 @@ function dev_check_current_screen() {
 
 // Multiple Images For Products
 function product_images($post){
-    add_meta_box('download_link_id','Images','multiple_product_images','wpcproduct','normal','high');
+    add_meta_box('download_link_id', __('Images','wpc'), 'multiple_product_images', 'wpcproduct', 'normal', 'high');
 }
 add_action('add_meta_boxes','product_images');
 
@@ -209,8 +211,15 @@ function multiple_product_images($post){
                         <input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc'); ?>">
                     </p>
                     <p>
-                    	Please Upload Images <?php echo get_option('wpc_image_width'); ?> x <?php echo get_option('wpc_image_height'); ?>
-                        Dimension or above
+                    	<?php
+                            _e("Please Upload Images","wpc");
+                            echo get_option('wpc_image_width');
+                        ?>
+                        x
+                        <?php
+                            echo get_option('wpc_image_height');
+                            _e("Dimension or above","wpc");
+                        ?>
                     </p>		
                 </td>
             </tr>
@@ -231,11 +240,19 @@ function multiple_product_images($post){
                 <td><strong><?php _e('Image:','wpc'); ?></strong></td>
                 <td>
                    <p>
-                       <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc'); ?>">
+                       <input id="Image1" class="upload-url" type="text" name="product_img[]" value="">
+                       <input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc'); ?>">
                    </p>
                    <p>
-                    	Please Upload Images <?php echo get_option('wpc_image_width'); ?> x <?php echo get_option('wpc_image_height'); ?>
-                        Dimension or above
+                    	<?php
+                            _e("Please Upload Images","wpc");
+                            echo get_option('wpc_image_width');
+                        ?>
+                        x
+                        <?php
+                            echo get_option('wpc_image_height');
+                            _e("Dimension or above","wpc");
+                        ?>
                     </p>
                 </td>
             </tr>
@@ -246,11 +263,19 @@ function multiple_product_images($post){
                 <td><strong><?php _e('Image:','wpc'); ?></strong></td>
                 <td>
                     <p>
-                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value=""><input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc') ?>">
+                        <input id="Image1" class="upload-url" type="text" name="product_img[]" value="">
+                        <input id="st_upload_button1" class="st_upload_button" type="button" name="upload_button" value="<?php _e('Upload', 'wpc') ?>">
                     </p>
                     <p>
-                    	Please Upload Images <?php echo get_option('wpc_image_width'); ?> x <?php echo get_option('wpc_image_height'); ?>
-                        Dimension or above
+                    	<?php
+                            _e("Please Upload Images","wpc");
+                            echo get_option('wpc_image_width');
+                        ?>
+                        x
+                        <?php
+                            echo get_option('wpc_image_height');
+                            _e("Dimension or above","wpc");
+                        ?>
                     </p>
                 </td>
             </tr>
@@ -294,41 +319,41 @@ function save_multiple_images() {
 // Crop for big image and Save Images
 add_action('save_post', 'wpc_big_images');
 function wpc_big_images(){
-	global $post;
+    global $post;
 
-	$upload_dir = wp_upload_dir();
-	$wpc_image_width = get_option('wpc_image_width');
-	$wpc_image_height = get_option('wpc_image_height');
-	$wpc_resize_images = get_post_meta($post->ID, 'product_images', true);
-	
-	$img_count = 0;
-	foreach ($wpc_resize_images as $wpc_prod_img) {
+    $upload_dir = wp_upload_dir();
+    $wpc_image_width = get_option('wpc_image_width');
+    $wpc_image_height = get_option('wpc_image_height');
+    $wpc_resize_images = get_post_meta($post->ID, 'product_images', true);
 
-            $resize_img = wp_get_image_editor( $wpc_prod_img['product_img'] );
-            if ( ! is_wp_error( $resize_img ) ) {
+    $img_count = 0;
+    foreach ($wpc_resize_images as $wpc_prod_img) {
 
-                // Explode Images Name and Ext
-                $product_img = $wpc_prod_img['product_img'];
+        $resize_img = wp_get_image_editor( $wpc_prod_img['product_img'] );
+        if ( ! is_wp_error( $resize_img ) ) {
 
-                $product_img_explode = explode('/', $product_img);
-                $product_img_name = end($product_img_explode);
-                $product_img_name_explode = explode('.', $product_img_name);
+            // Explode Images Name and Ext
+            $product_img = $wpc_prod_img['product_img'];
 
-                $product_img_name = $product_img_name_explode[0];
-                $product_img_ext = $product_img_name_explode[1];
+            $product_img_explode = explode('/', $product_img);
+            $product_img_name = end($product_img_explode);
+            $product_img_name_explode = explode('.', $product_img_name);
 
-                $crop = array( 'center', 'center' );
-                $resize_img->resize( $wpc_image_width, $wpc_image_height, $crop);
+            $product_img_name = $product_img_name_explode[0];
+            $product_img_ext = $product_img_name_explode[1];
 
-                $big_filename = $resize_img->generate_filename( 'big-'.$wpc_image_width.'x'.$wpc_image_height, $upload_dir['path'], NULL );
-                $resize_img->save($big_filename);
+            $crop = array( 'center', 'center' );
+            $resize_img->resize( $wpc_image_width, $wpc_image_height, $crop);
 
-                $big_img_name = $product_img_name.'-big-'.$wpc_image_width.'x'.$wpc_image_height.'.'.$product_img_ext;
-                $big_img_path[$img_count]['wpc_big_img'] = $upload_dir['url'].'/'.$big_img_name;
-            }
-            $img_count++;
-	}
-	update_post_meta($post->ID, 'wpc_big_images', $big_img_path);
+            $big_filename = $resize_img->generate_filename( 'big-'.$wpc_image_width.'x'.$wpc_image_height, $upload_dir['path'], NULL );
+            $resize_img->save($big_filename);
+
+            $big_img_name = $product_img_name.'-big-'.$wpc_image_width.'x'.$wpc_image_height.'.'.$product_img_ext;
+            $big_img_path[$img_count]['wpc_big_img'] = $upload_dir['url'].'/'.$big_img_name;
+        }
+        $img_count++;
+    }
+    update_post_meta($post->ID, 'wpc_big_images', $big_img_path);
 }
 
 // Save Resize Thumb Images
@@ -375,7 +400,7 @@ add_action('add_meta_boxes', 'create_wpc_meta_box_price');
 function create_wpc_meta_box_price($post) {
     $wpc_product_price = get_post_meta($post->ID, 'wpc_product_price', true);
     
-    add_meta_box('wpc_meta_price_id', 'Product Price', 'wpc_meta_box_price', 'wpcproduct', 'side');
+    add_meta_box('wpc_meta_price_id', _e('Product Price','wpc'), 'wpc_meta_box_price', 'wpcproduct', 'side');
 }
 
 function wpc_meta_box_price($post){
@@ -390,6 +415,7 @@ function wpc_meta_box_price($post){
 add_action('save_post', 'save_wpc_meta_price');
 function save_wpc_meta_price() {
     global $post;
+    
     $wpc_product_price = $_POST['wpc_product_price'];
     update_post_meta($post->ID, 'wpc_product_price', $wpc_product_price);
 }
