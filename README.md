@@ -5,6 +5,11 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.4.5**
+* Mobile view issue fixed.
+* Some CSS issues fixed.
+* Added German translation files.
+
 **1.4.4**
 * Fixed the broken image issue when users upgrade from free version to pro version of the plugin.
 

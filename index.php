@@ -4,7 +4,7 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.4.4
+  Version: 1.4.5
   Author URI: http://www.enigmaplugins.com
  */
 
@@ -123,12 +123,12 @@ function customtaxorder_init($wpc_networkwide) {
     
     // Rename Resized thumb images When user upgrade plugin from free(1.7.5) version to pro(1.4.4) version 
     $postThumbSql = $wpdb->get_results("SELECT DISTINCT post_id
-                                      FROM ".$wpdb->postmeta." AS meta
-                                      INNER JOIN ".$wpdb->posts." AS post
-                                      ON post.ID = meta.post_id
-                                      WHERE post_type = 'wpcproduct'
-                                      AND post_status = 'publish'
-                                      AND meta_key IN ('product_img1_thumb', 'product_img2_thumb', 'product_img3_thumb')");
+                                        FROM ".$wpdb->postmeta." AS meta
+                                        INNER JOIN ".$wpdb->posts." AS post
+                                        ON post.ID = meta.post_id
+                                        WHERE post_type = 'wpcproduct'
+                                        AND post_status = 'publish'
+                                        AND meta_key IN ('product_img1_thumb', 'product_img2_thumb', 'product_img3_thumb')");
     foreach($postThumbSql as $postThumbRow) :
         $post_thumb_id = $postThumbRow->post_id;
         $thumb_meta_key = "wpc_thumb_images";
@@ -328,7 +328,7 @@ function wpc_plugin_updater() {
 
     // setup the updater
     $edd_updater = new EDD_SL_Plugin_Updater( WPC_PRO_STORE_URL, __FILE__, array(
-                    'version' 	=> '1.4.4', 				// current version number
+                    'version' 	=> '1.4.5', 				// current version number
                     'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
                     'item_name' => WPC_PRO_ITEM_NAME, 	// name of this plugin
                     'author' 	=> 'Enigma Plugins'  // author of this plugin
@@ -390,6 +390,9 @@ function wpc_pro_license_page() {
                         <input type="submit" class="button-secondary" name="wpc_pro_license_deactivate" value="<?php _e('Deactivate License','wpc'); ?>"/>
                     <?php
                         } else {
+                    ?>
+                        <span style="color:red;"><?php _e('deactive','hmp'); ?></span>
+                    <?php
                         wp_nonce_field('wpc_pro_nonce', 'wpc_pro_nonce');
                     ?>
                         <input type="submit" class="button-secondary" name="wpc_pro_license_activate" value="<?php _e('Activate License','wpc'); ?>"/>
@@ -410,9 +413,11 @@ function wpc_pro_license_page() {
         <div class="wpc-right-liquid">
             <table cellpadding="0" class="widefat" style="margin-bottom:10px;" width="50%">
                 <thead>
-                <th scope="col"><strong style="color:#008001;">
-    <?php _e('How to use this plugin', 'wpc') ?>
-                    </strong></th>
+                <th scope="col">
+                    <strong style="color:#008001;">
+                        <?php _e('How to use this plugin', 'wpc') ?>
+                    </strong>
+                </th>
                 </thead>
                 <tbody>
                     <tr>
@@ -420,41 +425,51 @@ function wpc_pro_license_page() {
                     </tr>
                     <tr>
                         <td style="border:0;"><b>1. [wp-catalogue] </b>
-    <?php _e('to display complete catalogue', 'wpc') ?></td>
+                            <?php _e('to display complete catalogue', 'wpc') ?>
+                        </td>
                     </tr>
                     <tr>
                         <td style="border:0;"><b>2. [wp-catalogue featured="true"]</b>
-    <?php _e('to display featured products anywhere on your blog.', 'wpc') ?></td>
+                            <?php _e('to display featured products anywhere on your blog.', 'wpc') ?>
+                        </td>
                     </tr>
                     <tr>
                         <td style="border:0;"><b>3. [wp-catalogue wpcat="wpc-category-slug"] </b>
-    <?php _e('to display products from specific category.', 'wpc') ?></td>
+                            <?php _e('to display products from specific category.', 'wpc') ?>
+                        </td>
                     </tr>
                 </tbody>
             </table>
             <table cellpadding="0" class="widefat donation" style="margin-bottom:10px; border:solid 2px #008001;" width="50%">
                 <thead>
-                <th scope="col"><strong style="color:#008001;">
-    <?php _e('Help Improve This Plugin!', 'wpc') ?>
-                    </strong></th>
+                <th scope="col">
+                    <strong style="color:#008001;">
+                        <?php _e('Help Improve This Plugin!', 'wpc') ?>
+                    </strong>
+                </th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="border:0;"><?php _e('Enjoyed this plugin? All donations are used to improve and further develop this plugin. Thanks for your contribution.', 'wpc') ?></td>
+                        <td style="border:0;">
+                            <?php _e('Enjoyed this plugin? All donations are used to improve and further develop this plugin. Thanks for your contribution.', 'wpc') ?>
+                        </td>
                     </tr>
                     <tr>
-                        <td style="border:0;"><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+                        <td style="border:0;">
+                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
                                 <input type="hidden" name="cmd" value="_s-xclick">
                                 <input type="hidden" name="hosted_button_id" value="A74K2K689DWTY">
                                 <input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
                                 <img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
-                            </form></td>
+                            </form>
+                        </td>
                     </tr>
                     <tr>
                         <td style="border:0;"><?php _e('you can also help by', 'wpc') ?>
                             <a href="http://wordpress.org/support/view/plugin-reviews/wp-catalogue" target="_blank">
-    <?php _e('rating this plugin on wordpress.org', 'wpc') ?>
-                            </a></td>
+                                <?php _e('rating this plugin on wordpress.org', 'wpc') ?>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -468,12 +483,14 @@ function wpc_pro_license_page() {
                             <a href="http://enigmaplugins.com/documentation/" target="_blank">FAQs</a>
                                 <?php _e('and', 'wpc') ?>
                             <a href="http://enigmaplugins.com/contact-support" target="_blank">
-    <?php _e('Support', 'wpc') ?>
-                            </a></td>
+                                <?php _e('Support', 'wpc') ?>
+                            </a>
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    </div>
 <?php
 }
 
@@ -605,13 +622,15 @@ function wpc_pro_check_license() {
     $license_data = json_decode( wp_remote_retrieve_body( $response ) );
 
     if( $license_data->license == 'valid' ) {
-        echo 'valid'; exit;
+        echo __('valid','wpc'); exit;
         // this license is still valid
     } else {
-        echo 'invalid'; exit;
+        echo __('invalid','wpc'); exit;
         // this license is no longer valid
     }
 }
+?>
+<?php
 
 //licensing and updates
 // add required styles
@@ -644,9 +663,23 @@ function register_catalogue_settings() {
     register_setting('baw-settings-group', 'wpc_inn_temp_foot');
     register_setting('baw-settings-group', 'wpc_all_product_label');
     register_setting('baw-settings-group', 'wpc_accordion_setting');
+    
     add_option('wpc_accordion_setting', 'yes', '', 'yes');
     add_option('wpc_vert_horiz', 'wpc_v', '', 'yes');
     add_option('wpc_show_tags', 'off', '', 'yes');
+    
+    global $wpdb;
+    
+    $sql = $wpdb->get_results("Select * From $wpdb->options Where option_name = 'wpc_pagination'");
+    
+    $wpc_option_value = '';
+    foreach($sql as $row) {
+        $wpc_option_value = $row->option_value;
+    }
+    if(($wpc_option_value == 0) || (empty($wpc_option_value))) {
+        update_option('wpc_pagination', '8', '', 'yes');
+    }
+    
     register_setting('baw-settings-group', 'wpc_custom_fields');
 }
 
@@ -786,8 +819,7 @@ function wpc_head_css() {
 
     /*Carousel CSS*/
     .wpc_my_carousel {
-        padding: 0 15px;
-        position: relative;
+        padding: 0 15px 0 0;
         display: inline-block;
         margin-bottom: 18px;
         width  : 100%;
@@ -805,9 +837,9 @@ function wpc_head_css() {
         if($wpc_vert_horiz == 'wpc_h') {
             $wpc_thumb_height = get_option('wpc_thumb_height');
     ?>
-            .wpc_carousel_wrap {
+            .wpc_h_carousel_wrap {
                 position: relative;
-                width: <?php echo $wpc_thumb_width * 2.5; ?>px;
+                width: <?php echo $wpc_thumb_width * 3; ?>px;
             }
             .layout_hort .wpc_hero_img img {
                 width: <?php echo $wpc_image_width; ?>px;
@@ -823,6 +855,9 @@ function wpc_head_css() {
                 margin: 0 auto;
                 z-index: 2;
             }
+            .layout_hort .wpc_carousel ul {
+                    margin: 0;
+                }
             .layout_hort .wpc_carousel ul li {
                 width: <?php echo $wpc_thumb_width + 10; ?>px;
                 text-align: center;
@@ -831,14 +866,15 @@ function wpc_head_css() {
             .layout_hort ul li img {
                 width: <?php echo $wpc_thumb_width; ?>px;
                 border: 3px solid #DCDBDB;
+                box-sizing: border-box;
             }
             .layout_hort .wpc_controls {
                 position: absolute;
-                bottom: 66px;
                 left: 0;
                 width: 100%;
                 top: 50%;
-                margin-top: -18px;
+                margin-top: -19px;
+                bottom: 66px;
             }
             .layout_hort .prev-up {
                 float: left;
@@ -858,12 +894,25 @@ function wpc_head_css() {
                 text-indent: -9000px;
                 width: 30px;
             }
+			#wpc-catalogue-wrapper h4.wpc_catalogue_title {
+				display:inline-block;
+				vertical-align:top;
+				text-align:left;
+			}
+			#wpc-catalogue-wrapper h4.wpc_catalogue_price {
+				display:inline-block;
+				vertical-align:top;
+				float:none;
+			}
             /* For Horizental Responsive */
-            @media screen and (min-width: 769px) and (max-width: 1024px) {
+            @media screen and (min-width: 768px) and (max-width: 1024px) {
                 .layout_hort .wpc_hero_img {
                     height: auto !important;
                     margin-bottom: 12px;
                     width: 100% !important;
+                }
+                .layout_hort .wpc_hero_img img {
+                    width: 466px;
                 }
                 .layout_hort .wpc_carousel {
                     height: 128px;
@@ -878,6 +927,9 @@ function wpc_head_css() {
                     position: absolute;
                     width: 100%;
                 }
+                .layout_hort .wpc_carousel ul {
+                    margin: 0;
+                }
                 .layout_hort .wpc_carousel ul li {
                     float: left;
                     height: 129px;
@@ -887,7 +939,7 @@ function wpc_head_css() {
                 }
                 .layout_hort ul li img {
                     height: auto !important;
-                    width: 200px !important;
+                    width: 172px !important;
                 }
                 .wpc_my_carousel {
                     display: inline-block;
@@ -896,26 +948,36 @@ function wpc_head_css() {
                     position: relative;
                     width: 100%;
                 }
+                .wpc_h_carousel_wrap {
+                    position: relative;
+                    width: 475px;
+                }
                 .layout_hort .prev-up {
                     margin-left: 0;
                 }
                 .layout_hort .next-down {
                     margin-right: 0;
                 }
+				.wpc_h_carousel_wrap {
+					margin:0 auto;
+				}
             }
-            @media screen and (min-width: 641px) and (max-width: 768px) {
+            @media screen and (min-width: 641px) and (max-width: 767px) {
                 .layout_hort .wpc_carousel {
-                    height: 128px;
-                    margin-left: 46px;
+                    height: 142px;
+                    margin-left: 92px;
                     overflow: hidden;
                     position: relative;
                     z-index: 2;
+                }
+                .wpc_carousel {
+                    width: 410px !important;
                 }
                 .layout_hort .wpc_carousel ul li {
                     float: left;
                     height: 129px;
                     text-align: center;
-                    width: 204px;
+                    width:192px;
                 }
                 .layout_hort ul li img {
                     height: auto !important;
@@ -923,9 +985,12 @@ function wpc_head_css() {
                 }
                 .layout_hort .wpc_controls {
                     bottom: 50px;
-                    left: 0;
+                    left: 52px;
                     position: absolute;
                     width: 100%;
+                }
+                .wpc_h_carousel_wrap {
+                    width: 505px;
                 }
             }
             @media screen and (min-width: 481px) and (max-width: 640px) {
@@ -939,21 +1004,22 @@ function wpc_head_css() {
                     width: 100%;
                 }
                 .layout_hort .wpc_carousel {
-                    height: 111px;
+                    height: 122px;
                     margin-left: 33px;
                     overflow: hidden;
                     position: relative;
                     z-index: 2;
+                    width: 355px !important;
                 }
                 .layout_hort .wpc_controls {
                     bottom: 42px;
                     left: 0;
                     position: absolute;
-                    width: 100%;
+                    width: 78%;
                 }
                 .layout_hort .wpc_carousel ul li {
                     float: left;
-                    height: 111px;
+                    height: 122px;
                     text-align: center;
                     width: 176px;
                 }
@@ -971,6 +1037,9 @@ function wpc_head_css() {
                 .layout_hort .next-down {
                     margin-right: 0;
                 }
+				.wpc_my_carousel {
+					height:490px;
+				}
             }
             @media screen and (min-width: 320px) and (max-width: 480px) {
                 .layout_hort .wpc_hero_img {
@@ -983,7 +1052,7 @@ function wpc_head_css() {
                     width: 100%;
                 }
                 .layout_hort .wpc_carousel {
-                    height: 63px;
+                    height: 75px;
                     margin-left: 35px;
                     overflow: hidden;
                     position: relative;
@@ -993,7 +1062,7 @@ function wpc_head_css() {
                     bottom: 16px;
                     left: 0;
                     position: absolute;
-                    width: 100%;
+                    width: 50%;
                 }
                 .layout_hort .wpc_carousel ul li {
                     float: left;
@@ -1015,13 +1084,16 @@ function wpc_head_css() {
                 .layout_hort .next-down {
                     margin-right: 0;
                 }
+				.product-price {
+					float:none;
+				}
             }
     <?php
         // For Vertical
         } elseif($wpc_vert_horiz == 'wpc_v') {
     ?>
             .wpc_my_carousel {
-                padding: 0 15px;
+                padding: 0 15px 0 0;
                 position: relative;
                 display: inline-block;
                 height: <?php echo $wpc_image_height + 8; ?>px;
@@ -1038,10 +1110,14 @@ function wpc_head_css() {
             .layout_vert .wpc_hero_img img {
                 border: 4px solid #DCDBDB;
             }
+            .wpc_v_carousel_wrap {
+                float: right;
+				padding:0 0 0 10px;
+            }
             .layout_vert .wpc_carousel {
                 overflow:hidden;
                 position: relative;
-                width: 142px;
+                width: 158px;
                 margin-top: 35px;
                 float: left;
                 z-index: 2;
@@ -1053,7 +1129,7 @@ function wpc_head_css() {
             }
             .layout_vert .wpc_controls {
                 position: absolute;
-                right: 111px;
+                right: 86px;
                 height: 363px;
                 width: 30px;
             }
@@ -1065,7 +1141,7 @@ function wpc_head_css() {
                 text-indent: -9000px;
                 width: 30px;
                 position: absolute;
-                right: 0;
+                right:0;
                 top: 0;
             }
             .layout_vert .next-down {
@@ -1076,14 +1152,16 @@ function wpc_head_css() {
                 height: 30px;
                 text-indent: -9000px;
                 width: 30px;
-                right: 0;
+                right:0;
                 position: absolute;
                 bottom: 0;
             }
             /* For Vertical Responsive */
             @media screen and (min-width: 769px) and (max-width: 1024px) {
-                .wpc_my_carousel {
-                    margin-bottom: 50px;
+                #wpc-col-2 {
+                    margin: 0 auto;
+                    overflow: hidden;
+                    width: 722px;
                 }
                 .layout_vert .wpc_carousel {
                     float: none;
@@ -1102,16 +1180,27 @@ function wpc_head_css() {
                     width: 30px;
                 }
                 .layout_vert .wpc_hero_img {
-                    float: none;
+                    float: left;
+                }
+                .wpc_v_carousel_wrap {
+                    float: right;
+                    height: 85%;
+                    position: relative;
+                    top: 12px;
+                    width: 25%;
+					padding:0 0 0 10px;
+                }
+                .product-price {
+                    margin-right: 25px;
+                }
+                #wpc-catalogue-wrapper #wpc-col-2 #wpc_my_carousel article.wpc_post {
+                    width: 98%;
                 }
             }
             @media screen and (min-width: 641px) and (max-width: 768px) {
                 .layout_vert .wpc_hero_img {
                     float: none;
                 }
-                .wpc_my_carousel {
-                    margin-bottom: 50px;
-                }
                 .layout_vert .wpc_carousel {
                     float: none;
                     margin: 38px auto 0;
@@ -1127,6 +1216,30 @@ function wpc_head_css() {
                     position: absolute;
                     right: inherit;
                     width: 30px;
+                }
+                .layout_vert .wpc_hero_img {
+                    float: left;
+					width:70%;
+                }
+                .wpc_v_carousel_wrap {
+                    float: right;
+                    height: 85%;
+                    position: relative;
+                    top: 12px;
+                    width: 24%;
+                }
+				.layout_vert .wpc_hero_img img {
+					width:100%;
+					display:block;
+				}
+                #wpc-col-2 {
+                    text-align: left;
+                }
+                .product-price {
+                    margin-right: 25px;
+                }
+                #wpc-catalogue-wrapper #wpc-col-2 #wpc_my_carousel article.wpc_post {
+                    width: 98%;
                 }
             }
             @media screen and (min-width: 481px) and (max-width: 640px) {
@@ -1139,9 +1252,16 @@ function wpc_head_css() {
                     width: 100%;
                     height: auto;
                 }
-                .wpc_my_carousel {
-                    margin-bottom: 50px;
-                }
+				.wpc_product_content {
+					width:65%;
+					padding:20px 0;
+					font-size:13px;
+				}
+				#wpc-catalogue-wrapper h4.wpc_catalogue_price {
+					float:none;
+					width:auto;
+					display:block;
+				}
                 .layout_vert .wpc_carousel {
                     float: none;
                     margin: 38px auto 0;
@@ -1153,42 +1273,106 @@ function wpc_head_css() {
                     bottom: -21px;
                     height: 363px;
                     left: 50%;
-                    margin-left: -15px;
+                    margin-left:-39px;
                     position: absolute;
                     right: inherit;
                     width: 30px;
                 }
+                .wpc_v_carousel_wrap {
+                    position: relative;
+                    top: 12px;
+                    width: 32%;
+                    margin: 0 auto;
+					padding:0 0 0 10px;
+                }
+                #wpc-col-2 {
+                    text-align: left;
+                }
+                .product-price {
+                    margin-right: 25px;
+					float:none;
+                }
+                #wpc-catalogue-wrapper #wpc-col-2 #wpc_my_carousel article.wpc_post {
+                    width: 95%;
+                }
+				.layout_vert .prev-up {
+					right:-27px;
+					top:10px;
+				}
+				.layout_vert .next-down {
+					right:-27px;
+					bottom:-18px;
+				}
+				#wpc-catalogue-wrapper h4.wpc_catalogue_title {
+					margin:0 0 10px;
+				}
+				.layout_vert .wpc_carousel {
+				float:right;
+				}
             }
             @media screen and (min-width: 320px) and (max-width: 480px) {
                 .layout_vert .wpc_hero_img {
                     float: none;
                     width: 100% !important;
                     height: auto !important;
+					margin:0 0 43px;
                 }
                 .layout_vert .wpc_hero_img img {
                     width: 100%;
                     height: auto;
                 }
                 .wpc_my_carousel {
-                    margin-bottom: 50px;
+                    margin-bottom: 210px;
                 }
                 .layout_vert .wpc_carousel {
                     float: none;
-                    margin: 38px auto 0;
+                    margin:0 auto;
                     overflow: hidden;
                     position: relative;
-                    width: 152px;
+                    width:200px;
                 }
                 .layout_vert .wpc_controls {
                     bottom: -21px;
                     height: 363px;
                     left: 50%;
-                    margin-left: -15px;
+                    margin-left: -40px;
                     position: absolute;
                     right: inherit;
                     width: 30px;
                 }
+                .wpc_v_carousel_wrap {
+                    height: 75%;
+                    position: relative;
+                    top: 12px;
+                    margin: 0 auto 50px;
+                }
+                #wpc-col-2 {
+                    text-align: left;
+                }
+				#wpc-catalogue-wrapper h4.wpc_catalogue_price {
+					float:none;
+				}
+                .product-price {
+                    margin-bottom: 8px;
+					margin-left: 25px;
+					margin-top: 12px;
+					width: 100%;
+                }
+                #wpc-catalogue-wrapper #wpc-col-2 #wpc_my_carousel article.wpc_post {
+                    width: 95%;
+                }
+				#wpc-catalogue-wrapper h4.wpc_catalogue_title {
+					margin:0 0 10px;}
             }
+				.product-price {
+					float:none;
+					display:inline-block;
+					vertical-align:top;
+				}
+				.wpc_catalogue_title {
+					display:inline-block;
+					vertical-align:top;
+				}
     <?php
         }
     ?>

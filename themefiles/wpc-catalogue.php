@@ -568,7 +568,7 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
                         echo '</div>';
                     }
 		}else{
-                    echo 'No Products';
+                    echo __('No Products','wpc');
 		}
 		
 		echo '</div><div class="clear"></div></div>';}

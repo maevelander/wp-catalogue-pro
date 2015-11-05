@@ -101,7 +101,7 @@ $val = array(
 	
 $all_product_label = get_option('wpc_all_product_label');
 
-$all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All Products");
+$all_product_label = ((!empty($all_product_label)) ? $all_product_label : __("All Products","wpc"));
 	
 ?>
 
@@ -165,20 +165,16 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
                         if(get_option('wpc_sidebar')==yes) {
 		echo '<div id="wpc-col-1">';
 		echo '<a class="wpc-visible-phone checking" href="#">Categories</a>';
-        
-		
+                echo '<ul class="wpc-categories">';
+                
 		// generating sidebar
 		if($count>0){
-                    echo '<ul class="wpc_all_products">';
-			echo '<li class="wpc-category ' . $class . ' wpc_all_product_label"><a href="'. get_option('catalogue_page_url') .'">'.$all_product_label.'</a></li></ul>';	
-       		
-				
-			echo  '<ul class="wpc-categories">'.wp_list_categories($val).'</ul>'; 	
-			
+			echo '<li class="wpc-category ' . $class . ' wpc_all_product_label"><a href="'. get_option('catalogue_page_url') .'">'.$all_product_label.'</a></li>';	
+			echo  '<ul class="wpc-categories">'.wp_list_categories($val).'</ul>'; 
 		}else{
-			echo  '<ul><li class="wpc-category"><a href="#">No category</a></li></ul>';	
+			echo  '<li class="wpc-category"><a href="#">No category</a></li>';	
 		}
-        echo ' </div>';
+        echo ' </ul></div>';
 		}
 			echo '  <!--col-2-->
 			
@@ -404,6 +400,9 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
                             foreach ($wpc_product_images as $wpc_prod_img) {
                                 /// For Big
                                 $big_resize_img = wp_get_image_editor($wpc_prod_img['product_img']);
+                                echo "<pre>";
+                                print_r($big_resize_img);
+                                echo "</pre>";
                                 if (!is_wp_error($big_resize_img)) {
                                     $product_big_img = $wpc_prod_img['product_img'];
 
@@ -492,11 +491,11 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
                     echo '<div class="wpc-paginations">';
                         if ($wpc_paged > 1) {
                             if(!empty($wpc_permalink)) {
-                                echo "<a href='?page=$wpc_previous_page' class='wpc_page_link_previous'>previous</a>";
+                                echo "<a href='?page=$wpc_previous_page' class='wpc_page_link_previous'>".__('previous','wpc')."</a>";
                             } elseif(strpos($wpc_path, "wpccategories")) {
-                                echo "<a href='?wpccategories=$wpc_term_slug&page=$wpc_previous_page' class='wpc_page_link_previous'>previous</a>";
+                                echo "<a href='?wpccategories=$wpc_term_slug&page=$wpc_previous_page' class='wpc_page_link_previous'>".__('previous','wpc')."</a>";
                             } else {
-                                echo "<a href='?page_id=$wpc_page_id&page=$wpc_previous_page' class='wpc_page_link_previous'>previous</a>";
+                                echo "<a href='?page_id=$wpc_page_id&page=$wpc_previous_page' class='wpc_page_link_previous'>".__('previous','wpc')."</a>";
                             }
                         }
                 
@@ -609,17 +608,17 @@ $all_product_label = ((!empty($all_product_label)) ? $all_product_label : "All P
                         
                         if ($wpc_paged < $wpc_prod_counter - 1) {
                             if(!empty($wpc_permalink)) {
-                                echo "<a href='?page=$wpc_next_page' class='wpc_page_link_next'>next</a>";
+                                echo "<a href='?page=$wpc_next_page' class='wpc_page_link_next'>".__('next','wpc')."</a>";
                             } elseif(strpos($wpc_path, "wpccategories")) {
-                                echo "<a href='?wpccategories=$wpc_term_slug&page=$wpc_next_page' class='wpc_page_link_next'>next</a>";
+                                echo "<a href='?wpccategories=$wpc_term_slug&page=$wpc_next_page' class='wpc_page_link_next'>".__('next','wpc')."</a>";
                             } else {
-                                echo "<a href='?page_id=$wpc_page_id&page=$wpc_next_page' class='wpc_page_link_next'>next</a>";
+                                echo "<a href='?page_id=$wpc_page_id&page=$wpc_next_page' class='wpc_page_link_next'>".__('next','wpc')."</a>";
                             }
                         }
                         echo '</div>';
                     }
 		}else{
-                    echo 'No Products';
+                    echo __('No Products','wpc');
 		}
 		
 		echo '</div><div class="clear"></div></div>';}

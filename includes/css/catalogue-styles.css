@@ -10,16 +10,25 @@
     overflow: hidden;
     width: 100%;
 }
-#wpc-catalogue-wrapper h4 {
+#wpc-catalogue-wrapper h4.wpc_catalogue_title {
     font-size:20px;
     color:#999999;
     font-weight:normal;
     margin-bottom: 20px;
+    width: 80%;
+}
+#wpc-catalogue-wrapper h4.wpc_catalogue_price {
+    font-size:20px;
+    color:#999999;
+    font-weight:normal;
+    margin-bottom: 20px;
+    width: 18%;
+    float: right;
 }
 #wpc-col-1 {
     width:219px;
     float:left;
-    margin: 0 28px 0 0;
+    margin: 0 26px 0 0;
     line-height: inherit;
 }
 #wpc-col-1 ul {
@@ -160,13 +169,13 @@
     font-size: 0;
 }
 .wp-catalogue-breadcrumb {
-    margin:20px 0;
+    margin:0 0 20px;
+    padding: 0 0 8px;
 }
 .entry-content {
     line-height: inherit !important;
 }
 .wp-catalogue-breadcrumb {
-    padding: 0 0 20px;
 }
 #wpc-col-1 ul.children li {
 }
@@ -213,6 +222,16 @@
 }
 #cycle-2 {
     height: 331px !important;
+}
+.wpc_product_content {
+    float: left;
+    width: 100%;
+    height: auto;
+}
+.wpc_product_content article.wpc_post {
+    float: left;
+    height: auto;
+    width: 100%;
 }
 .wpc-thumb-reel {
     width: 150px;

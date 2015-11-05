@@ -1,0 +1,554 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wpc-pro\n"
+"POT-Creation-Date: 2015-09-21 12:55+0500\n"
+"PO-Revision-Date: 2015-09-21 12:55+0500\n"
+"Last-Translator: Maeve Lander <maeve@enigmaplugins.com>\n"
+"Language-Team: Enigma Plugins <maeve@enigmaplugins.com>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: includes\n"
+"X-Poedit-SearchPath-2: products\n"
+"X-Poedit-SearchPath-3: themefiles\n"
+
+#: index.php:306 products/order.php:73
+msgid "Order"
+msgstr ""
+
+#: index.php:307 settings.php:13
+msgid "Settings"
+msgstr ""
+
+#: index.php:308 index.php:382 index.php:398
+msgid "Activate License"
+msgstr ""
+
+#: index.php:353
+msgid "Plugin License Options"
+msgstr ""
+
+#: index.php:358
+msgid ""
+"Please enter and activate your license key in order to receive automatic "
+"updates and support for this plugin"
+msgstr ""
+
+#: index.php:370
+msgid "License Key"
+msgstr ""
+
+#: index.php:374
+msgid "Enter your license key"
+msgstr ""
+
+#: index.php:388
+msgid "active"
+msgstr ""
+
+#: index.php:390
+msgid "Deactivate License"
+msgstr ""
+
+#: index.php:394
+msgid "deactive"
+msgstr ""
+
+#: index.php:418 products/order.php:294 settings.php:324
+msgid "How to use this plugin"
+msgstr ""
+
+#: index.php:424 products/order.php:301 settings.php:329
+msgid "You can use 3 shortcodes"
+msgstr ""
+
+#: index.php:428 products/order.php:307 settings.php:333
+msgid "to display complete catalogue"
+msgstr ""
+
+#: index.php:433 products/order.php:313 settings.php:338
+msgid "to display featured products anywhere on your blog."
+msgstr ""
+
+#: index.php:438 products/order.php:319 settings.php:343
+msgid "to display products from specific category."
+msgstr ""
+
+#: index.php:447 products/order.php:329 settings.php:352
+msgid "Help Improve This Plugin!"
+msgstr ""
+
+#: index.php:454 settings.php:358
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contribution."
+msgstr ""
+
+#: index.php:468 products/order.php:351 settings.php:373
+msgid "you can also help by"
+msgstr ""
+
+#: index.php:470 products/order.php:353 settings.php:375
+msgid "rating this plugin on wordpress.org"
+msgstr ""
+
+#: index.php:478 products/order.php:363 settings.php:384
+msgid "Need Support?"
+msgstr ""
+
+#: index.php:482 products/order.php:369 settings.php:389
+msgid "Check out the"
+msgstr ""
+
+#: index.php:484 products/order.php:373 settings.php:393
+msgid "and"
+msgstr ""
+
+#: index.php:486 products/order.php:375 settings.php:395
+msgid "Support"
+msgstr ""
+
+#: index.php:625
+msgid "valid"
+msgstr ""
+
+#: index.php:628
+msgid "invalid"
+msgstr ""
+
+#: products/order.php:27
+msgid "Custom Taxonomy Order settings "
+msgstr ""
+
+#: products/order.php:77
+msgid "Order Categories"
+msgstr ""
+
+#: products/order.php:82
+msgid ""
+"Drag and drop items to customise the order of categories in WP Catalogue"
+msgstr ""
+
+#: products/order.php:134
+msgid "Save Order"
+msgstr ""
+
+#: products/order.php:143
+msgid "No terms found"
+msgstr ""
+
+#: products/order.php:234
+msgid "Order Products"
+msgstr ""
+
+#: products/order.php:240
+msgid "Drag and drop items to customise the order of products in WP Catalogue"
+msgstr ""
+
+#: products/order.php:336
+msgid ""
+"Enjoyed this plugin? All donations are used to improve and further develop "
+"this plugin. Thanks for your contributaion."
+msgstr ""
+
+#: products/order.php:371 settings.php:391
+msgid "FAQs for Documentation"
+msgstr ""
+
+#: products/order.php:398 products/order.php:414
+msgid "Order updated successfully."
+msgstr ""
+
+#: products/order.php:400 products/order.php:416
+msgid "An error occured, order has not been saved."
+msgstr ""
+
+#: products/sort-categories.php:39
+msgid "Ordering "
+msgstr ""
+
+#: products/sort-categories.php:54 products/sort-products.php:53
+msgid "Drag and drop items to set the custom order."
+msgstr ""
+
+#: products/sort-categories.php:83
+msgid "Add"
+msgstr ""
+
+#: products/wpc-product.php:9
+msgid "WP Catalogue +"
+msgstr ""
+
+#: products/wpc-product.php:10
+msgid "WP Catalogue"
+msgstr ""
+
+#: products/wpc-product.php:11 products/wpc-product.php:12
+#: products/wpc-product.php:14
+msgid "Add New Product"
+msgstr ""
+
+#: products/wpc-product.php:13
+msgid "Edit Product"
+msgstr ""
+
+#: products/wpc-product.php:15
+msgid "View Product"
+msgstr ""
+
+#: products/wpc-product.php:16
+msgid "Search WPC Product"
+msgstr ""
+
+#: products/wpc-product.php:17
+msgid "No Product found"
+msgstr ""
+
+#: products/wpc-product.php:18
+msgid "No Product found in trash"
+msgstr ""
+
+#: products/wpc-product.php:35
+msgid "Featured Product"
+msgstr ""
+
+#: products/wpc-product.php:42
+msgid "Mark this product as Featured?"
+msgstr ""
+
+#: products/wpc-product.php:67 products/wpc-product.php:68
+#: products/wpc-product.php:77
+msgid "Categories"
+msgstr ""
+
+#: products/wpc-product.php:69
+msgid "Search Categories"
+msgstr ""
+
+#: products/wpc-product.php:70
+msgid "All Categories"
+msgstr ""
+
+#: products/wpc-product.php:71
+msgid "Parent Categories"
+msgstr ""
+
+#: products/wpc-product.php:72
+msgid "Parent Categories:"
+msgstr ""
+
+#: products/wpc-product.php:73
+msgid "Edit Categories"
+msgstr ""
+
+#: products/wpc-product.php:74
+msgid "Update Categories"
+msgstr ""
+
+#: products/wpc-product.php:75
+msgid "Add New Categories"
+msgstr ""
+
+#: products/wpc-product.php:76
+msgid "New Categories Name"
+msgstr ""
+
+#: products/wpc-product.php:93
+msgid "WP Catalogue Tags"
+msgstr ""
+
+#: products/wpc-product.php:94
+msgid "WP Catalogue Tag"
+msgstr ""
+
+#: products/wpc-product.php:95
+msgid "Search WP Catalogue Tags"
+msgstr ""
+
+#: products/wpc-product.php:96
+msgid "All WP Catalogue Tags"
+msgstr ""
+
+#: products/wpc-product.php:97
+msgid "Edit WP Catalogue Tag"
+msgstr ""
+
+#: products/wpc-product.php:98
+msgid "Update WP Catalogue Tag"
+msgstr ""
+
+#: products/wpc-product.php:99
+msgid "Add New WP Catalogue Tag"
+msgstr ""
+
+#: products/wpc-product.php:100
+msgid "New WP Catalogue Tag Name"
+msgstr ""
+
+#: products/wpc-product.php:101 products/wpc-product.php:122 settings.php:144
+msgid "Tags"
+msgstr ""
+
+#: products/wpc-product.php:120
+msgid "Title"
+msgstr ""
+
+#: products/wpc-product.php:121
+msgid "Category"
+msgstr ""
+
+#: products/wpc-product.php:123
+msgid "Date"
+msgstr ""
+
+#: products/wpc-product.php:152
+msgid "No Category"
+msgstr ""
+
+#: products/wpc-product.php:177
+msgid "Images"
+msgstr ""
+
+#: products/wpc-product.php:207 products/wpc-product.php:240
+#: products/wpc-product.php:262
+msgid "Image:"
+msgstr ""
+
+#: products/wpc-product.php:211 products/wpc-product.php:243
+#: products/wpc-product.php:265
+msgid "Upload"
+msgstr ""
+
+#: products/wpc-product.php:215 products/wpc-product.php:247
+#: products/wpc-product.php:269
+msgid "Please Upload Images"
+msgstr ""
+
+#: products/wpc-product.php:221 products/wpc-product.php:253
+#: products/wpc-product.php:275
+msgid "Dimension or above"
+msgstr ""
+
+#: products/wpc-product.php:229 products/wpc-product.php:283
+msgid "Remove"
+msgstr ""
+
+#: products/wpc-product.php:288
+msgid "Add Another Image"
+msgstr ""
+
+#: products/wpc-product.php:401
+msgid "Product Price"
+msgstr ""
+
+#: settings.php:3
+msgid " Settings"
+msgstr ""
+
+#: settings.php:8
+msgid "Settings updated successfully"
+msgstr ""
+
+#: settings.php:18
+msgid ""
+"Adjust the basic presentation of your product catalogue here. It is "
+"important to set this up before you start uploading products so the plugin "
+"knows what size to generate thumbnails and product images"
+msgstr ""
+
+#: settings.php:21
+msgid ""
+"You can further customise the design of your product catalogue in your theme "
+"css."
+msgstr ""
+
+#: settings.php:32
+msgid "Grid Rows"
+msgstr ""
+
+#: settings.php:64
+msgid "products per row"
+msgstr ""
+
+#: settings.php:70
+msgid "Choose Theme Color"
+msgstr ""
+
+#: settings.php:78
+msgid "Pagination"
+msgstr ""
+
+#: settings.php:125
+msgid "products per page"
+msgstr ""
+
+#: settings.php:131
+msgid "Breadcrumbs"
+msgstr ""
+
+#: settings.php:134 settings.php:147 settings.php:160 settings.php:173
+#: settings.php:202 settings.php:217
+msgid "ON"
+msgstr ""
+
+#: settings.php:137 settings.php:150 settings.php:163 settings.php:176
+#: settings.php:205 settings.php:220
+msgid "OFF"
+msgstr ""
+
+#: settings.php:157
+msgid "Custom Fields"
+msgstr ""
+
+#: settings.php:170
+msgid "Show Product Titles"
+msgstr ""
+
+#: settings.php:183
+msgid "Show Next/Prev Links"
+msgstr ""
+
+#: settings.php:187
+msgid "Yes"
+msgstr ""
+
+#: settings.php:190
+msgid "No"
+msgstr ""
+
+#: settings.php:198
+msgid "Sidebar"
+msgstr ""
+
+#: settings.php:213
+msgid "Accordion Sidebar"
+msgstr ""
+
+#: settings.php:228
+msgid "All Products Alias"
+msgstr ""
+
+#: settings.php:234
+msgid "Note:"
+msgstr ""
+
+#: settings.php:236
+msgid ""
+"The first category title in the sidebar labeled \"All Products\" but you can "
+"change that here"
+msgstr ""
+
+#: settings.php:244
+msgid "Large Image"
+msgstr ""
+
+#: settings.php:247
+msgid "Height: "
+msgstr ""
+
+#: settings.php:251 settings.php:265
+msgid "Width: "
+msgstr ""
+
+#: settings.php:258
+msgid "Thumbnail"
+msgstr ""
+
+#: settings.php:261
+msgid "height: "
+msgstr ""
+
+#: settings.php:272
+msgid "Gallery Layout"
+msgstr ""
+
+#: settings.php:276
+msgid "Horizontal"
+msgstr ""
+
+#: settings.php:279
+msgid "Vertical"
+msgstr ""
+
+#: settings.php:286
+msgid "Inner Template Header"
+msgstr ""
+
+#: settings.php:291
+msgid ""
+"Use this area to add your theme layout divs if you are having problems with "
+"inner pages of the catalogue."
+msgstr ""
+
+#: settings.php:297
+msgid "Inner Template Footer"
+msgstr ""
+
+#: settings.php:302
+msgid "Use this area to close the open divs after the WP Catalogue."
+msgstr ""
+
+#: settings.php:310
+msgid "Save Changes"
+msgstr ""
+
+#: themefiles/single-wpcproduct.php:51 wpc-catalogue.php:104
+msgid "All Products"
+msgstr ""
+
+#: themefiles/single-wpcproduct.php:196 themefiles/taxonomy-wpctags.php:374
+#: themefiles/wpc-catalogue.php:571 wpc-catalogue.php:618
+msgid "No Products"
+msgstr ""
+
+#: themefiles/single-wpcproduct.php:274
+msgid "Product Details"
+msgstr ""
+
+#: themefiles/single-wpcproduct.php:279
+msgid "Price:"
+msgstr ""
+
+#: themefiles/single-wpcproduct.php:293
+msgid "Previous"
+msgstr ""
+
+#: themefiles/single-wpcproduct.php:294
+msgid "Next"
+msgstr ""
+
+#: wpc-catalogue.php:491 wpc-catalogue.php:493 wpc-catalogue.php:495
+msgid "previous"
+msgstr ""
+
+#: wpc-catalogue.php:608 wpc-catalogue.php:610 wpc-catalogue.php:612
+msgid "next"
+msgstr ""
+
+#: wpc_plugin_updater.php:176
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+
+#: wpc_plugin_updater.php:183
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+
+#: wpc_plugin_updater.php:323
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: wpc_plugin_updater.php:323
+msgid "Error"
+msgstr ""
