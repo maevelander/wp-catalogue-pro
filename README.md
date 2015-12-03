@@ -5,6 +5,9 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.4.6**
+* Price field issue fixed.
+
 **1.4.5**
 * Mobile view issue fixed.
 * Some CSS issues fixed.
