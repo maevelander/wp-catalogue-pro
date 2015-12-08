@@ -400,7 +400,7 @@ add_action('add_meta_boxes', 'create_wpc_meta_box_price');
 function create_wpc_meta_box_price($post) {
     $wpc_product_price = get_post_meta($post->ID, 'wpc_product_price', true);
     
-    add_meta_box('wpc_meta_price_id', _e('Product Price','wpc'), 'wpc_meta_box_price', 'wpcproduct', 'side');
+    add_meta_box('wpc_meta_price_id', __('Product Price','wpc'), 'wpc_meta_box_price', 'wpcproduct', 'side');
 }
 
 function wpc_meta_box_price($post){
