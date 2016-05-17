@@ -4,7 +4,7 @@
   Plugin URI: http://www.enigmaplugins.com
   Description: Display your products in an attractive and professional catalogue. It's easy to use, easy to customise, and lets you show off your products in style.
   Author: Enigma Plugins
-  Version: 1.4.6
+  Version: 1.4.7
   Author URI: http://www.enigmaplugins.com
  */
 
@@ -328,7 +328,7 @@ function wpc_plugin_updater() {
 
     // setup the updater
     $edd_updater = new EDD_SL_Plugin_Updater( WPC_PRO_STORE_URL, __FILE__, array(
-                    'version' 	=> '1.4.6', 				// current version number
+                    'version' 	=> '1.4.7', 				// current version number
                     'license' 	=> $license_key, 		// license key (used get_option above to retrieve from DB)
                     'item_name' => WPC_PRO_ITEM_NAME, 	// name of this plugin
                     'author' 	=> 'Enigma Plugins'  // author of this plugin
@@ -743,7 +743,6 @@ function mw_enqueue_color_picker($hook_suffix) {
 }
 
 /* ========================  Take User Defined color =========================== */
-
 add_action('wp_head', 'wpc_head_css');
 function wpc_head_css() {
 
@@ -799,7 +798,7 @@ function wpc_head_css() {
         margin-right:7px;
         border:1px solid #efefef;
         background-color:#f5f5f5;
-    }	
+    }   
     .navigation li span.dots {
         display:block;
         float:left;
@@ -817,6 +816,10 @@ function wpc_head_css() {
         text-decoration: none !important;
     }
 
+
+    /*.wpc_product_content article.wpc_post {
+        padding-top: 30px;
+    }*/
     /*Carousel CSS*/
     .wpc_my_carousel {
         padding: 0 15px 0 0;
@@ -829,6 +832,9 @@ function wpc_head_css() {
         position: absolute;
         left: 0;
         top: 0;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
     }
     <?php
         $wpc_vert_horiz = get_option('wpc_vert_horiz');
@@ -836,11 +842,32 @@ function wpc_head_css() {
             // For Horizental
         if($wpc_vert_horiz == 'wpc_h') {
             $wpc_thumb_height = get_option('wpc_thumb_height');
-    ?>
+        if ($wpc_thumb_width >= 200) {
+            ?>
+
             .wpc_h_carousel_wrap {
                 position: relative;
-                width: <?php echo $wpc_thumb_width * 3; ?>px;
+                width: <?php echo ($wpc_thumb_width * 3) - 100 ; ?>px;
+                /*text-align: center;
+                margin: 0 auto;*/
             }
+
+            <?php 
+        }else {
+
+    ?>
+
+
+            .wpc_h_carousel_wrap {
+                position: relative;
+                width: <?php echo ($wpc_thumb_width * 3) + 15; ?>px;
+               /* text-align: center;
+                margin: 0 auto;*/
+            }
+
+            <?php 
+        }
+        ?>
             .layout_hort .wpc_hero_img img {
                 width: <?php echo $wpc_image_width; ?>px;
                 border: 4px solid #DCDBDB;
@@ -851,7 +878,7 @@ function wpc_head_css() {
             .layout_hort .wpc_carousel {
                 overflow:hidden;
                 position: relative;
-                height: <?php echo $wpc_thumb_height + 6; ?>px;
+                height: <?php echo $wpc_thumb_height + 14; ?>px;
                 margin: 0 auto;
                 z-index: 2;
             }
@@ -864,7 +891,7 @@ function wpc_head_css() {
                 float: left;
             }
             .layout_hort ul li img {
-                width: <?php echo $wpc_thumb_width; ?>px;
+                /*width: <?php echo $wpc_thumb_width; ?>px;*/
                 border: 3px solid #DCDBDB;
                 box-sizing: border-box;
             }
@@ -894,16 +921,17 @@ function wpc_head_css() {
                 text-indent: -9000px;
                 width: 30px;
             }
-			#wpc-catalogue-wrapper h4.wpc_catalogue_title {
-				display:inline-block;
-				vertical-align:top;
-				text-align:left;
-			}
-			#wpc-catalogue-wrapper h4.wpc_catalogue_price {
-				display:inline-block;
-				vertical-align:top;
-				float:none;
-			}
+            #wpc-catalogue-wrapper h4.wpc_catalogue_title {
+                display:inline-block;
+                vertical-align:top;
+                text-align:left;
+                
+            }
+            #wpc-catalogue-wrapper h4.wpc_catalogue_price {
+                display:inline-block;
+                vertical-align:top;
+                float:none;
+            }
             /* For Horizental Responsive */
             @media screen and (min-width: 768px) and (max-width: 1024px) {
                 .layout_hort .wpc_hero_img {
@@ -914,18 +942,45 @@ function wpc_head_css() {
                 .layout_hort .wpc_hero_img img {
                     width: 466px;
                 }
-                .layout_hort .wpc_carousel {
-                    height: 128px;
-                    margin-left: 33px;
+
+                <?php 
+
+                    if($wpc_thumb_height >= 200) {
+                        ?>
+                    .layout_hort .wpc_carousel {
+                    height: <?php echo ($wpc_thumb_height) - 50 ?>px;
+                    margin-left: 24px;
                     overflow: hidden;
                     position: relative;
                     z-index: 2;
+                    text-align: center;
+                    margin: 0 auto;
                 }
+                <?php
+                        }else {
+
+                ?>
+
+
+                .layout_hort .wpc_carousel {
+                    height: <?php echo ($wpc_thumb_height); ?>px;
+                    margin-left: 24px;
+                    overflow: hidden;
+                    position: relative;
+                    z-index: 2;
+                    text-align: center;
+                    margin: 0 auto;
+                }
+
+                <?php 
+                    }
+                 ?>
                 .layout_hort .wpc_controls {
                     bottom: 50px;
                     left: 0;
                     position: absolute;
                     width: 100%;
+                    margin-top:-23px;
                 }
                 .layout_hort .wpc_carousel ul {
                     margin: 0;
@@ -935,7 +990,7 @@ function wpc_head_css() {
                     height: 129px;
                     margin-right: 0;
                     text-align: center;
-                    width: 204px;
+                    width: 176px;
                 }
                 .layout_hort ul li img {
                     height: auto !important;
@@ -950,7 +1005,8 @@ function wpc_head_css() {
                 }
                 .wpc_h_carousel_wrap {
                     position: relative;
-                    width: 475px;
+                    width: 455px;
+                    text-align: center;
                 }
                 .layout_hort .prev-up {
                     margin-left: 0;
@@ -958,18 +1014,43 @@ function wpc_head_css() {
                 .layout_hort .next-down {
                     margin-right: 0;
                 }
-				.wpc_h_carousel_wrap {
-					margin:0 auto;
-				}
-            }
-            @media screen and (min-width: 641px) and (max-width: 767px) {
-                .layout_hort .wpc_carousel {
-                    height: 142px;
-                    margin-left: 92px;
-                    overflow: hidden;
-                    position: relative;
-                    z-index: 2;
+                .wpc_h_carousel_wrap {
+                    margin:0 auto;
                 }
+            }
+            @media screen and (min-width: 668px) and (max-width: 767px) {
+                
+
+                <?php
+
+                if($wpc_thumb_height >= 200) {
+                    ?>
+                    .layout_hort .wpc_carousel {
+                                        height: <?php echo $wpc_thumb_height - 30 ?>px;
+                                        /*margin-left: 92px;*/
+                                        overflow: hidden;
+                                        position: relative;
+                                        z-index: 2;
+                                    }
+                    <?php
+                                    }
+
+                                    else {
+                    ?>
+
+                    .layout_hort .wpc_carousel {
+                                        height: <?php echo $wpc_thumb_height + 14; ?>px;
+                                        /*margin-left: 92px;*/
+                                        overflow: hidden;
+                                        position: relative;
+                                        z-index: 2;
+                                    }
+                    <?php
+
+                }
+
+                 ?>
+
                 .wpc_carousel {
                     width: 410px !important;
                 }
@@ -977,7 +1058,7 @@ function wpc_head_css() {
                     float: left;
                     height: 129px;
                     text-align: center;
-                    width:192px;
+                    width: 204px;
                 }
                 .layout_hort ul li img {
                     height: auto !important;
@@ -985,15 +1066,20 @@ function wpc_head_css() {
                 }
                 .layout_hort .wpc_controls {
                     bottom: 50px;
-                    left: 52px;
+                    /*left: 52px;*/
                     position: absolute;
                     width: 100%;
                 }
                 .wpc_h_carousel_wrap {
                     width: 505px;
+                    text-align: center;
+                    margin: 0 auto;
                 }
             }
-            @media screen and (min-width: 481px) and (max-width: 640px) {
+            @media screen and (min-width: 481px) and (max-width: 667px) {
+                .wpc_h_carousel_wrap {
+                    width: 540px;
+                }
                 .layout_hort .wpc_hero_img {
                     height: auto !important;
                     margin-bottom: 12px;
@@ -1003,14 +1089,39 @@ function wpc_head_css() {
                     height: auto;
                     width: 100%;
                 }
-                .layout_hort .wpc_carousel {
-                    height: 122px;
+
+                <?php 
+
+                    if($wpc_thumb_height >= 200 ) {
+                        ?>
+
+                    .layout_hort .wpc_carousel {
+                    height: <?php echo $wpc_thumb_height - 40; ?>px;
                     margin-left: 33px;
                     overflow: hidden;
                     position: relative;
                     z-index: 2;
                     width: 355px !important;
                 }
+                    <?php
+            
+            }
+                else {
+
+                ?>
+                    .layout_hort .wpc_carousel {
+                    height: <?php echo $wpc_thumb_height; ?>px;
+                    margin-left: 33px;
+                    overflow: hidden;
+                    position: relative;
+                    z-index: 2;
+                    width: 355px !important;
+                }
+
+                <?php 
+               
+                    }
+                ?>
                 .layout_hort .wpc_controls {
                     bottom: 42px;
                     left: 0;
@@ -1019,9 +1130,9 @@ function wpc_head_css() {
                 }
                 .layout_hort .wpc_carousel ul li {
                     float: left;
-                    height: 122px;
+                    height: <?php echo $wpc_thumb_height + 14; ?>px;
                     text-align: center;
-                    width: 176px;
+                    width: 177px;
                 }
                 .layout_hort ul li img {
                     height: auto !important;
@@ -1037,22 +1148,27 @@ function wpc_head_css() {
                 .layout_hort .next-down {
                     margin-right: 0;
                 }
-				.wpc_my_carousel {
-					height:490px;
-				}
+                .wpc_my_carousel {
+                    height:490px;
+                }
             }
             @media screen and (min-width: 320px) and (max-width: 480px) {
+
+                .wpc_h_carousel_wrap {
+                    width: 540px;
+                }
                 .layout_hort .wpc_hero_img {
                     height: auto !important;
                     margin-bottom: 12px;
                     width: 100% !important;
                 }
+                
                 .layout_hort .wpc_hero_img img {
                     height: auto;
                     width: 100%;
                 }
                 .layout_hort .wpc_carousel {
-                    height: 75px;
+                    height: 78px;
                     margin-left: 35px;
                     overflow: hidden;
                     position: relative;
@@ -1063,6 +1179,7 @@ function wpc_head_css() {
                     left: 0;
                     position: absolute;
                     width: 50%;
+                    margin-top: -16px;
                 }
                 .layout_hort .wpc_carousel ul li {
                     float: left;
@@ -1084,9 +1201,9 @@ function wpc_head_css() {
                 .layout_hort .next-down {
                     margin-right: 0;
                 }
-				.product-price {
-					float:none;
-				}
+                .product-price {
+                    float:none;
+                }
             }
     <?php
         // For Vertical
@@ -1095,11 +1212,12 @@ function wpc_head_css() {
             .wpc_my_carousel {
                 padding: 0 15px 0 0;
                 position: relative;
-                display: inline-block;
-                height: <?php echo $wpc_image_height + 8; ?>px;
+                display: block;
+               /* height: <?php echo $wpc_image_height + 8; ?>px;*/
+               height: 408px;
             }
             .wpc_carousel ul li img {
-                height:	92px;
+                height: 92px;
                 border: 2px solid #DCDBDB;
             }
             .layout_vert .wpc_hero_img {
@@ -1112,7 +1230,8 @@ function wpc_head_css() {
             }
             .wpc_v_carousel_wrap {
                 float: right;
-				padding:0 0 0 10px;
+                padding:0 0 0 10px;
+                position: relative;
             }
             .layout_vert .wpc_carousel {
                 overflow:hidden;
@@ -1129,8 +1248,8 @@ function wpc_head_css() {
             }
             .layout_vert .wpc_controls {
                 position: absolute;
-                right: 86px;
-                height: 363px;
+                right: 38%;
+                height: 350px;
                 width: 30px;
             }
             .layout_vert .prev-up {
@@ -1171,24 +1290,26 @@ function wpc_head_css() {
                     width: 152px;
                 }
                 .layout_vert .wpc_controls {
-                    bottom: -21px;
-                    height: 363px;
+                    bottom: -35px;
+                    height: 348px;
                     left: 50%;
-                    margin-left: -15px;
+                    margin-left: -12px;
                     position: absolute;
                     right: inherit;
                     width: 30px;
                 }
                 .layout_vert .wpc_hero_img {
                     float: left;
+                    width: 490px;
                 }
                 .wpc_v_carousel_wrap {
                     float: right;
-                    height: 85%;
+                    height: auto;
                     position: relative;
-                    top: 12px;
+                    top: 0;
                     width: 25%;
-					padding:0 0 0 10px;
+                    padding:0 0 0 10px;
+
                 }
                 .product-price {
                     margin-right: 25px;
@@ -1197,7 +1318,10 @@ function wpc_head_css() {
                     width: 98%;
                 }
             }
-            @media screen and (min-width: 641px) and (max-width: 768px) {
+            @media screen and (min-width: 668px) and (max-width: 768px) {
+                #wpc_my_carousel {
+                    height: 350px;
+                }
                 .layout_vert .wpc_hero_img {
                     float: none;
                 }
@@ -1209,29 +1333,29 @@ function wpc_head_css() {
                     width: 152px;
                 }
                 .layout_vert .wpc_controls {
-                    bottom: -21px;
-                    height: 363px;
-                    left: 50%;
-                    margin-left: -15px;
+                    bottom: -54px;
+                    height: 350px;
+                    left: 55%;
+                    margin-left: -18px;
                     position: absolute;
                     right: inherit;
                     width: 30px;
                 }
                 .layout_vert .wpc_hero_img {
                     float: left;
-					width:70%;
+                    width:70%;
                 }
                 .wpc_v_carousel_wrap {
                     float: right;
                     height: 85%;
                     position: relative;
-                    top: 12px;
-                    width: 24%;
+                    top: 0;
+                    width: auto;
                 }
-				.layout_vert .wpc_hero_img img {
-					width:100%;
-					display:block;
-				}
+                .layout_vert .wpc_hero_img img {
+                    width:100%;
+                    display:block;
+                }
                 #wpc-col-2 {
                     text-align: left;
                 }
@@ -1241,8 +1365,12 @@ function wpc_head_css() {
                 #wpc-catalogue-wrapper #wpc-col-2 #wpc_my_carousel article.wpc_post {
                     width: 98%;
                 }
+                .wpc_product_content {
+
+                    padding-left: 20px;
+                }
             }
-            @media screen and (min-width: 481px) and (max-width: 640px) {
+            @media screen and (min-width: 481px) and (max-width: 667px) {
                 .layout_vert .wpc_hero_img {
                     float: none;
                     width: 100% !important;
@@ -1252,16 +1380,18 @@ function wpc_head_css() {
                     width: 100%;
                     height: auto;
                 }
-				.wpc_product_content {
-					width:65%;
-					padding:20px 0;
-					font-size:13px;
-				}
-				#wpc-catalogue-wrapper h4.wpc_catalogue_price {
-					float:none;
-					width:auto;
-					display:block;
-				}
+                .wpc_product_content {
+                    width:65%;
+                    padding:20px 0;
+                    font-size:13px;
+                    padding-left: 20px;
+
+                }
+                #wpc-catalogue-wrapper h4.wpc_catalogue_price {
+                    float:none;
+                    width:auto;
+                    display:block;
+                }
                 .layout_vert .wpc_carousel {
                     float: none;
                     margin: 38px auto 0;
@@ -1271,9 +1401,9 @@ function wpc_head_css() {
                 }
                 .layout_vert .wpc_controls {
                     bottom: -21px;
-                    height: 363px;
-                    left: 50%;
-                    margin-left:-39px;
+                    height: 350px;
+                    left: 60%;
+                    margin-left:-56px;
                     position: absolute;
                     right: inherit;
                     width: 30px;
@@ -1281,48 +1411,55 @@ function wpc_head_css() {
                 .wpc_v_carousel_wrap {
                     position: relative;
                     top: 12px;
-                    width: 32%;
+                    width: auto;
                     margin: 0 auto;
-					padding:0 0 0 10px;
+                    padding:0 0 0 0;
                 }
                 #wpc-col-2 {
                     text-align: left;
                 }
                 .product-price {
                     margin-right: 25px;
-					float:none;
+                    float:none;
                 }
                 #wpc-catalogue-wrapper #wpc-col-2 #wpc_my_carousel article.wpc_post {
                     width: 95%;
                 }
-				.layout_vert .prev-up {
-					right:-27px;
-					top:10px;
-				}
-				.layout_vert .next-down {
-					right:-27px;
-					bottom:-18px;
-				}
-				#wpc-catalogue-wrapper h4.wpc_catalogue_title {
-					margin:0 0 10px;
-				}
-				.layout_vert .wpc_carousel {
-				float:right;
-				}
+                .layout_vert .prev-up {
+                    right:-27px;
+                    top:10px;
+                }
+                .layout_vert .next-down {
+                    right:-27px;
+                    bottom:-18px;
+                }
+                #wpc-catalogue-wrapper h4.wpc_catalogue_title {
+                    margin:0 0 10px;
+                    
+                }
+                .layout_vert .wpc_carousel {
+                float:right;
+                }
             }
             @media screen and (min-width: 320px) and (max-width: 480px) {
+
+                .wpc_product_content {
+                   margin-top: 20px;
+                    
+                }
+
                 .layout_vert .wpc_hero_img {
                     float: none;
                     width: 100% !important;
                     height: auto !important;
-					margin:0 0 43px;
+                    margin:0 0 43px;
                 }
                 .layout_vert .wpc_hero_img img {
                     width: 100%;
                     height: auto;
                 }
                 .wpc_my_carousel {
-                    margin-bottom: 210px;
+                    margin-bottom: 110px;
                 }
                 .layout_vert .wpc_carousel {
                     float: none;
@@ -1332,47 +1469,51 @@ function wpc_head_css() {
                     width:200px;
                 }
                 .layout_vert .wpc_controls {
-                    bottom: -21px;
-                    height: 363px;
-                    left: 50%;
-                    margin-left: -40px;
+                    bottom: -35px;
+                    height: 350px;
+                    left: 60%;
+                    margin-left: -38px;
                     position: absolute;
                     right: inherit;
                     width: 30px;
                 }
                 .wpc_v_carousel_wrap {
-                    height: 75%;
+                    height: auto;
                     position: relative;
                     top: 12px;
                     margin: 0 auto 50px;
+                    float: none;
+                    padding: 0 0 0 0;
                 }
                 #wpc-col-2 {
                     text-align: left;
                 }
-				#wpc-catalogue-wrapper h4.wpc_catalogue_price {
-					float:none;
-				}
+                #wpc-catalogue-wrapper h4.wpc_catalogue_price {
+                    float:none;
+                }
                 .product-price {
                     margin-bottom: 8px;
-					margin-left: 25px;
-					margin-top: 12px;
-					width: 100%;
+                    margin-left: 25px;
+                    margin-top: 12px;
+                    width: 100%;
                 }
                 #wpc-catalogue-wrapper #wpc-col-2 #wpc_my_carousel article.wpc_post {
                     width: 95%;
                 }
-				#wpc-catalogue-wrapper h4.wpc_catalogue_title {
-					margin:0 0 10px;}
+                #wpc-catalogue-wrapper h4.wpc_catalogue_title {
+                    margin:0 0 10px;
+                    
+                }
             }
-				.product-price {
-					float:none;
-					display:inline-block;
-					vertical-align:top;
-				}
-				.wpc_catalogue_title {
-					display:inline-block;
-					vertical-align:top;
-				}
+                .product-price {
+                    float:none;
+                    display:inline-block;
+                    vertical-align:top;
+                }
+                .wpc_catalogue_title {
+                    display:inline-block;
+                    vertical-align:top;
+                }
     <?php
         }
     ?>
