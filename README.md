@@ -5,6 +5,10 @@ wp-catalogue-pro
 Changelog
 -------
 
+**1.4.7**
+* Responsive layout issues fixed.
+* Some minor css issues fixed.
+
 **1.4.6**
 * Price field issue fixed.
 
